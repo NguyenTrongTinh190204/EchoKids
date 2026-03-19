@@ -1,6 +1,6 @@
 <template>
 <div>
-    <!-- <div>
+    <div>
     <footer class="iq-footer">
       <div class="container-fluid">
         <div class="row">
@@ -20,7 +20,7 @@
         </div>
       </div>
     </footer>
-  </div> -->
+  </div>
 </div>
 </template>
 <script>

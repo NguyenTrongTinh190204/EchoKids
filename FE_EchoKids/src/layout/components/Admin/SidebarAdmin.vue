@@ -1,19 +1,19 @@
 <template >
 <div>
-       <!-- <div>
+       <div>
          <div class="iq-sidebar">
             <div class="iq-sidebar-logo d-flex justify-content-between">
                <a href="index.html">
                <div class="iq-light-logo">
                   <div class="iq-light-logo">
-                     <img src="images/logo.gif" class="img-fluid" alt="">
+                     <img src="/Admin/images/logo.gif" class="img-fluid" alt="">
                    </div>
                      <div class="iq-dark-logo">
-                        <img src="images/logo-dark.gif" class="img-fluid" alt="">
+                        <img src="/Admin/images/logo-dark.gif" class="img-fluid" alt="">
                      </div>
                </div>
                <div class="iq-dark-logo">
-                  <img src="images/logo-dark.gif" class="img-fluid" alt="">
+                  <img src="/Admin/images/logo-dark.gif" class="img-fluid" alt="">
                </div>
                <span>Vito</span>
                </a>
@@ -209,7 +209,7 @@
                <div class="p-3"></div>
             </div>
          </div>
-    </div> -->
+    </div>
 </div>
 </template>
 <script>
