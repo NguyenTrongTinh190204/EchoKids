@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
+  //CLIENT
   {
     path: "/",
     component: () => import("../components/Client/Home/index.vue"),
@@ -16,11 +17,13 @@ const routes = [
     component: () => import("../components/Client/LuyenPhatAm/index.vue"),
     meta: { layout: "client" },
   },
-  {
-    path: "/admin/dashboard",
-    component: () => import("../components/Admin/Dashboard/index.vue"),
-    meta: { layout: "admin" },
-  },
+
+  //ADMIN
+{
+  path: "/admin/dashboard",
+  component: () => import("../components/Admin/Dashboard/index.vue"),
+  meta: { layout: "admin" }
+},
 ];
 
 const router = createRouter({

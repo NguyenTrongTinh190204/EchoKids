@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    
+  <div v-if="isReady" class="wrapper">
+
     <!-- Loader -->
     <div id="loading">
       <div id="loading-center"></div>
@@ -25,23 +25,51 @@
   </div>
 </template>
 
-<script>
-// DÙNG alias @ để không bao giờ sai path
+<script setup>
+import { ref, onMounted } from 'vue'
+
+// components
 import SidebarAdmin from '../../components/Admin/SidebarAdmin.vue'
 import TopNavbarAdmin from '../../components/Admin/TopNavbarAdmin.vue'
 import FooterAdmin from '../../components/Admin/FooterAdmin.vue'
 
-export default {
-  name: "AdminLayout",
-  components: {
-    SidebarAdmin,
-    TopNavbarAdmin,
-    FooterAdmin
-  }
-}
-</script>
+const isReady = ref(false)
 
-<style>
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
-</style>
+//  LOAD CSS ĐÚNG (KHÔNG import)
+const loadCSS = (href) => {
+  return new Promise(resolve => {
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = href
+    link.onload = resolve
+    document.head.appendChild(link)
+  })
+}
+
+// LOAD JS
+const loadScript = (src) => {
+  return new Promise(resolve => {
+    const script = document.createElement('script')
+    script.src = src
+    script.onload = resolve
+    document.body.appendChild(script)
+  })
+}
+
+onMounted(async () => {
+
+  // CSS ADMIN
+  await loadCSS('/Admin/css/bootstrap.min.css')
+  await loadCSS('/Admin/css/typography.css')
+  await loadCSS('/Admin/css/style.css')
+  await loadCSS('/Admin/css/responsive.css')
+
+  // JS ADMIN
+  await loadScript('/Admin/js/jquery.min.js')
+  await loadScript('/Admin/js/popper.min.js')
+  await loadScript('/Admin/js/bootstrap.min.js')
+  await loadScript('/Admin/js/custom.js')
+
+  isReady.value = true
+})
+</script>
