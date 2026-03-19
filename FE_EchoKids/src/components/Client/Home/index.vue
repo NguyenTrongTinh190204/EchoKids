@@ -615,34 +615,43 @@
 <script>
 export default {
   mounted() {
-        // Tăng trễ lên 200ms để đảm bảo Vue đã vẽ 100% xong giao diện
-        setTimeout(() => {
-            // Kiểm tra xem jQuery có tồn tại và cái myBanner đã xuất hiện chưa
-            if (window.$ && this.$refs.myBanner) {
-                // Chỉ đích danh thẻ HTML này để tạo Slider, không dùng class .header-carousel nữa
-                window.$(this.$refs.myBanner).owlCarousel({
-                    autoplay: true,
-                    smartSpeed: 1500,
-                    items: 1,
-                    dots: true,
-                    loop: true,
-                    nav: true,
-                    navText: [
-                        '<i class="bi bi-chevron-left"></i>',
-                        '<i class="bi bi-chevron-right"></i>'
-                    ]
-                });
-            }
-        }, 200);
-    },
-    
-    // Phải dùng beforeUnmount để xóa Slider TRƯỚC KHI Vue dọn dẹp thẻ div này
-    beforeUnmount() {
+    this.initCarousel()
+  },
+
+  methods: {
+    initCarousel() {
+      setTimeout(() => {
         if (window.$ && this.$refs.myBanner) {
-            // Ra lệnh cho Owl Carousel gỡ bỏ toàn bộ logic và class rác của nó
-            window.$(this.$refs.myBanner).trigger('destroy.owl.carousel');
+
+          // ❗ destroy trước nếu đã tồn tại
+          try {
+            window.$(this.$refs.myBanner).trigger('destroy.owl.carousel')
+          } catch (e) {}
+
+          window.$(this.$refs.myBanner).owlCarousel({
+            autoplay: true,
+            smartSpeed: 1500,
+            items: 1,
+            dots: true,
+            loop: true,
+            nav: true,
+            navText: [
+              '<i class="bi bi-chevron-left"></i>',
+              '<i class="bi bi-chevron-right"></i>'
+            ]
+          })
+
+          window.dispatchEvent(new Event('resize'))
         }
+      }, 300)
     }
+  },
+
+  beforeUnmount() {
+    if (window.$ && this.$refs.myBanner) {
+      window.$(this.$refs.myBanner).trigger('destroy.owl.carousel')
+    }
+  }
 }
 </script>
 <style></style>

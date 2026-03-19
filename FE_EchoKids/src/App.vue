@@ -1,15 +1,15 @@
 <template>
-  <component :is="layout">
-    <router-view></router-view>
-  </component>
-  
-  <ChatBox />
+  <!-- Chỉ render layout -->
+  <component :is="layout" />
+
+  <!-- ChatBox chỉ hiện ở Client -->
+  <ChatBox v-if="$route.meta.layout === 'client'" />
 </template>
 
 <script>
 import ChatBox from './components/Client/ChatBox/index.vue';
 
-const default_layout = "default";
+const default_layout = "client";
 
 export default {
   components: {

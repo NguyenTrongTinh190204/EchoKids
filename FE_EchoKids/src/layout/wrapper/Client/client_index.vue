@@ -1,13 +1,11 @@
-
-
 <template>
-  <div class="container-xxl bg-white p-0">
+  <!-- Chỉ render khi đã load xong JS -->
+  <div v-if="isReady" class="container-xxl bg-white p-0">
+
     <!-- Spinner -->
     <div id="spinner"
       class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;">
-        <span class="sr-only">Loading...</span>
-      </div>
+      <div class="spinner-border text-primary"></div>
     </div>
 
     <!-- Navbar -->
@@ -20,44 +18,61 @@
   </div>
 
   <!-- Footer -->
-  <FootClient />
+  <FootClient v-if="isReady" />
 </template>
+
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import NavbarClient from '../../components/Client/NavbarClient.vue'
 import FootClient from '../../components/Client/FooterClient.vue'
 
-//  CSS CLIENT
+// CSS (GIỮ NGUYÊN)
 import '/public/Client/lib/animate/animate.min.css'
 import '/public/Client/lib/owlcarousel/assets/owl.carousel.min.css'
 import '/public/Client/css/bootstrap.min.css'
 import '/public/Client/css/style.css'
 
-//  LOAD JS CLIENT
-onMounted(() => {
-  const loadScript = (src) => {
-    return new Promise(resolve => {
-      const script = document.createElement('script')
-      script.src = src
-      script.onload = resolve
-      document.body.appendChild(script)
-    })
-  }
+// trạng thái load
+const isReady = ref(false)
 
-  const loadAll = async () => {
-    // load jquery trước
-    await loadScript('https://code.jquery.com/jquery-3.4.1.min.js')
+// helper load script
+const loadScript = (src) => {
+  return new Promise(resolve => {
+    const script = document.createElement('script')
+    script.src = src
+    script.onload = resolve
+    document.body.appendChild(script)
+  })
+}
 
-    // load các lib sau
-    await loadScript('/Client/lib/wow/wow.min.js')
-    await loadScript('/Client/lib/easing/easing.min.js')
-    await loadScript('/Client/lib/waypoints/waypoints.min.js')
-    await loadScript('/Client/lib/owlcarousel/owl.carousel.min.js')
-  }
+onMounted(async () => {
 
-  loadAll()
+await loadScript('https://code.jquery.com/jquery-3.4.1.min.js')
+
+
+await loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js')
+
+await loadScript('/Client/lib/wow/wow.min.js')
+await loadScript('/Client/lib/easing/easing.min.js')
+await loadScript('/Client/lib/waypoints/waypoints.min.js')
+await loadScript('/Client/lib/owlcarousel/owl.carousel.min.js')
+
+  // đánh dấu sẵn sàng
+  isReady.value = true
+
+  // init UI
+  setTimeout(() => {
+    if (window.WOW) new WOW().init()
+
+    if (window.$ && $('.owl-carousel').length) {
+      $('.owl-carousel').owlCarousel()
+    }
+
+    // fix layout
+    window.dispatchEvent(new Event('resize'))
+  }, 100)
 })
 </script>
-<style scoped>
 
+<style scoped>
 </style>

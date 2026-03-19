@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router"; // cài vue-router: npm install vue-router@next --save
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
@@ -6,12 +6,12 @@ const routes = [
     component: () => import("../components/Client/Home/index.vue"),
     meta: { layout: "client" },
   },
-   {
+  {
     path: "/home",
     component: () => import("../components/Client/Home/index.vue"),
     meta: { layout: "client" },
   },
-   {
+  {
     path: "/luyen-phat-am",
     component: () => import("../components/Client/LuyenPhatAm/index.vue"),
     meta: { layout: "client" },
@@ -19,13 +19,13 @@ const routes = [
   {
     path: "/admin/dashboard",
     component: () => import("../components/Admin/Dashboard/index.vue"),
-    meta: { layout: "default" },
+    meta: { layout: "admin" },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: routes,
+  routes,
 });
 
 export default router;
