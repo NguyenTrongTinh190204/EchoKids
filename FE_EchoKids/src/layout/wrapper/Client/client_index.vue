@@ -27,13 +27,13 @@ import { onMounted } from 'vue'
 import NavbarClient from '../../components/Client/NavbarClient.vue'
 import FootClient from '../../components/Client/FooterClient.vue'
 
-// ✅ CSS CLIENT
+//  CSS CLIENT
 import '/public/Client/lib/animate/animate.min.css'
 import '/public/Client/lib/owlcarousel/assets/owl.carousel.min.css'
 import '/public/Client/css/bootstrap.min.css'
 import '/public/Client/css/style.css'
 
-// ✅ LOAD JS CLIENT
+//  LOAD JS CLIENT
 onMounted(() => {
   const loadScript = (src) => {
     return new Promise(resolve => {
