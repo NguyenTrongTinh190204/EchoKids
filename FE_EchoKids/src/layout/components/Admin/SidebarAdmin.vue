@@ -15,7 +15,7 @@
                <div class="iq-dark-logo">
                   <img src="/Admin/images/logo-dark.gif" class="img-fluid" alt="">
                </div>
-               <span>Vito</span>
+               <span>Admin</span>
                </a>
                <div class="iq-menu-bt-sidebar">
                   <div class="iq-menu-bt align-self-center">

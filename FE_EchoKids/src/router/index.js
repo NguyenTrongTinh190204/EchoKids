@@ -8,11 +8,6 @@ const routes = [
     meta: { layout: "client" },
   },
   {
-    path: "/home",
-    component: () => import("../components/Client/Home/index.vue"),
-    meta: { layout: "client" },
-  },
-  {
     path: "/luyen-phat-am",
     component: () => import("../components/Client/LuyenPhatAm/index.vue"),
     meta: { layout: "client" },
