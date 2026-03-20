@@ -1,19 +1,72 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  //CLIENT
+  //-------------------------------------------CLIENT----------------------------------------------------------------
+  //-----HOME-----
   {
     path: "/",
     component: () => import("../components/Client/Home/index.vue"),
     meta: { layout: "client" },
   },
+
+  //-----LEARNING-----
   {
-    path: "/luyen-phat-am",
-    component: () => import("../components/Client/LuyenPhatAm/index.vue"),
+    path: "/client/learning/lesson-list",
+    component: () => import("../components/Client/Learning/LessonList/index.vue"),
     meta: { layout: "client" },
   },
 
-  //ADMIN
+  {
+    path: "/client/learning/practice",
+    component: () => import("../components/Client/Learning/Practice/index.vue"),
+    meta: { layout: "client" },
+  },
+
+    {
+    path: "/client/learning/result",
+    component: () => import("../components/Client/Learning/Result/index.vue"),
+    meta: { layout: "client" },
+  },
+
+    {
+    path: "/client/learning/review",
+    component: () => import("../components/Client/Learning/Review/index.vue"),
+    meta: { layout: "client" },
+  },
+
+    {
+    path: "/client/learning/subject-list",
+    component: () => import("../components/Client/Learning/SubjectList/index.vue"),
+    meta: { layout: "client" },
+  },
+
+
+
+
+  //-----PROFILE-----
+  {
+    path: "/client/profile",
+    component: () => import("../components/Client/Profile/index.vue"),
+    meta: { layout: "client" },
+  },
+
+  //-----TRACKING-----
+  {
+    path: "/client/tracking/history",
+    component: () => import("../components/Client/Tracking/History/index.vue"),
+    meta: { layout: "client" },
+  },
+
+    {
+    path: "/client/tracking/progress",
+    component: () => import("../components/Client/Tracking/Progress/index.vue"),
+    meta: { layout: "client" },
+  },
+
+  //---------------------------------------------TEACHER--------------------------------------------------------------
+
+
+  //---------------------------------------------ADMIN--------------------------------------------------------------
   {
     path: "/admin/dashboard",
     component: () => import("../components/Admin/Dashboard/index.vue"),

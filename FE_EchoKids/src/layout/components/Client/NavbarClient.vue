@@ -27,9 +27,9 @@
         <div
           class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0"
         >
-          <!-- <router-link to="/luyen-phat-am" class="dropdown-item" active-class="active">Luyện Phát Âm</router-link>
-                    <router-link to="/tu-vung" class="dropdown-item" active-class="active">Thế Giới Từ Vựng</router-link>
-                    <router-link to="/tro-choi" class="dropdown-item" active-class="active">Trò Chơi Vui Nhộn</router-link> -->
+          <router-link to="/luyen-phat-am" class="dropdown-item" active-class="active">Chọn Chủ Đề</router-link>
+                    <router-link to="/tu-vung" class="dropdown-item" active-class="active">Chọn Bài Học</router-link>
+                    <router-link to="/tro-choi" class="dropdown-item" active-class="active">Luyện Phát Âm</router-link>
         </div>
       </div>
 

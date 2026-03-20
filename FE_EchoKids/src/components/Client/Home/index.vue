@@ -1,657 +1,158 @@
 <template>
-    <div class="container-fluid p-0 mb-5">
-        <div ref="myBanner" class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="/Client/images/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                    style="background: rgba(0, 0, 0, .2);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten
-                                    School For Your Child</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum
-                                    dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd
-                                    rebum sea elitr.</p>
-                                <a href=""
-                                    class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn
-                                    More</a>
-                                <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our
-                                    Classes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container py-4">
+
+    <!--  HERO + NHÂN VẬT -->
+    <div class="card text-center p-4 mb-4 shadow-sm border-0"
+         style="background: linear-gradient(135deg,#a8edea,#fed6e3)">
+
+      <h3>👋 Xin chào bé!</h3>
+      <p class="mb-2">Hôm nay mình cùng luyện phát âm nhé 🎈</p>
+
+      <!--  NHÂN VẬT -->
+      <div class="mt-3">
+        <div class="p-3 rounded bg-white shadow-sm d-inline-block">
+          🐻 <b>Bạn Gấu nói:</b> “Mình cùng luyện chữ A nhé!”
         </div>
+      </div>
+
+      <h5 class="fw-bold mt-3">👉 Bé hãy chọn một hoạt động bên dưới nhé!</h5>
+
+      <button class="btn btn-lg btn-primary mt-3 px-4">
+        🎮 Mình chơi ngay!
+      </button>
     </div>
-    <!-- Facilities Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Facilities</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod
-                    sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-primary">
-                            <span class="bg-primary"></span>
-                            <i class="fa fa-bus-alt fa-3x text-primary"></i>
-                            <span class="bg-primary"></span>
-                        </div>
-                        <div class="facility-text bg-primary">
-                            <h3 class="text-primary mb-3">School Bus</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-success">
-                            <span class="bg-success"></span>
-                            <i class="fa fa-futbol fa-3x text-success"></i>
-                            <span class="bg-success"></span>
-                        </div>
-                        <div class="facility-text bg-success">
-                            <h3 class="text-success mb-3">Playground</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-warning">
-                            <span class="bg-warning"></span>
-                            <i class="fa fa-home fa-3x text-warning"></i>
-                            <span class="bg-warning"></span>
-                        </div>
-                        <div class="facility-text bg-warning">
-                            <h3 class="text-warning mb-3">Healthy Canteen</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-info">
-                            <span class="bg-info"></span>
-                            <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
-                            <span class="bg-info"></span>
-                        </div>
-                        <div class="facility-text bg-info">
-                            <h3 class="text-info mb-3">Positive Learning</h3>
-                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <!--  GỢI Ý THÔNG MINH -->
+    <div class="card p-3 mb-4 shadow-sm border-0 bg-light">
+      <h6>🎯 Gợi ý hôm nay</h6>
+      <p class="mb-1">👉 Luyện chữ: <b>A</b></p>
+      <p class="mb-0">👉 Tập nói: <b>Con mèo</b></p>
     </div>
-    <!-- Facilities End -->
 
-    <div>
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-                        </p>
-                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam
-                            rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus
-                            dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor
-                            est vero nonumy magna.</p>
-                        <div class="row g-4 align-items-center">
-                            <div class="col-sm-6">
-                                <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                        style="width: 45px; height: 45px;">
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>CEO & Founder</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="/Client/images/about-1.jpg" alt="">
-                            </div>
-                            <div class="col-6 text-start" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="/Client/images/about-2.jpg" alt="">
-                            </div>
-                            <div class="col-6 text-end" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle bg-light p-3" src="/Client/images/about-3.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
+    <!--  CHỌN NHANH -->
+    <div class="mb-4">
+      <h5 class="mb-3">🚀 Bắt đầu cùng bé</h5>
 
-        <!-- Call To Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="/Client/images/call-to-action.jpg"
-                                    style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Become A Teacher</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-                                    amet diam et eos.
-                                    Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore
-                                    erat amet
-                                </p>
-                                <a class="btn btn-primary py-3 px-5" href="">Get Started Now<i
-                                        class="fa fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Call To Action End -->
+      <div class="row g-3">
 
-        <!-- Classes Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">School Classes</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-1.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-2.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Color Management</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-3.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Athletic & Dance</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-4.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Language & Speaking</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-5.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">Religion & History</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="classes-item">
-                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="/Client/images/classes-6.jpg" alt="">
-                            </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="">General Knowledge</a>
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img class="rounded-circle flex-shrink-0" src="/Client/images/user.jpg" alt=""
-                                            style="width: 45px; height: 45px;">
-                                        <div class="ms-3">
-                                            <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                            <small>Teacher</small>
-                                        </div>
-                                    </div>
-                                    <span class="bg-primary text-white rounded-pill py-2 px-3" href="">$99</span>
-                                </div>
-                                <div class="row g-1">
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-primary pt-2">
-                                            <h6 class="text-primary mb-1">Age:</h6>
-                                            <small>3-5 Years</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-success pt-2">
-                                            <h6 class="text-success mb-1">Time:</h6>
-                                            <small>9-10 AM</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="border-top border-3 border-warning pt-2">
-                                            <h6 class="text-warning mb-1">Capacity:</h6>
-                                            <small>30 Kids</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="card text-center p-4 shadow-sm h-100 border-0">
+            <h1>🔤</h1>
+            <h6>Học chữ cái</h6>
+            <small class="text-muted">Làm quen từng chữ đơn giản</small>
+            <button class="btn btn-outline-primary mt-3">Bắt đầu</button>
+          </div>
         </div>
-        <!-- Classes End -->
 
-        <!-- Appointment Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Make Appointment</h1>
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname"
-                                                    placeholder="Gurdian Name">
-                                                <label for="gname">Gurdian Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail"
-                                                    placeholder="Gurdian Email">
-                                                <label for="gmail">Gurdian Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cname"
-                                                    placeholder="Child Name">
-                                                <label for="cname">Child Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cage"
-                                                    placeholder="Child Age">
-                                                <label for="cage">Child Age</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0"
-                                                    placeholder="Leave a message here" id="message"
-                                                    style="height: 100px"></textarea>
-                                                <label for="message">Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <img class="position-absolute w-100 h-100 rounded" src="/Client/images/appointment.jpg"
-                                    style="object-fit: cover;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="card text-center p-4 shadow-sm h-100 border-0">
+            <h1>📚</h1>
+            <h6>Học từ vựng</h6>
+            <small class="text-muted">Tập nói từ quen thuộc</small>
+            <button class="btn btn-outline-success mt-3">Bắt đầu</button>
+          </div>
         </div>
-        <!-- Appointment End -->
 
-        <!-- Team Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Popular Teachers</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="/Client/images/team-1.jpg" alt="">
-                            <div class="team-text">
-                                <h3>Full Name</h3>
-                                <p>Designation</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="/Client/images/team-2.jpg" alt="">
-                            <div class="team-text">
-                                <h3>Full Name</h3>
-                                <p>Designation</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item position-relative">
-                            <img class="img-fluid rounded-circle w-75" src="/Client/images/team-3.jpg" alt="">
-                            <div class="team-text">
-                                <h3>Full Name</h3>
-                                <p>Designation</p>
-                                <div class="d-flex align-items-center">
-                                    <a class="btn btn-square btn-primary mx-1" href=""><i
-                                            class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary  mx-1" href=""><i
-                                            class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="card text-center p-4 shadow-sm h-100 border-0">
+            <h1>🎤</h1>
+            <h6>Luyện phát âm</h6>
+            <small class="text-muted">Nghe và nói theo mẫu</small>
+            <button class="btn btn-outline-warning mt-3">Bắt đầu</button>
+          </div>
         </div>
-        <!-- Team End -->
 
-        <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Our Clients Say!</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
-                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="/Client/images/testimonial-1.jpg"
-                                style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
-                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="/Client/images/testimonial-2.jpg"
-                                style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-5">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
-                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="/Client/images/testimonial-3.jpg"
-                                style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
+      </div>
     </div>
+
+    <!--  BÀI LUYỆN -->
+    <div class="mb-4">
+      <h5 class="mb-3">🔥 Bé thử bài này nhé!</h5>
+
+      <div class="row g-3">
+
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm border-0 text-center">
+            <h4>🅰️</h4>
+            <h6>Chữ cái A</h6>
+            <small class="text-muted">Luyện phát âm dễ</small>
+            <button class="btn btn-sm btn-primary mt-2">Học ngay</button>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm border-0 text-center">
+            <h4>🐱</h4>
+            <h6>Con mèo</h6>
+            <small class="text-muted">Tập nói đơn giản</small>
+            <button class="btn btn-sm btn-success mt-2">Học ngay</button>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm border-0 text-center">
+            <h4>🍎</h4>
+            <h6>Quả táo</h6>
+            <small class="text-muted">Luyện phát âm rõ</small>
+            <button class="btn btn-sm btn-warning mt-2">Học ngay</button>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card p-3 shadow-sm border-0 text-center">
+            <h4>🎨</h4>
+            <h6>Màu đỏ</h6>
+            <small class="text-muted">Nhận biết và nói</small>
+            <button class="btn btn-sm btn-danger mt-2">Học ngay</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  THÀNH TÍCH + CẢM XÚC -->
+    <div class="mb-4">
+      <h5 class="mb-3">⭐ Bé đang tiến bộ mỗi ngày!</h5>
+
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <div class="card text-center p-3 shadow-sm border-0">
+            <h6>🎯 Số bài đã luyện</h6>
+            <h3>12</h3>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center p-3 shadow-sm border-0 bg-light">
+            <h6>🎉 Nhận xét</h6>
+            <h5>👏 Bé làm rất tốt!</h5>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center p-3 shadow-sm border-0">
+            <h6>🏆 Huy hiệu</h6>
+            <h3>5</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  TIẾP TỤC -->
+    <div class="card p-4 text-center shadow-sm border-0 bg-light">
+      <h5>👉 Bé đang luyện dở</h5>
+      <p class="mb-2">Chữ cái A</p>
+
+      <button class="btn btn-success btn-lg">
+        ▶️ Tiếp tục cùng bạn Gấu
+      </button>
+    </div>
+
+  </div>
 </template>
+
 <script>
-export default {
-  mounted() {
-    this.initCarousel()
-  },
-
-  methods: {
-    initCarousel() {
-      setTimeout(() => {
-        if (window.$ && this.$refs.myBanner) {
-
-          // ❗ destroy trước nếu đã tồn tại
-          try {
-            window.$(this.$refs.myBanner).trigger('destroy.owl.carousel')
-          } catch (e) {}
-
-          window.$(this.$refs.myBanner).owlCarousel({
-            autoplay: true,
-            smartSpeed: 1500,
-            items: 1,
-            dots: true,
-            loop: true,
-            nav: true,
-            navText: [
-              '<i class="bi bi-chevron-left"></i>',
-              '<i class="bi bi-chevron-right"></i>'
-            ]
-          })
-
-          window.dispatchEvent(new Event('resize'))
-        }
-      }, 300)
-    }
-  },
-
-  beforeUnmount() {
-    if (window.$ && this.$refs.myBanner) {
-      window.$(this.$refs.myBanner).trigger('destroy.owl.carousel')
-    }
-  }
-}
+export default {};
 </script>
-<style></style>
