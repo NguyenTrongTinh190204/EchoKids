@@ -1,7 +1,7 @@
 <template>
 <div>
     <div>
-    <footer class="iq-footer">
+    <footer class="iq-footer mt-5">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">

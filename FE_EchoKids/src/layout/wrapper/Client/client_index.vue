@@ -73,6 +73,7 @@ await loadScript('/Client/lib/owlcarousel/owl.carousel.min.js')
   }, 100)
 })
 </script>
-
-<style scoped>
+<style>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
 </style>

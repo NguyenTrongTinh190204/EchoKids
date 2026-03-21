@@ -99,8 +99,8 @@ const routes = [
   },
 
     {
-    path: "/admin/quiz-management",
-    component: () => import("../components/Admin/QuizManagement/index.vue"),
+    path: "/admin/practice-management",
+    component: () => import("../components/Admin/PracticeManagement/index.vue"),
     meta: { layout: "admin" },
   },
 

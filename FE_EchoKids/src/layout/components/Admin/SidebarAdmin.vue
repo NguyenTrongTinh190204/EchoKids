@@ -38,7 +38,7 @@
 
             <!-- Dashboard -->
             <li :class="{ active: $route.path === '/admin/dashboard' }">
-              <router-link to="/admin/dashboard" class="iq-waves-effect">
+              <router-link to="/admin/dashboard" class="iq-waves-effect mt-1">
                 <i class="ri-home-4-line"></i>
                 <span>Dashboard</span>
               </router-link>
@@ -46,7 +46,7 @@
 
             <!-- User -->
             <li :class="{ active: $route.path === '/admin/user-management' }">
-              <router-link to="/admin/user-management" class="iq-waves-effect">
+              <router-link to="/admin/user-management" class="iq-waves-effect  mt-1">
                 <i class="ri-home-3-line"></i>
                 <span>User Management</span>
               </router-link>
@@ -58,7 +58,7 @@
             >
               <router-link
                 to="/admin/teacher-management"
-                class="iq-waves-effect"
+                class="iq-waves-effect mt-1"
               >
                 <i class="ri-home-8-line"></i>
                 <span>Teacher Management</span>
@@ -71,7 +71,7 @@
             >
               <router-link
                 to="/admin/subject-management"
-                class="iq-waves-effect"
+                class="iq-waves-effect mt-1"
               >
                 <i class="ri-home-7-line"></i>
                 <span>Subject Management</span>
@@ -86,24 +86,24 @@
             >
               <router-link
                 to="/admin/vocabulary-management"
-                class="iq-waves-effect"
+                class="iq-waves-effect mt-1"
               >
                 <i class="ri-home-7-line"></i>
                 <span>Vocabulary</span>
               </router-link>
             </li>
 
-            <!-- Quiz -->
-            <li :class="{ active: $route.path === '/admin/quiz-management' }">
-              <router-link to="/admin/quiz-management" class="iq-waves-effect">
+            <!-- Practice Management -->
+            <li :class="{ active: $route.path === '/admin/practice-management' }">
+              <router-link to="/admin/practice-management" class="iq-waves-effect mt-1">
                 <i class="ri-home-7-line"></i>
-                <span>Quiz</span>
+                <span>Practice Management</span>
               </router-link>
             </li>
 
             <!-- Statistics -->
             <li :class="{ active: $route.path === '/admin/statistics' }">
-              <router-link to="/admin/statistics" class="iq-waves-effect">
+              <router-link to="/admin/statistics" class="iq-waves-effect mt-1">
                 <i class="ri-home-7-line"></i>
                 <span>Statistics</span>
               </router-link>
@@ -111,23 +111,14 @@
 
             <!-- AI -->
             <li :class="{ active: $route.path === '/admin/ai-monitor' }">
-              <router-link to="/admin/ai-monitor" class="iq-waves-effect">
+              <router-link to="/admin/ai-monitor" class="iq-waves-effect mt-1">
                 <i class="ri-home-7-line"></i>
                 <span>AI Monitor</span>
               </router-link>
             </li>
-
-            <!-- Profile -->
-            <li :class="{ active: $route.path === '/admin/profile' }">
-              <router-link to="/admin/profile" class="iq-waves-effect">
-                <i class="ri-home-7-line"></i>
-                <span>Profile</span>
-              </router-link>
-            </li>
-
             <!-- Role -->
             <li :class="{ active: $route.path === '/admin/role-permission' }">
-              <router-link to="/admin/role-permission" class="iq-waves-effect">
+              <router-link to="/admin/role-permission" class="iq-waves-effect mt-1">
                 <i class="ri-home-7-line"></i>
                 <span>Role Permission</span>
               </router-link>

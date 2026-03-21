@@ -1,33 +1,41 @@
 <template>
   <div>
     <div class="container-fluid">
+
       <!-- HEADER -->
       <div class="card p-3 mb-4">
-        <h5 class="mb-1">Teacher Management</h5>
-        <small class="text-muted"
-          >Quản lý giáo viên / chuyên gia ngôn ngữ</small
-        >
+        <h5 class="mb-1">Quản lý giáo viên / chuyên gia ngôn ngữ</h5>
+        <small class="text-muted">
+          Quản lý chuyên gia âm ngữ trị liệu và theo dõi học viên
+        </small>
       </div>
 
       <!-- ACTION BAR -->
       <div class="card p-3 mb-4">
         <div class="d-flex justify-content-between align-items-center">
+
           <div>
-            <button class="btn btn-primary me-2">+ Add Teacher</button>
-            <button class="btn btn-success">Refresh</button>
+            <button class="btn btn-primary me-2">
+              + Thêm giáo viên
+            </button>
+
+            <button class="btn btn-success">
+              Làm mới
+            </button>
           </div>
 
           <div class="w-25">
             <input
               type="text"
               class="form-control"
-              placeholder="Search teacher..."
+              placeholder="Tìm kiếm giáo viên..."
             />
           </div>
+
         </div>
       </div>
 
-      <!-- TEACHER TABLE -->
+      <!-- TABLE -->
       <div class="card p-3">
         <h6 class="mb-3">Danh sách giáo viên</h6>
 
@@ -35,38 +43,37 @@
           <thead class="table-light">
             <tr>
               <th>#</th>
-              <th>Teacher</th>
+              <th>Giáo viên</th>
               <th>Email</th>
-              <th>Specialization</th>
-              <th>Students</th>
-              <th>Status</th>
-              <th class="text-center">Actions</th>
+              <th>Chuyên môn</th>
+              <th>Học viên</th>
+              <th>Hiệu quả</th>
+              <th>Trạng thái</th>
+              <th class="text-center">Hành động</th>
             </tr>
           </thead>
 
           <tbody>
+
+            <!-- TEACHER 1 -->
             <tr>
               <td>1</td>
 
               <td>
                 <div class="d-flex align-items-center">
-                  <div
-                    class="rounded-circle bg-warning text-dark d-flex justify-content-center align-items-center me-2"
-                    style="width: 35px; height: 35px"
-                  >
-                    T
-                  </div>
+                  <div class="avatar-circle bg-warning text-dark me-2">L</div>
                   <div>
-                    <div>Teacher A</div>
-                    <small class="text-muted">teacher01</small>
+                    <div>Nguyễn Thị Lan</div>
+                    <small class="text-muted">Chuyên gia phát âm</small>
                   </div>
                 </div>
               </td>
 
-              <td>teacherA@gmail.com</td>
+              <td>lan.nguyen@gmail.com</td>
 
               <td>
-                <span class="badge bg-info">Phát âm</span>
+                <span class="badge bg-info">Âm đầu</span>
+                <span class="badge bg-success ms-1">Thanh điệu</span>
               </td>
 
               <td>
@@ -74,38 +81,39 @@
               </td>
 
               <td>
-                <span class="badge bg-success">Active</span>
+                <span class="badge bg-success">85%</span>
+              </td>
+
+              <td>
+                <span class="badge bg-success">Hoạt động</span>
               </td>
 
               <td class="text-center">
-                <button class="btn btn-warning btn-sm me-1">Edit</button>
-                <button class="btn btn-danger btn-sm me-1">Delete</button>
-                <button class="btn btn-secondary btn-sm">Lock</button>
+                <button class="btn btn-warning btn-sm me-1">Sửa</button>
+                <button class="btn btn-danger btn-sm me-1">Xóa</button>
+                <button class="btn btn-secondary btn-sm">Khóa</button>
               </td>
             </tr>
 
+            <!-- TEACHER 2 -->
             <tr>
               <td>2</td>
 
               <td>
                 <div class="d-flex align-items-center">
-                  <div
-                    class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center me-2"
-                    style="width: 35px; height: 35px"
-                  >
-                    M
-                  </div>
+                  <div class="avatar-circle bg-secondary text-white me-2">M</div>
                   <div>
-                    <div>Teacher B</div>
-                    <small class="text-muted">teacher02</small>
+                    <div>Trần Minh Hòa</div>
+                    <small class="text-muted">Âm ngữ trị liệu</small>
                   </div>
                 </div>
               </td>
 
-              <td>teacherB@gmail.com</td>
+              <td>hoa.tran@gmail.com</td>
 
               <td>
-                <span class="badge bg-warning text-dark">Âm ngữ trị liệu</span>
+                <span class="badge bg-warning text-dark">Vần</span>
+                <span class="badge bg-danger ms-1">Phân tích lỗi</span>
               </td>
 
               <td>
@@ -113,22 +121,40 @@
               </td>
 
               <td>
-                <span class="badge bg-danger">Locked</span>
+                <span class="badge bg-warning text-dark">70%</span>
+              </td>
+
+              <td>
+                <span class="badge bg-danger">Đã khóa</span>
               </td>
 
               <td class="text-center">
-                <button class="btn btn-warning btn-sm me-1">Edit</button>
-                <button class="btn btn-danger btn-sm me-1">Delete</button>
-                <button class="btn btn-success btn-sm">Unlock</button>
+                <button class="btn btn-warning btn-sm me-1">Sửa</button>
+                <button class="btn btn-danger btn-sm me-1">Xóa</button>
+                <button class="btn btn-success btn-sm">Mở khóa</button>
               </td>
             </tr>
+
           </tbody>
         </table>
       </div>
+
     </div>
   </div>
 </template>
+
 <script>
 export default {};
 </script>
-<style></style>
+
+<style scoped>
+.avatar-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+</style>
