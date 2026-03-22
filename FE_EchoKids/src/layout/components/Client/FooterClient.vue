@@ -26,23 +26,9 @@
                         <h3 class="text-white mb-4">Thư Viện Ảnh</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-1.jpg" alt="">
+                                <!-- <img class="img-fluid rounded bg-light p-1" src="../../../../public/Client/img/classes-1.jpg" alt=""> -->
                             </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-2.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-3.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-4.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-5.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="../../../../public/img/classes-6.jpg" alt="">
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">

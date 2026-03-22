@@ -1,12 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
-// Layouts
 import AdminLayout from './layout/wrapper/Admin/admin_index.vue'
 import ClientLayout from './layout/wrapper/Client/client_index.vue'
-
-// Plugin
 import Toaster from "@meforma/vue-toaster";
 
 const app = createApp(App)
@@ -17,11 +13,8 @@ app.use(Toaster, {
   position: "top-right",
 })
 
-// Register layout global
 app.component("admin-layout", AdminLayout);
 app.component("client-layout", ClientLayout);
-
-// Directive animation
 app.directive('fade-up', {
   mounted(el) {
     el.classList.add('fade-up');

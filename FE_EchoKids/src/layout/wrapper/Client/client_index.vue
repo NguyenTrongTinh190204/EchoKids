@@ -1,23 +1,14 @@
 <template>
-  <!-- Chỉ render khi đã load xong JS -->
   <div v-if="isReady" class="container-xxl bg-white p-0">
-
-    <!-- Spinner -->
     <div id="spinner"
       class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
       <div class="spinner-border text-primary"></div>
     </div>
-
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
       <NavbarClient />
     </nav>
-
-    <!-- Page -->
     <router-view />
   </div>
-
-  <!-- Footer -->
   <FootClient v-if="isReady" />
 </template>
 
@@ -25,17 +16,12 @@
 import { ref, onMounted } from 'vue'
 import NavbarClient from '../../components/Client/NavbarClient.vue'
 import FootClient from '../../components/Client/FooterClient.vue'
-
-// CSS (GIỮ NGUYÊN)
 import '/public/Client/lib/animate/animate.min.css'
 import '/public/Client/lib/owlcarousel/assets/owl.carousel.min.css'
 import '/public/Client/css/bootstrap.min.css'
 import '/public/Client/css/style.css'
 
-// trạng thái load
 const isReady = ref(false)
-
-// helper load script
 const loadScript = (src) => {
   return new Promise(resolve => {
     const script = document.createElement('script')
@@ -57,18 +43,13 @@ await loadScript('/Client/lib/easing/easing.min.js')
 await loadScript('/Client/lib/waypoints/waypoints.min.js')
 await loadScript('/Client/lib/owlcarousel/owl.carousel.min.js')
 
-  // đánh dấu sẵn sàng
   isReady.value = true
-
-  // init UI
   setTimeout(() => {
     if (window.WOW) new WOW().init()
 
     if (window.$ && $('.owl-carousel').length) {
       $('.owl-carousel').owlCarousel()
     }
-
-    // fix layout
     window.dispatchEvent(new Event('resize'))
   }, 100)
 })
