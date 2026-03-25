@@ -1,78 +1,54 @@
 <template>
-  <div class="container py-4">
+  <div class="speech-screen">
 
-    <!-- HEADER -->
-    <div class="text-center mb-4">
-      <h4>🎤 Luyện phát âm</h4>
-      <p class="text-muted">👉 Bé hãy nghe và nói theo nhé 🎈</p>
+    <!-- Hướng dẫn -->
+    <VoiceGuide :text="guideText" auto />
+
+    <!-- Hình + từ -->
+    <div class="content">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+        class="image"
+      />
+      <div class="word">🐱 Con mèo</div>
     </div>
 
-    <!-- CHARACTER GUIDE -->
-    <div class="card p-3 mb-4 shadow-sm border-0 text-center bg-light">
-      🐻 <b>Bạn Gấu nói:</b> “Bé nghe trước rồi nói theo nhé!”
-    </div>
-
-    <!-- CONTENT -->
-    <div class="card p-4 shadow-sm border-0 text-center mb-4">
-
-      <!-- IMAGE -->
-      <div class="mb-3">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
-          alt=""
-          width="120"
-        />
-      </div>
-
-      <!-- WORD -->
-      <h3 class="mb-3">🐱 Con mèo</h3>
-
-      <!-- AUDIO SAMPLE -->
-      <button class="btn btn-primary me-2" @click="playSample">
-        🔊 Nghe mẫu
+    <!-- STATE 1: NGHE -->
+    <div v-if="step === 'listen'" class="action">
+      <button class="audio-btn" @click="playSample">
+        🔊 Nghe
       </button>
 
-      <!-- RECORD -->
+      <button class="next-btn" @click="step = 'speak'">
+        👉 Nói thử
+      </button>
+    </div>
+
+    <!-- STATE 2: GHI ÂM -->
+    <div v-if="step === 'speak'" class="action">
       <button
-        class="btn"
-        :class="isRecording ? 'btn-danger' : 'btn-success'"
+        class="mic-btn"
+        :class="{ recording: isRecording }"
         @click="toggleRecording"
       >
-        {{ isRecording ? '⏹️ Dừng ghi âm' : '🎤 Bắt đầu nói' }}
+        🎤
       </button>
-
     </div>
 
-    <!-- RESULT -->
-    <div v-if="showResult" class="card p-4 shadow-sm border-0 text-center">
+    <!-- STATE 3: KẾT QUẢ -->
+    <div v-if="step === 'feedback'" class="feedback">
 
-      <h5 class="mb-3">🎯 Kết quả của bé</h5>
+      <div class="emoji">😄</div>
 
-      <h3 class="text-success mb-3">👏 Bé làm rất tốt!</h3>
+      <div class="score">⭐ {{ score }}%</div>
 
-      <!-- SCORE -->
-      <p>⭐ Độ chính xác: <b>{{ score }}%</b></p>
+      <button class="retry-btn" @click="retry">
+        🔁 Thử lại
+      </button>
 
-      <!-- ERROR ANALYSIS -->
-      <div class="mt-3">
-        <p>📌 Nhận xét:</p>
-        <ul class="list-unstyled">
-          <li>✔️ Âm đầu: Tốt</li>
-          <li>⚠️ Vần: Cần luyện thêm</li>
-          <li>✔️ Thanh điệu: Đúng</li>
-        </ul>
-      </div>
-
-      <!-- ACTION -->
-      <div class="mt-3">
-        <button class="btn btn-warning me-2" @click="retry">
-          🔁 Thử lại
-        </button>
-
-        <button class="btn btn-success" @click="goNext">
-          ➡️ Bài tiếp theo
-        </button>
-      </div>
+      <button class="next-btn" @click="goNext">
+        ➡️ Tiếp tục
+      </button>
 
     </div>
 
@@ -80,18 +56,29 @@
 </template>
 
 <script>
+import VoiceGuide from "../../Common/VoiceGuide.vue";
+
 export default {
+  components: { VoiceGuide },
+
   data() {
     return {
+      step: "listen",
       isRecording: false,
-      showResult: false,
       score: 85
     };
   },
 
+  computed: {
+    guideText() {
+      if (this.step === "listen") return "🔊 Bé hãy nghe nhé!";
+      if (this.step === "speak") return "🎤 Bé nói theo nào!";
+      return "👏 Bé làm rất tốt!";
+    }
+  },
+
   methods: {
     playSample() {
-      // TODO: call TTS API
       alert("🔊 Phát âm mẫu...");
     },
 
@@ -99,27 +86,109 @@ export default {
       this.isRecording = !this.isRecording;
 
       if (!this.isRecording) {
-        // giả lập xử lý AI
         setTimeout(() => {
-          this.showResult = true;
-        }, 1000);
+          this.step = "feedback";
+        }, 800);
       }
     },
 
     retry() {
-      this.showResult = false;
+      this.step = "speak";
       this.isRecording = false;
     },
 
     goNext() {
-      this.$router.push('/lesson-list');
+      this.$router.push("/lesson-list");
     }
   }
 };
 </script>
 
 <style scoped>
-button {
-  min-width: 140px;
+/* layout */
+.speech-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+/* content */
+.content {
+  text-align: center;
+}
+
+.image {
+  width: 140px;
+}
+
+.word {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* action */
+.action {
+  display: flex;
+  gap: 20px;
+}
+
+/* nút nghe */
+.audio-btn {
+  background: #1cb0f6;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+/* nút mic (trung tâm) */
+.mic-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #58cc02;
+  font-size: 40px;
+  border: none;
+}
+
+.mic-btn.recording {
+  background: #ff4b4b;
+}
+
+/* feedback */
+.feedback {
+  text-align: center;
+}
+
+.emoji {
+  font-size: 60px;
+}
+
+.score {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+/* nút */
+.retry-btn {
+  background: #ffb020;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.next-btn {
+  background: #58cc02;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 15px;
+  color: white;
 }
 </style>
