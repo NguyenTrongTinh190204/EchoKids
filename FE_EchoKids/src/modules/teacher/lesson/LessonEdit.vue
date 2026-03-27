@@ -1,19 +1,16 @@
 <template>
-  <div class="container-fluid py-4 edit-page">
+  <div class="container-fluid py-4">
 
-    <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Chỉnh sửa bài học
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Chỉnh sửa bài học</h4>
+        <p class="text-muted mb-0">
           Cập nhật thông tin bài học và nội dung liên quan
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-outline-primary rounded-pill"
+        class="btn btn-outline-primary rounded px-4"
         @click="goBack"
       >
         Quay lại
@@ -22,149 +19,54 @@
 
     <div class="row g-4">
 
-      <!-- FORM CHỈNH SỬA -->
       <div class="col-lg-8">
-        <div class="bg-light rounded-4 p-4 shadow-sm">
+        <div class="card border-0 shadow-sm rounded mb-4">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">
+              Thông tin bài học
+            </h6>
 
-          <div class="fw-bold mb-3">
-            Thông tin bài học
-          </div>
-
-          <div class="row g-3">
-
-            <div class="col-md-6">
-              <label class="form-label">
-                Tên bài học
-              </label>
-
-              <input
-                type="text"
-                class="form-control rounded-4"
-                v-model="lesson.ten_bai_hoc"
-              >
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">
-                Chủ đề
-              </label>
-
-              <select
-                class="form-select rounded-4"
-                v-model="lesson.danh_muc_id"
-              >
-                <option
-                  v-for="subject in subjects"
-                  :key="subject.id"
-                  :value="subject.id"
-                >
-                  {{ subject.ten_danh_muc }}
-                </option>
-              </select>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">
-                Mức độ
-              </label>
-
-              <select
-                class="form-select rounded-4"
-                v-model="lesson.cap_do"
-              >
-                <option value="Dễ">Dễ</option>
-                <option value="Trung bình">Trung bình</option>
-                <option value="Khó">Khó</option>
-              </select>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">
-                Độ tuổi phù hợp
-              </label>
-
-              <select
-                class="form-select rounded-4"
-                v-model="lesson.do_tuoi"
-              >
-                <option value="3-4">3 - 4 tuổi</option>
-                <option value="5-6">5 - 6 tuổi</option>
-                <option value="7-8">7 - 8 tuổi</option>
-              </select>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label">
-                Mô tả bài học
-              </label>
-
-              <textarea
-                class="form-control rounded-4"
-                rows="4"
-                v-model="lesson.mo_ta"
-              ></textarea>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- DANH SÁCH TỪ VỰNG -->
-        <div class="bg-light rounded-4 p-4 shadow-sm mt-4">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="fw-bold">
-              Từ vựng trong bài học
-            </div>
-
-            <button
-              class="btn btn-primary btn-sm rounded-pill"
-              @click="addVocabulary"
-            >
-              Thêm từ
-            </button>
-          </div>
-
-          <div
-            v-for="(word, index) in vocabularies"
-            :key="index"
-            class="bg-white rounded-4 border p-3 mb-3"
-          >
             <div class="row g-3">
 
-              <div class="col-md-4">
-                <label class="form-label small">
-                  Từ vựng
+              <div class="col-md-6">
+                <label class="form-label">
+                  Tên bài học
                 </label>
 
                 <input
                   type="text"
-                  class="form-control rounded-4"
-                  v-model="word.ten_tu"
+                  class="form-control"
+                  v-model="lesson.ten_bai_hoc"
                 >
               </div>
 
-              <div class="col-md-4">
-                <label class="form-label small">
-                  Loại lỗi
+              <div class="col-md-6">
+                <label class="form-label">
+                  Chủ đề
                 </label>
 
                 <select
-                  class="form-select rounded-4"
-                  v-model="word.loi_phat_am"
+                  class="form-select"
+                  v-model="lesson.danh_muc_id"
                 >
-                  <option value="Âm đầu">Âm đầu</option>
-                  <option value="Vần">Vần</option>
-                  <option value="Thanh điệu">Thanh điệu</option>
+                  <option
+                    v-for="subject in subjects"
+                    :key="subject.id"
+                    :value="subject.id"
+                  >
+                    {{ subject.ten_danh_muc }}
+                  </option>
                 </select>
               </div>
 
-              <div class="col-md-4">
-                <label class="form-label small">
+              <div class="col-md-6">
+                <label class="form-label">
                   Mức độ
                 </label>
 
                 <select
-                  class="form-select rounded-4"
-                  v-model="word.cap_do"
+                  class="form-select"
+                  v-model="lesson.cap_do"
                 >
                   <option value="Dễ">Dễ</option>
                   <option value="Trung bình">Trung bình</option>
@@ -172,76 +74,179 @@
                 </select>
               </div>
 
+              <div class="col-md-6">
+                <label class="form-label">
+                  Độ tuổi phù hợp
+                </label>
+
+                <select
+                  class="form-select"
+                  v-model="lesson.do_tuoi"
+                >
+                  <option value="3-4">3 - 4 tuổi</option>
+                  <option value="5-6">5 - 6 tuổi</option>
+                  <option value="7-8">7 - 8 tuổi</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">
+                  Mô tả bài học
+                </label>
+
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  v-model="lesson.mo_ta"
+                ></textarea>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="fw-bold mb-0">
+                Từ vựng trong bài học
+              </h6>
+
+              <button
+                class="btn btn-primary btn-sm rounded"
+                @click="addVocabulary"
+              >
+                Thêm từ
+              </button>
             </div>
 
-            <div class="text-end mt-3">
-              <button
-                class="btn btn-outline-danger btn-sm rounded-pill"
-                @click="removeVocabulary(index)"
-              >
-                Xóa
-              </button>
+            <div
+              v-for="(word, index) in vocabularies"
+              :key="index"
+              class="border rounded p-3 mb-3"
+            >
+              <div class="row g-3">
+
+                <div class="col-md-4">
+                  <label class="form-label small">
+                    Từ vựng
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="word.ten_tu"
+                  >
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label small">
+                    Loại lỗi
+                  </label>
+
+                  <select
+                    class="form-select"
+                    v-model="word.loi_phat_am"
+                  >
+                    <option value="Âm đầu">Âm đầu</option>
+                    <option value="Vần">Vần</option>
+                    <option value="Thanh điệu">Thanh điệu</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="form-label small">
+                    Mức độ
+                  </label>
+
+                  <select
+                    class="form-select"
+                    v-model="word.cap_do"
+                  >
+                    <option value="Dễ">Dễ</option>
+                    <option value="Trung bình">Trung bình</option>
+                    <option value="Khó">Khó</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="text-end mt-3">
+                <button
+                  class="btn btn-outline-danger btn-sm rounded"
+                  @click="removeVocabulary(index)"
+                >
+                  Xóa
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- THÔNG TIN PHỤ -->
       <div class="col-lg-4">
-        <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
-          <div class="fw-bold mb-3">
-            Thông tin bài học
+
+        <div class="card border-0 shadow-sm rounded mb-4">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">
+              Thông tin bài học
+            </h6>
+
+            <div class="border rounded p-3 mb-3">
+              <small class="text-muted d-block mb-1">
+                Trạng thái
+              </small>
+
+              <span
+                class="badge"
+                :class="lesson.trang_thai === 'Đã duyệt'
+                  ? 'bg-success-subtle text-success'
+                  : 'bg-warning-subtle text-warning'"
+              >
+                {{ lesson.trang_thai }}
+              </span>
+            </div>
+
+            <div class="border rounded p-3 mb-3">
+              <small class="text-muted d-block mb-1">
+                Số từ vựng
+              </small>
+
+              <div class="fw-bold">
+                {{ vocabularies.length }}
+              </div>
+            </div>
+
+            <div class="border rounded p-3">
+              <small class="text-muted d-block mb-1">
+                Cập nhật gần nhất
+              </small>
+
+              <div class="fw-bold">
+                20/03/2026
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div class="mb-3">
-            <small class="text-muted d-block">
-              Trạng thái
-            </small>
-
-            <span
-              class="badge px-3 py-2"
-              :class="lesson.trang_thai === 'Đã duyệt' ? 'bg-success' : 'bg-warning text-dark'"
+        <div class="card border-0 shadow-sm rounded">
+          <div class="card-body">
+            <button
+              class="btn btn-primary w-100 rounded mb-3"
+              @click="saveLesson"
             >
-              {{ lesson.trang_thai }}
-            </span>
-          </div>
+              Lưu thay đổi
+            </button>
 
-          <div class="mb-3">
-            <small class="text-muted d-block">
-              Số từ vựng
-            </small>
-
-            <div class="fw-bold">
-              {{ vocabularies.length }}
-            </div>
-          </div>
-
-          <div>
-            <small class="text-muted d-block">
-              Cập nhật gần nhất
-            </small>
-
-            <div class="fw-bold">
-              20/03/2026
-            </div>
+            <button
+              class="btn btn-outline-primary w-100 rounded"
+              @click="goToPracticeBuilder"
+            >
+              Chỉnh sửa bài tập
+            </button>
           </div>
         </div>
 
-        <div class="bg-light rounded-4 p-4 shadow-sm">
-          <button
-            class="btn btn-primary w-100 rounded-pill mb-3"
-            @click="saveLesson"
-          >
-            Lưu thay đổi
-          </button>
-
-          <button
-            class="btn btn-outline-primary w-100 rounded-pill"
-            @click="goToPracticeBuilder"
-          >
-            Chỉnh sửa bài tập
-          </button>
-        </div>
       </div>
 
     </div>
@@ -255,7 +260,6 @@ export default {
 
   data() {
     return {
-      // dữ liệu từ bảng bai_hoc
       lesson: {
         id: 1,
         ten_bai_hoc: "Âm L cơ bản",
@@ -266,7 +270,6 @@ export default {
         trang_thai: "Đã duyệt"
       },
 
-      // dữ liệu từ bảng danh_muc_bai_hoc
       subjects: [
         {
           id: 1,
@@ -282,7 +285,6 @@ export default {
         }
       ],
 
-      // dữ liệu từ bảng tu_vung
       vocabularies: [
         {
           ten_tu: "Lá",
@@ -334,8 +336,7 @@ export default {
 </script>
 
 <style scoped>
-.edit-page {
-  background-color: #f9fbfd;
+.container-fluid {
   min-height: 100vh;
 }
 </style>

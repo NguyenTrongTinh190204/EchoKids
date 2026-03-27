@@ -1,5 +1,6 @@
 <template>
-  <div class="student-list-page p-3 p-md-4">
+  <div class="container-fluid py-4">
+
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
         <h4 class="fw-bold mb-1">Danh sách học sinh</h4>
@@ -8,44 +9,72 @@
         </p>
       </div>
 
-      <button class="btn btn-primary rounded-pill px-4" @click="goToCreateStudent">
+      <button
+        class="btn btn-primary rounded px-4"
+        @click="goToCreateStudent"
+      >
         Thêm học sinh
       </button>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 p-3 mb-4">
-      <div class="row g-3">
-        <div class="col-12 col-md-4">
-          <input
-            type="text"
-            class="form-control rounded-pill"
-            placeholder="Tìm theo tên học sinh..."
-            v-model="searchKeyword"
-          >
-        </div>
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <div class="row g-3">
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedLevel">
-            <option value="">Tất cả mức độ</option>
-            <option value="Nhẹ">Nhẹ</option>
-            <option value="Trung bình">Trung bình</option>
-            <option value="Nặng">Nặng</option>
-          </select>
-        </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label small text-muted">
+              Tìm kiếm
+            </label>
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedStatus">
-            <option value="">Tất cả trạng thái</option>
-            <option value="Đang học">Đang học</option>
-            <option value="Tạm nghỉ">Tạm nghỉ</option>
-            <option value="Hoàn thành">Hoàn thành</option>
-          </select>
-        </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tìm theo tên học sinh..."
+              v-model="searchKeyword"
+            >
+          </div>
 
-        <div class="col-12 col-md-2">
-          <button class="btn btn-light border rounded-pill w-100" @click="resetFilter">
-            Đặt lại
-          </button>
+          <div class="col-12 col-md-3">
+            <label class="form-label small text-muted">
+              Mức độ
+            </label>
+
+            <select
+              class="form-select"
+              v-model="selectedLevel"
+            >
+              <option value="">Tất cả mức độ</option>
+              <option value="Nhẹ">Nhẹ</option>
+              <option value="Trung bình">Trung bình</option>
+              <option value="Nặng">Nặng</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <label class="form-label small text-muted">
+              Trạng thái
+            </label>
+
+            <select
+              class="form-select"
+              v-model="selectedStatus"
+            >
+              <option value="">Tất cả trạng thái</option>
+              <option value="Đang học">Đang học</option>
+              <option value="Tạm nghỉ">Tạm nghỉ</option>
+              <option value="Hoàn thành">Hoàn thành</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-2 d-flex align-items-end">
+            <button
+              class="btn btn-outline-secondary w-100 rounded"
+              @click="resetFilter"
+            >
+              Đặt lại
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -56,77 +85,110 @@
         v-for="student in filteredStudents"
         :key="student.id"
       >
-        <div class="card border-0 shadow-sm rounded-4 p-3 h-100 student-card">
-          <div class="d-flex align-items-center mb-3">
-            <div class="student-avatar me-3">
-              {{ student.name.charAt(0) }}
+        <div class="card border-0 shadow-sm rounded h-100 student-card">
+          <div class="card-body">
+
+            <div class="d-flex align-items-center mb-3">
+              <div class="student-avatar me-3">
+                {{ student.name.charAt(0) }}
+              </div>
+
+              <div>
+                <h6 class="fw-bold mb-1">
+                  {{ student.name }}
+                </h6>
+
+                <p class="text-muted small mb-0">
+                  {{ student.age }} tuổi
+                </p>
+              </div>
             </div>
 
-            <div>
-              <h6 class="fw-bold mb-1">{{ student.name }}</h6>
-              <p class="text-muted small mb-0">
-                {{ student.age }} tuổi
+            <div class="mb-3">
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">
+                  Mức độ
+                </span>
+
+                <span
+                  class="badge"
+                  :class="getLevelClass(student.level)"
+                >
+                  {{ student.level }}
+                </span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">
+                  Trạng thái
+                </span>
+
+                <span
+                  class="badge"
+                  :class="getStatusClass(student.status)"
+                >
+                  {{ student.status }}
+                </span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">
+                  Bài học hoàn thành
+                </span>
+
+                <span class="fw-semibold">
+                  {{ student.completedLessons }}/{{ student.totalLessons }}
+                </span>
+              </div>
+
+              <div class="progress mb-2" style="height: 8px;">
+                <div
+                  class="progress-bar bg-primary"
+                  :style="{ width: student.progress + '%' }"
+                ></div>
+              </div>
+
+              <p class="small text-muted mb-0">
+                Tiến độ tổng thể: {{ student.progress }}%
               </p>
-            </div>
-          </div>
 
-          <div class="mb-3">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Mức độ</span>
-              <span class="badge rounded-pill" :class="getLevelClass(student.level)">
-                {{ student.level }}
-              </span>
             </div>
 
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Trạng thái</span>
-              <span class="badge rounded-pill" :class="getStatusClass(student.status)">
-                {{ student.status }}
-              </span>
+            <div class="border-top pt-3 d-flex gap-2">
+              <button
+                class="btn btn-outline-primary flex-fill rounded"
+                @click="goToStudentDetail(student)"
+              >
+                Chi tiết
+              </button>
+
+              <button
+                class="btn btn-primary flex-fill rounded"
+                @click="goToStudentProgress(student)"
+              >
+                Tiến độ
+              </button>
             </div>
 
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Bài học hoàn thành</span>
-              <span class="fw-semibold">{{ student.completedLessons }}/{{ student.totalLessons }}</span>
-            </div>
-
-            <div class="progress rounded-pill mb-2" style="height: 8px;">
-              <div
-                class="progress-bar rounded-pill bg-primary"
-                :style="{ width: student.progress + '%' }"
-              ></div>
-            </div>
-
-            <p class="small text-muted mb-0">
-              Tiến độ tổng thể: {{ student.progress }}%
-            </p>
-          </div>
-
-          <div class="border-top pt-3 d-flex gap-2">
-            <button
-              class="btn btn-light border rounded-pill flex-fill"
-              @click="goToStudentDetail(student)"
-            >
-              Chi tiết
-            </button>
-
-            <button
-              class="btn btn-primary rounded-pill flex-fill"
-              @click="goToStudentProgress(student)"
-            >
-              Tiến độ
-            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div v-if="filteredStudents.length === 0" class="card border-0 shadow-sm rounded-4 p-5 text-center">
-      <h6 class="fw-bold mb-2">Không tìm thấy học sinh phù hợp</h6>
+    <div
+      v-if="filteredStudents.length === 0"
+      class="card border-0 shadow-sm rounded p-5 text-center mt-4"
+    >
+      <h6 class="fw-bold mb-2">
+        Không tìm thấy học sinh phù hợp
+      </h6>
+
       <p class="text-muted mb-0">
         Vui lòng thử lại với bộ lọc khác
       </p>
     </div>
+
   </div>
 </template>
 
@@ -252,45 +314,23 @@ export default {
 
 <style scoped>
 .student-card {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .student-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
 }
 
 .student-avatar {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  background-color: #0d6efd;
   color: #ffffff;
   font-size: 22px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.form-control,
-.form-select {
-  height: 48px;
-  border: 1px solid #e5e7eb;
-}
-
-.form-control:focus,
-.form-select:focus {
-  box-shadow: none;
-  border-color: #4facfe;
 }
 </style>

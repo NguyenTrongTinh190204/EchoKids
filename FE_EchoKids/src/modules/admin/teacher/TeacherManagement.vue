@@ -1,5 +1,6 @@
 <template>
-  <div class="teacher-management-page p-3 p-md-4">
+  <div class="container-fluid py-4">
+
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
         <h4 class="fw-bold mb-1">Quản lý giáo viên</h4>
@@ -8,43 +9,45 @@
         </p>
       </div>
 
-      <button class="btn btn-primary rounded-pill px-4" @click="goToCreateTeacher">
+      <button class="btn btn-primary rounded px-4" @click="goToCreateTeacher">
         Thêm giáo viên
       </button>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 p-3 mb-4">
-      <div class="row g-3">
-        <div class="col-12 col-md-4">
-          <input
-            type="text"
-            class="form-control rounded-pill"
-            placeholder="Tìm theo tên giáo viên..."
-            v-model="searchKeyword"
-          >
-        </div>
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tìm theo tên giáo viên..."
+              v-model="searchKeyword"
+            >
+          </div>
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedStatus">
-            <option value="">Tất cả trạng thái</option>
-            <option value="Đang hoạt động">Đang hoạt động</option>
-            <option value="Tạm khóa">Tạm khóa</option>
-          </select>
-        </div>
+          <div class="col-12 col-md-3">
+            <select class="form-select" v-model="selectedStatus">
+              <option value="">Tất cả trạng thái</option>
+              <option value="Đang hoạt động">Đang hoạt động</option>
+              <option value="Tạm khóa">Tạm khóa</option>
+            </select>
+          </div>
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedSpecialty">
-            <option value="">Tất cả chuyên môn</option>
-            <option value="Ngôn ngữ cơ bản">Ngôn ngữ cơ bản</option>
-            <option value="Phát âm nâng cao">Phát âm nâng cao</option>
-            <option value="Trị liệu chuyên sâu">Trị liệu chuyên sâu</option>
-          </select>
-        </div>
+          <div class="col-12 col-md-3">
+            <select class="form-select" v-model="selectedSpecialty">
+              <option value="">Tất cả chuyên môn</option>
+              <option value="Ngôn ngữ cơ bản">Ngôn ngữ cơ bản</option>
+              <option value="Phát âm nâng cao">Phát âm nâng cao</option>
+              <option value="Trị liệu chuyên sâu">Trị liệu chuyên sâu</option>
+            </select>
+          </div>
 
-        <div class="col-12 col-md-2">
-          <button class="btn btn-light border rounded-pill w-100" @click="resetFilter">
-            Đặt lại
-          </button>
+          <div class="col-12 col-md-2">
+            <button class="btn btn-outline-secondary w-100 rounded" @click="resetFilter">
+              Đặt lại
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -55,58 +58,63 @@
         v-for="teacher in filteredTeachers"
         :key="teacher.id"
       >
-        <div class="card border-0 shadow-sm rounded-4 p-3 h-100 teacher-card">
-          <div class="d-flex align-items-center mb-3">
-            <div class="teacher-avatar me-3">
-              {{ teacher.name.charAt(0) }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="teacher-avatar me-3">
+                {{ teacher.name.charAt(0) }}
+              </div>
+
+              <div>
+                <h6 class="fw-bold mb-1">{{ teacher.name }}</h6>
+                <p class="text-muted small mb-0">
+                  {{ teacher.email }}
+                </p>
+              </div>
             </div>
 
-            <div>
-              <h6 class="fw-bold mb-1">{{ teacher.name }}</h6>
-              <p class="text-muted small mb-0">
-                {{ teacher.email }}
-              </p>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">Chuyên môn</span>
+                <span class="badge bg-primary-subtle text-primary">
+                  {{ teacher.specialty }}
+                </span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">Học sinh phụ trách</span>
+                <span class="fw-semibold">{{ teacher.totalStudents }}</span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">Kinh nghiệm</span>
+                <span class="fw-semibold">{{ teacher.experience }}</span>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Trạng thái</span>
+
+                <span class="badge" :class="getStatusClass(teacher.status)">
+                  {{ teacher.status }}
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div class="mb-3">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Chuyên môn</span>
-              <span class="fw-semibold">{{ teacher.specialty }}</span>
+            <div class="border-top pt-3 d-flex gap-2">
+              <button
+                class="btn btn-outline-primary rounded flex-fill"
+                @click="goToTeacherDetail(teacher)"
+              >
+                Chi tiết
+              </button>
+
+              <button
+                class="btn btn-primary rounded flex-fill"
+                @click="goToTeacherEdit(teacher)"
+              >
+                Chỉnh sửa
+              </button>
             </div>
-
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Học sinh phụ trách</span>
-              <span class="fw-semibold">{{ teacher.totalStudents }}</span>
-            </div>
-
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Kinh nghiệm</span>
-              <span class="fw-semibold">{{ teacher.experience }}</span>
-            </div>
-
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted small">Trạng thái</span>
-              <span class="badge rounded-pill" :class="getStatusClass(teacher.status)">
-                {{ teacher.status }}
-              </span>
-            </div>
-          </div>
-
-          <div class="border-top pt-3 d-flex gap-2">
-            <button
-              class="btn btn-light border rounded-pill flex-fill"
-              @click="goToTeacherDetail(teacher)"
-            >
-              Chi tiết
-            </button>
-
-            <button
-              class="btn btn-primary rounded-pill flex-fill"
-              @click="goToTeacherEdit(teacher)"
-            >
-              Chỉnh sửa
-            </button>
           </div>
         </div>
       </div>
@@ -114,12 +122,14 @@
 
     <div
       v-if="filteredTeachers.length === 0"
-      class="card border-0 shadow-sm rounded-4 p-5 text-center"
+      class="card border-0 shadow-sm rounded mt-4"
     >
-      <h6 class="fw-bold mb-2">Không tìm thấy giáo viên phù hợp</h6>
-      <p class="text-muted mb-0">
-        Vui lòng thử lại với bộ lọc khác
-      </p>
+      <div class="card-body text-center py-5">
+        <h6 class="fw-bold mb-2">Không tìm thấy giáo viên phù hợp</h6>
+        <p class="text-muted mb-0">
+          Vui lòng thử lại với bộ lọc khác
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -225,51 +235,20 @@ export default {
 </script>
 
 <style scoped>
-.teacher-management-page {
-  background-color: #f8f9fc;
+.container-fluid {
   min-height: 100vh;
 }
 
-.teacher-card {
-  transition: all 0.3s ease;
-}
-
-.teacher-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
-}
-
 .teacher-avatar {
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  background-color: #0d6efd;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.form-control,
-.form-select {
-  height: 48px;
-  border: 1px solid #e5e7eb;
-}
-
-.form-control:focus,
-.form-select:focus {
-  box-shadow: none;
-  border-color: #4facfe;
 }
 </style>

@@ -1,187 +1,190 @@
 <template>
-  <div class="container-fluid py-4 system-stats-page">
+  <div class="container-fluid py-4">
 
-    <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Thống kê hệ thống
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Thống kê hệ thống</h4>
+        <p class="text-muted mb-0">
           Tổng quan dữ liệu người dùng, bài học và AI
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-outline-primary rounded-pill"
+        class="btn btn-outline-primary rounded px-4"
         @click="goBack"
       >
         Quay lại
       </button>
     </div>
 
-    <!-- THỐNG KÊ TỔNG QUAN -->
     <div class="row g-3 mb-4">
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Người dùng</small>
-          <div class="fw-bold fs-3 text-primary">
-            {{ overview.totalUsers }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Người dùng</small>
+            <h3 class="fw-bold text-primary mt-2 mb-1">
+              {{ overview.totalUsers }}
+            </h3>
+            <small class="text-success">
+              +12% tháng này
+            </small>
           </div>
-
-          <small class="text-success">
-            +12% tháng này
-          </small>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Bài học</small>
-          <div class="fw-bold fs-3 text-success">
-            {{ overview.totalLessons }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Bài học</small>
+            <h3 class="fw-bold text-success mt-2 mb-1">
+              {{ overview.totalLessons }}
+            </h3>
+            <small class="text-success">
+              +8 bài mới
+            </small>
           </div>
-
-          <small class="text-success">
-            +8 bài mới
-          </small>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Lượt luyện tập</small>
-          <div class="fw-bold fs-3 text-warning">
-            {{ overview.totalPractice }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Lượt luyện tập</small>
+            <h3 class="fw-bold text-warning mt-2 mb-1">
+              {{ overview.totalPractice }}
+            </h3>
+            <small class="text-success">
+              +24% tuần này
+            </small>
           </div>
-
-          <small class="text-success">
-            +24% tuần này
-          </small>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Độ chính xác AI</small>
-          <div class="fw-bold fs-3 text-danger">
-            {{ overview.aiAccuracy }}%
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Độ chính xác AI</small>
+            <h3 class="fw-bold text-danger mt-2 mb-1">
+              {{ overview.aiAccuracy }}%
+            </h3>
+            <small class="text-success">
+              +2% tháng này
+            </small>
           </div>
-
-          <small class="text-success">
-            +2% tháng này
-          </small>
         </div>
       </div>
 
     </div>
 
-    <!-- THỐNG KÊ CHI TIẾT -->
     <div class="row g-4 mb-4">
 
       <div class="col-lg-6">
-        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
-          <div class="fw-bold mb-3">
-            Thống kê người dùng
-          </div>
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">
+              Thống kê người dùng
+            </h6>
 
-          <div class="bg-white rounded-4 border p-3 mb-3">
-            <div class="d-flex justify-content-between mb-2">
-              <span>Trẻ em</span>
-              <span class="fw-bold">{{ userStats.children }}</span>
+            <div class="border rounded p-3 mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Trẻ em</span>
+                <span class="fw-bold">{{ userStats.children }}</span>
+              </div>
+
+              <div class="progress" style="height: 6px;">
+                <div
+                  class="progress-bar bg-primary"
+                  :style="{ width: userStats.children + '%' }"
+                ></div>
+              </div>
             </div>
 
-            <div class="progress" style="height: 6px;">
-              <div
-                class="progress-bar bg-primary"
-                :style="{ width: userStats.children + '%' }"
-              ></div>
-            </div>
-          </div>
+            <div class="border rounded p-3 mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Phụ huynh</span>
+                <span class="fw-bold">{{ userStats.parents }}</span>
+              </div>
 
-          <div class="bg-white rounded-4 border p-3 mb-3">
-            <div class="d-flex justify-content-between mb-2">
-              <span>Phụ huynh</span>
-              <span class="fw-bold">{{ userStats.parents }}</span>
-            </div>
-
-            <div class="progress" style="height: 6px;">
-              <div
-                class="progress-bar bg-success"
-                :style="{ width: userStats.parents + '%' }"
-              ></div>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-4 border p-3">
-            <div class="d-flex justify-content-between mb-2">
-              <span>Giáo viên</span>
-              <span class="fw-bold">{{ userStats.teachers }}</span>
+              <div class="progress" style="height: 6px;">
+                <div
+                  class="progress-bar bg-success"
+                  :style="{ width: userStats.parents + '%' }"
+                ></div>
+              </div>
             </div>
 
-            <div class="progress" style="height: 6px;">
-              <div
-                class="progress-bar bg-warning"
-                :style="{ width: userStats.teachers + '%' }"
-              ></div>
+            <div class="border rounded p-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Giáo viên</span>
+                <span class="fw-bold">{{ userStats.teachers }}</span>
+              </div>
+
+              <div class="progress" style="height: 6px;">
+                <div
+                  class="progress-bar bg-warning"
+                  :style="{ width: userStats.teachers + '%' }"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-lg-6">
-        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
-          <div class="fw-bold mb-3">
-            Thống kê nội dung
-          </div>
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">
+              Thống kê nội dung
+            </h6>
 
-          <div class="row g-3">
-            <div class="col-md-6">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-primary">
-                  {{ contentStats.subjects }}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="border rounded p-3 text-center">
+                  <h4 class="fw-bold text-primary mb-1">
+                    {{ contentStats.subjects }}
+                  </h4>
+
+                  <small class="text-muted">
+                    Chủ đề bài học
+                  </small>
                 </div>
-
-                <small class="text-muted">
-                  Chủ đề bài học
-                </small>
               </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-success">
-                  {{ contentStats.vocabulary }}
+              <div class="col-md-6">
+                <div class="border rounded p-3 text-center">
+                  <h4 class="fw-bold text-success mb-1">
+                    {{ contentStats.vocabulary }}
+                  </h4>
+
+                  <small class="text-muted">
+                    Từ vựng
+                  </small>
                 </div>
-
-                <small class="text-muted">
-                  Từ vựng
-                </small>
               </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-warning">
-                  {{ contentStats.practice }}
+              <div class="col-md-6">
+                <div class="border rounded p-3 text-center">
+                  <h4 class="fw-bold text-warning mb-1">
+                    {{ contentStats.practice }}
+                  </h4>
+
+                  <small class="text-muted">
+                    Bài luyện tập
+                  </small>
                 </div>
-
-                <small class="text-muted">
-                  Bài luyện tập
-                </small>
               </div>
-            </div>
 
-            <div class="col-md-6">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-danger">
-                  {{ contentStats.pending }}
+              <div class="col-md-6">
+                <div class="border rounded p-3 text-center">
+                  <h4 class="fw-bold text-danger mb-1">
+                    {{ contentStats.pending }}
+                  </h4>
+
+                  <small class="text-muted">
+                    Chờ duyệt
+                  </small>
                 </div>
-
-                <small class="text-muted">
-                  Chờ duyệt
-                </small>
               </div>
             </div>
           </div>
@@ -190,67 +193,69 @@
 
     </div>
 
-    <!-- THỐNG KÊ AI -->
-    <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
-      <div class="fw-bold mb-3">
-        Dữ liệu AI và lỗi phát âm
-      </div>
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">
+          Dữ liệu AI và lỗi phát âm
+        </h6>
 
-      <div
-        v-for="error in aiErrors"
-        :key="error.id"
-        class="bg-white rounded-4 border p-3 mb-3"
-      >
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div>
-            <div class="fw-bold">
-              {{ error.sound }}
+        <div
+          v-for="error in aiErrors"
+          :key="error.id"
+          class="border rounded p-3 mb-3"
+        >
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <div class="fw-bold">
+                {{ error.sound }}
+              </div>
+
+              <small class="text-muted">
+                {{ error.description }}
+              </small>
             </div>
 
-            <small class="text-muted">
-              {{ error.description }}
-            </small>
+            <span class="badge bg-warning-subtle text-warning px-3 py-2">
+              {{ error.total }} lượt
+            </span>
           </div>
 
-          <span class="badge bg-warning text-dark px-3 py-2">
-            {{ error.total }} lượt
-          </span>
-        </div>
-
-        <div class="progress" style="height: 6px;">
-          <div
-            class="progress-bar bg-warning"
-            :style="{ width: error.percent + '%' }"
-          ></div>
+          <div class="progress" style="height: 6px;">
+            <div
+              class="progress-bar bg-warning"
+              :style="{ width: error.percent + '%' }"
+            ></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- HOẠT ĐỘNG GẦN ĐÂY -->
-    <div class="bg-light rounded-4 p-4 shadow-sm">
-      <div class="fw-bold mb-3">
-        Hoạt động gần đây
-      </div>
+    <div class="card border-0 shadow-sm rounded">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">
+          Hoạt động gần đây
+        </h6>
 
-      <div
-        v-for="activity in activities"
-        :key="activity.id"
-        class="bg-white rounded-4 border p-3 mb-3"
-      >
-        <div class="d-flex justify-content-between align-items-start">
-          <div>
-            <div class="fw-bold">
-              {{ activity.title }}
+        <div
+          v-for="activity in activities"
+          :key="activity.id"
+          class="border rounded p-3 mb-3"
+        >
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="fw-bold">
+                {{ activity.title }}
+              </div>
+
+              <small class="text-muted">
+                {{ activity.description }}
+              </small>
             </div>
 
             <small class="text-muted">
-              {{ activity.description }}
+              {{ activity.time }}
             </small>
           </div>
-
-          <small class="text-muted">
-            {{ activity.time }}
-          </small>
         </div>
       </div>
     </div>
@@ -340,8 +345,7 @@ export default {
 </script>
 
 <style scoped>
-.system-stats-page {
-  background-color: #f9fbfd;
+.container-fluid {
   min-height: 100vh;
 }
 </style>

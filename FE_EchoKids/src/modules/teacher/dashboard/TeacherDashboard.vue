@@ -1,181 +1,190 @@
 <template>
-  <div class="container-fluid py-4 teacher-dashboard">
+  <div class="container-fluid py-4">
 
-    <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Dashboard giáo viên
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Dashboard giáo viên</h4>
+        <p class="text-muted mb-0">
           Theo dõi lớp học và tiến độ học tập của trẻ
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-primary rounded-pill px-4"
+        class="btn btn-primary rounded px-4"
         @click="goToStudentList"
       >
         Danh sách học sinh
       </button>
     </div>
 
-    <!-- THÔNG TIN TỔNG QUAN -->
     <div class="row g-3 mb-4">
 
       <div class="col-md-3 col-sm-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Tổng học sinh</small>
-          <div class="fw-bold fs-3 text-primary">
-            {{ summary.totalStudents }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Tổng học sinh</small>
+            <h3 class="fw-bold text-primary mt-2 mb-0">
+              {{ summary.totalStudents }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Bài học</small>
-          <div class="fw-bold fs-3 text-success">
-            {{ summary.totalLessons }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Bài học</small>
+            <h3 class="fw-bold text-success mt-2 mb-0">
+              {{ summary.totalLessons }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Âm lỗi phổ biến</small>
-          <div class="fw-bold fs-3 text-warning">
-            {{ summary.commonErrors }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Âm lỗi phổ biến</small>
+            <h3 class="fw-bold text-warning mt-2 mb-0">
+              {{ summary.commonErrors }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-md-3 col-sm-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Bài chờ duyệt</small>
-          <div class="fw-bold fs-3 text-danger">
-            {{ summary.pendingLessons }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Bài chờ duyệt</small>
+            <h3 class="fw-bold text-danger mt-2 mb-0">
+              {{ summary.pendingLessons }}
+            </h3>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- DANH SÁCH HỌC SINH -->
-    <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="fw-bold">
-          Học sinh cần chú ý
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="fw-bold mb-0">
+            Học sinh cần chú ý
+          </h6>
+
+          <button
+            class="btn btn-outline-primary btn-sm rounded"
+            @click="goToStudentList"
+          >
+            Xem tất cả
+          </button>
         </div>
 
-        <button
-          class="btn btn-outline-primary btn-sm rounded-pill"
-          @click="goToStudentList"
-        >
-          Xem tất cả
-        </button>
-      </div>
+        <div class="row g-3">
 
-      <div class="row g-3">
-
-        <div
-          v-for="student in students"
-          :key="student.id"
-          class="col-lg-4 col-md-6"
-        >
           <div
-            class="bg-white rounded-4 border p-3 student-card h-100"
-            @click="goToStudentProgress(student.id)"
+            v-for="student in students"
+            :key="student.id"
+            class="col-lg-4 col-md-6"
           >
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <div>
-                <div class="fw-bold">
-                  {{ student.name }}
+            <div
+              class="card border h-100 rounded cursor-pointer"
+              @click="goToStudentProgress(student.id)"
+            >
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <div>
+                    <div class="fw-bold">
+                      {{ student.name }}
+                    </div>
+
+                    <small class="text-muted">
+                      {{ student.age }} tuổi
+                    </small>
+                  </div>
+
+                  <span
+                    class="badge"
+                    :class="student.status === 'Tốt'
+                      ? 'bg-success-subtle text-success'
+                      : 'bg-warning-subtle text-warning'"
+                  >
+                    {{ student.status }}
+                  </span>
                 </div>
 
-                <small class="text-muted">
-                  {{ student.age }} tuổi
-                </small>
+                <div class="mb-2">
+                  <small class="text-muted">
+                    Tiến độ học tập
+                  </small>
+
+                  <div class="progress mt-1" style="height: 6px;">
+                    <div
+                      class="progress-bar bg-primary"
+                      :style="{ width: student.progress + '%' }"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                  <small class="text-muted">
+                    Điểm phát âm
+                  </small>
+
+                  <small class="fw-bold text-success">
+                    {{ student.score }}/100
+                  </small>
+                </div>
               </div>
-
-              <span
-                class="badge px-3 py-2"
-                :class="student.status === 'Tốt' ? 'bg-success' : 'bg-warning text-dark'"
-              >
-                {{ student.status }}
-              </span>
-            </div>
-
-            <div class="mb-2">
-              <small class="text-muted">
-                Tiến độ học tập
-              </small>
-
-              <div class="progress mt-1" style="height: 6px;">
-                <div
-                  class="progress-bar bg-primary"
-                  :style="{ width: student.progress + '%' }"
-                ></div>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between mt-3">
-              <small class="text-muted">
-                Điểm phát âm
-              </small>
-
-              <small class="fw-bold text-success">
-                {{ student.score }}/100
-              </small>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-
-    <!-- ÂM LỖI PHỔ BIẾN -->
-    <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
-      <div class="fw-bold mb-3">
-        Âm lỗi phổ biến
-      </div>
-
-      <div
-        v-for="error in commonErrors"
-        :key="error.id"
-        class="bg-white rounded-4 border p-3 mb-3"
-      >
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div>
-            <div class="fw-bold">
-              {{ error.sound }}
-            </div>
-
-            <small class="text-muted">
-              {{ error.description }}
-            </small>
-          </div>
-
-          <span class="badge bg-warning text-dark px-3 py-2">
-            {{ error.total }} học sinh
-          </span>
-        </div>
-
-        <div class="progress" style="height: 6px;">
-          <div
-            class="progress-bar bg-warning"
-            :style="{ width: error.percent + '%' }"
-          ></div>
         </div>
       </div>
     </div>
 
-    <!-- NÚT ĐIỀU HƯỚNG -->
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">
+          Âm lỗi phổ biến
+        </h6>
+
+        <div
+          v-for="error in commonErrors"
+          :key="error.id"
+          class="border rounded p-3 mb-3"
+        >
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <div class="fw-bold">
+                {{ error.sound }}
+              </div>
+
+              <small class="text-muted">
+                {{ error.description }}
+              </small>
+            </div>
+
+            <span class="badge bg-warning-subtle text-warning px-3 py-2">
+              {{ error.total }} học sinh
+            </span>
+          </div>
+
+          <div class="progress" style="height: 6px;">
+            <div
+              class="progress-bar bg-warning"
+              :style="{ width: error.percent + '%' }"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row g-3">
 
       <div class="col-md-3">
         <button
-          class="btn btn-primary w-100 rounded-4 py-3"
+          class="btn btn-primary w-100 rounded py-3"
           @click="goToLessonList"
         >
           Quản lý bài học
@@ -184,7 +193,7 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToPracticeBuilder"
         >
           Tạo bài luyện tập
@@ -193,7 +202,7 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToStudentList"
         >
           Quản lý học sinh
@@ -202,7 +211,7 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToRecommendation"
         >
           Gợi ý luyện tập
@@ -227,7 +236,6 @@ export default {
         pendingLessons: 3
       },
 
-      // dữ liệu học sinh từ bảng người dùng + tiến độ học tập
       students: [
         {
           id: 1,
@@ -255,7 +263,6 @@ export default {
         }
       ],
 
-      // dữ liệu lỗi phổ biến từ AI
       commonErrors: [
         {
           id: 1,
@@ -305,17 +312,11 @@ export default {
 </script>
 
 <style scoped>
-.teacher-dashboard {
-  background-color: #f9fbfd;
+.container-fluid {
   min-height: 100vh;
 }
 
-.student-card {
+.cursor-pointer {
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.student-card:hover {
-  transform: translateY(-4px);
 }
 </style>

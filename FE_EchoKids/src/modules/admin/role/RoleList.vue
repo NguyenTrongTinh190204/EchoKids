@@ -1,67 +1,70 @@
 <template>
-  <div class="container-fluid py-4 role-page">
+  <div class="container-fluid py-4">
 
-    <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Danh sách vai trò
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Danh sách vai trò</h4>
+        <p class="text-muted mb-0">
           Quản lý vai trò và quyền trong hệ thống
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-primary rounded-pill px-4"
+        class="btn btn-primary rounded px-4"
         @click="goToPermissionMatrix"
       >
         Phân quyền
       </button>
     </div>
 
-    <!-- THỐNG KÊ -->
     <div class="row g-3 mb-4">
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Tổng vai trò</small>
-          <div class="fw-bold fs-3 text-primary">
-            {{ summary.totalRoles }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Tổng vai trò</small>
+            <h3 class="fw-bold text-primary mt-2 mb-0">
+              {{ summary.totalRoles }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Người dùng hoạt động</small>
-          <div class="fw-bold fs-3 text-success">
-            {{ summary.activeUsers }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Người dùng hoạt động</small>
+            <h3 class="fw-bold text-success mt-2 mb-0">
+              {{ summary.activeUsers }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Vai trò hệ thống</small>
-          <div class="fw-bold fs-3 text-warning">
-            {{ summary.systemRoles }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Vai trò hệ thống</small>
+            <h3 class="fw-bold text-warning mt-2 mb-0">
+              {{ summary.systemRoles }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Quyền truy cập</small>
-          <div class="fw-bold fs-3 text-danger">
-            {{ summary.totalPermissions }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body text-center">
+            <small class="text-muted">Quyền truy cập</small>
+            <h3 class="fw-bold text-danger mt-2 mb-0">
+              {{ summary.totalPermissions }}
+            </h3>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- DANH SÁCH VAI TRÒ -->
     <div class="row g-4">
 
       <div
@@ -69,59 +72,61 @@
         :key="role.id"
         class="col-lg-4 col-md-6"
       >
-        <div class="bg-light rounded-4 p-4 shadow-sm h-100 role-card">
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
 
-          <div class="d-flex justify-content-between align-items-start mb-3">
-            <div>
-              <div class="fw-bold fs-5">
-                {{ role.name }}
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="fw-bold mb-1">
+                  {{ role.name }}
+                </h5>
+
+                <small class="text-muted">
+                  {{ role.description }}
+                </small>
               </div>
 
-              <small class="text-muted">
-                {{ role.description }}
-              </small>
-            </div>
-
-            <span
-              class="badge px-3 py-2"
-              :class="getRoleClass(role.name)"
-            >
-              {{ role.totalUsers }} người
-            </span>
-          </div>
-
-          <div class="mb-3">
-            <small class="text-muted d-block mb-2">
-              Quyền chính
-            </small>
-
-            <div class="d-flex flex-wrap gap-2">
               <span
-                v-for="permission in role.permissions"
-                :key="permission"
-                class="badge bg-white text-dark border px-3 py-2"
+                class="badge px-3 py-2"
+                :class="getRoleClass(role.name)"
               >
-                {{ permission }}
+                {{ role.totalUsers }} người
               </span>
             </div>
+
+            <div class="mb-3">
+              <small class="text-muted d-block mb-2">
+                Quyền chính
+              </small>
+
+              <div class="d-flex flex-wrap gap-2">
+                <span
+                  v-for="permission in role.permissions"
+                  :key="permission"
+                  class="badge bg-light text-dark border"
+                >
+                  {{ permission }}
+                </span>
+              </div>
+            </div>
+
+            <div class="border-top pt-3 d-flex gap-2">
+              <button
+                class="btn btn-outline-primary rounded flex-fill"
+                @click="goToPermission(role.id)"
+              >
+                Xem quyền
+              </button>
+
+              <button
+                class="btn btn-outline-secondary rounded flex-fill"
+                @click="editRole(role.id)"
+              >
+                Chỉnh sửa
+              </button>
+            </div>
+
           </div>
-
-          <div class="d-flex gap-2 mt-4">
-            <button
-              class="btn btn-outline-primary btn-sm rounded-pill flex-fill"
-              @click="goToPermission(role.id)"
-            >
-              Xem quyền
-            </button>
-
-            <button
-              class="btn btn-outline-secondary btn-sm rounded-pill flex-fill"
-              @click="editRole(role.id)"
-            >
-              Chỉnh sửa
-            </button>
-          </div>
-
         </div>
       </div>
 
@@ -195,18 +200,18 @@ export default {
   methods: {
     getRoleClass(role) {
       if (role === "Admin") {
-        return "bg-danger";
+        return "bg-danger-subtle text-danger";
       }
 
       if (role === "Giáo viên") {
-        return "bg-warning text-dark";
+        return "bg-warning-subtle text-warning";
       }
 
       if (role === "Phụ huynh") {
-        return "bg-success";
+        return "bg-success-subtle text-success";
       }
 
-      return "bg-primary";
+      return "bg-primary-subtle text-primary";
     },
 
     goToPermission(roleId) {
@@ -235,16 +240,7 @@ export default {
 </script>
 
 <style scoped>
-.role-page {
-  background-color: #f9fbfd;
+.container-fluid {
   min-height: 100vh;
-}
-
-.role-card {
-  transition: all 0.2s ease;
-}
-
-.role-card:hover {
-  transform: translateY(-4px);
 }
 </style>

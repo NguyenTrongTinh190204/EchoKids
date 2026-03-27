@@ -1,5 +1,6 @@
 <template>
-  <div class="vocabulary-management-page p-3 p-md-4">
+  <div class="container-fluid py-4">
+
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
         <h4 class="fw-bold mb-1">Quản lý từ vựng</h4>
@@ -8,50 +9,52 @@
         </p>
       </div>
 
-      <button class="btn btn-primary rounded-pill px-4" @click="goToCreateVocabulary">
+      <button class="btn btn-primary rounded px-4" @click="goToCreateVocabulary">
         Thêm từ vựng
       </button>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 p-3 mb-4">
-      <div class="row g-3">
-        <div class="col-12 col-md-4">
-          <input
-            type="text"
-            class="form-control rounded-pill"
-            placeholder="Tìm theo từ vựng..."
-            v-model="searchKeyword"
-          >
-        </div>
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Tìm theo từ vựng..."
+              v-model="searchKeyword"
+            >
+          </div>
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedCategory">
-            <option value="">Tất cả danh mục</option>
-            <option value="Động vật">Động vật</option>
-            <option value="Gia đình">Gia đình</option>
-            <option value="Màu sắc">Màu sắc</option>
-            <option value="Đồ vật">Đồ vật</option>
-          </select>
-        </div>
+          <div class="col-12 col-md-3">
+            <select class="form-select" v-model="selectedCategory">
+              <option value="">Tất cả danh mục</option>
+              <option value="Động vật">Động vật</option>
+              <option value="Gia đình">Gia đình</option>
+              <option value="Màu sắc">Màu sắc</option>
+              <option value="Đồ vật">Đồ vật</option>
+            </select>
+          </div>
 
-        <div class="col-12 col-md-3">
-          <select class="form-select rounded-pill" v-model="selectedLevel">
-            <option value="">Tất cả mức độ</option>
-            <option value="Dễ">Dễ</option>
-            <option value="Trung bình">Trung bình</option>
-            <option value="Khó">Khó</option>
-          </select>
-        </div>
+          <div class="col-12 col-md-3">
+            <select class="form-select" v-model="selectedLevel">
+              <option value="">Tất cả mức độ</option>
+              <option value="Dễ">Dễ</option>
+              <option value="Trung bình">Trung bình</option>
+              <option value="Khó">Khó</option>
+            </select>
+          </div>
 
-        <div class="col-12 col-md-2">
-          <button class="btn btn-light border rounded-pill w-100" @click="resetFilter">
-            Đặt lại
-          </button>
+          <div class="col-12 col-md-2">
+            <button class="btn btn-outline-secondary w-100 rounded" @click="resetFilter">
+              Đặt lại
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+    <div class="card border-0 shadow-sm rounded overflow-hidden">
       <div class="table-responsive">
         <table class="table align-middle mb-0">
           <thead class="table-light">
@@ -84,19 +87,19 @@
               </td>
 
               <td>
-                <span class="badge bg-info-subtle text-info rounded-pill">
+                <span class="badge bg-info-subtle text-info">
                   {{ vocabulary.category }}
                 </span>
               </td>
 
               <td>
-                <span class="badge rounded-pill" :class="getLevelClass(vocabulary.level)">
+                <span class="badge" :class="getLevelClass(vocabulary.level)">
                   {{ vocabulary.level }}
                 </span>
               </td>
 
               <td>
-                <span class="badge rounded-pill" :class="getStatusClass(vocabulary.status)">
+                <span class="badge" :class="getStatusClass(vocabulary.status)">
                   {{ vocabulary.status }}
                 </span>
               </td>
@@ -104,14 +107,14 @@
               <td class="text-end pe-4">
                 <div class="d-flex justify-content-end gap-2">
                   <button
-                    class="btn btn-light border rounded-pill px-3"
+                    class="btn btn-outline-primary btn-sm rounded"
                     @click="goToVocabularyDetail(vocabulary)"
                   >
                     Chi tiết
                   </button>
 
                   <button
-                    class="btn btn-primary rounded-pill px-3"
+                    class="btn btn-primary btn-sm rounded"
                     @click="goToVocabularyEdit(vocabulary)"
                   >
                     Chỉnh sửa
@@ -132,6 +135,7 @@
         </table>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -248,42 +252,7 @@ export default {
 </script>
 
 <style scoped>
-.vocabulary-management-page {
-  background-color: #f8f9fc;
+.container-fluid {
   min-height: 100vh;
-}
-
-.table th,
-.table td {
-  vertical-align: middle;
-}
-
-.table tbody tr {
-  transition: all 0.3s ease;
-}
-
-.table tbody tr:hover {
-  background-color: #f8fbff;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.form-control,
-.form-select {
-  height: 48px;
-  border: 1px solid #e5e7eb;
-}
-
-.form-control:focus,
-.form-select:focus {
-  box-shadow: none;
-  border-color: #4facfe;
 }
 </style>

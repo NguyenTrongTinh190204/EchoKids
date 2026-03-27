@@ -1,19 +1,16 @@
 <template>
-  <div class="container-fluid py-4 create-page">
+  <div class="container-fluid py-4">
 
-    <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Thêm từ vựng
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Thêm từ vựng</h4>
+        <p class="text-muted mb-0">
           Tạo từ vựng mới cho bài học
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-outline-primary rounded-pill"
+        class="btn btn-outline-primary rounded px-4"
         @click="goBack"
       >
         Quay lại
@@ -22,162 +19,171 @@
 
     <div class="row g-4">
 
-      <!-- FORM THÔNG TIN -->
       <div class="col-lg-8">
-        <div class="bg-light rounded-4 p-4 shadow-sm">
+        <div class="card border-0 shadow-sm rounded">
+          <div class="card-body">
 
-          <div class="fw-bold mb-3">
-            Thông tin từ vựng
-          </div>
+            <h6 class="fw-bold mb-3">
+              Thông tin từ vựng
+            </h6>
 
-          <div class="row g-3">
+            <div class="row g-3">
 
-            <div class="col-md-6">
-              <label class="form-label">
-                Từ vựng
-              </label>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Từ vựng
+                </label>
 
-              <input
-                type="text"
-                class="form-control rounded-4"
-                placeholder="Nhập từ vựng"
-                v-model="word.ten_tu"
-              >
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">
-                Chủ đề
-              </label>
-
-              <select
-                class="form-select rounded-4"
-                v-model="word.danh_muc_id"
-              >
-                <option value="">Chọn chủ đề</option>
-                <option
-                  v-for="subject in subjects"
-                  :key="subject.id"
-                  :value="subject.id"
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nhập từ vựng"
+                  v-model="word.ten_tu"
                 >
-                  {{ subject.ten_danh_muc }}
-                </option>
-              </select>
-            </div>
+              </div>
 
-            <div class="col-md-6">
-              <label class="form-label">
-                Loại lỗi phát âm
-              </label>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Chủ đề
+                </label>
 
-              <select
-                class="form-select rounded-4"
-                v-model="word.loi_phat_am"
-              >
-                <option value="">Chọn loại lỗi</option>
-                <option value="Âm đầu">Âm đầu</option>
-                <option value="Vần">Vần</option>
-                <option value="Thanh điệu">Thanh điệu</option>
-              </select>
-            </div>
+                <select
+                  class="form-select"
+                  v-model="word.danh_muc_id"
+                >
+                  <option value="">Chọn chủ đề</option>
 
-            <div class="col-md-6">
-              <label class="form-label">
-                Mức độ
-              </label>
+                  <option
+                    v-for="subject in subjects"
+                    :key="subject.id"
+                    :value="subject.id"
+                  >
+                    {{ subject.ten_danh_muc }}
+                  </option>
+                </select>
+              </div>
 
-              <select
-                class="form-select rounded-4"
-                v-model="word.cap_do"
-              >
-                <option value="">Chọn mức độ</option>
-                <option value="Dễ">Dễ</option>
-                <option value="Trung bình">Trung bình</option>
-                <option value="Khó">Khó</option>
-              </select>
-            </div>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Loại lỗi phát âm
+                </label>
 
-            <div class="col-md-6">
-              <label class="form-label">
-                Hình ảnh
-              </label>
+                <select
+                  class="form-select"
+                  v-model="word.loi_phat_am"
+                >
+                  <option value="">Chọn loại lỗi</option>
+                  <option value="Âm đầu">Âm đầu</option>
+                  <option value="Vần">Vần</option>
+                  <option value="Thanh điệu">Thanh điệu</option>
+                </select>
+              </div>
 
-              <input
-                type="file"
-                class="form-control rounded-4"
-                @change="handleImageUpload"
-              >
-            </div>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Mức độ
+                </label>
 
-            <div class="col-md-6">
-              <label class="form-label">
-                Audio mẫu
-              </label>
+                <select
+                  class="form-select"
+                  v-model="word.cap_do"
+                >
+                  <option value="">Chọn mức độ</option>
+                  <option value="Dễ">Dễ</option>
+                  <option value="Trung bình">Trung bình</option>
+                  <option value="Khó">Khó</option>
+                </select>
+              </div>
 
-              <input
-                type="file"
-                class="form-control rounded-4"
-                @change="handleAudioUpload"
-              >
-            </div>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Hình ảnh
+                </label>
 
-            <div class="col-12">
-              <label class="form-label">
-                Mô tả
-              </label>
+                <input
+                  type="file"
+                  class="form-control"
+                  @change="handleImageUpload"
+                >
+              </div>
 
-              <textarea
-                class="form-control rounded-4"
-                rows="4"
-                placeholder="Nhập mô tả từ vựng"
-                v-model="word.mo_ta"
-              ></textarea>
+              <div class="col-md-6">
+                <label class="form-label">
+                  Audio mẫu
+                </label>
+
+                <input
+                  type="file"
+                  class="form-control"
+                  @change="handleAudioUpload"
+                >
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">
+                  Mô tả
+                </label>
+
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  placeholder="Nhập mô tả từ vựng"
+                  v-model="word.mo_ta"
+                ></textarea>
+              </div>
+
             </div>
 
           </div>
         </div>
       </div>
 
-      <!-- XEM TRƯỚC -->
       <div class="col-lg-4">
-        <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
 
-          <div class="fw-bold mb-3">
-            Xem trước
-          </div>
+        <div class="card border-0 shadow-sm rounded mb-4">
+          <div class="card-body">
 
-          <div class="bg-white rounded-4 border p-3 text-center">
-            <img
-              :src="previewImage"
-              alt="Preview"
-              class="img-fluid rounded-4 border mb-3 preview-image"
-            >
+            <h6 class="fw-bold mb-3">
+              Xem trước
+            </h6>
 
-            <div class="fw-bold mb-1">
-              {{ word.ten_tu || 'Tên từ vựng' }}
+            <div class="border rounded p-3 text-center">
+              <img
+                :src="previewImage"
+                alt="Preview"
+                class="img-fluid rounded border mb-3 preview-image"
+              >
+
+              <div class="fw-bold mb-1">
+                {{ word.ten_tu || 'Tên từ vựng' }}
+              </div>
+
+              <small class="text-muted">
+                {{ word.loi_phat_am || 'Loại lỗi phát âm' }}
+              </small>
             </div>
 
-            <small class="text-muted">
-              {{ word.loi_phat_am || 'Loại lỗi phát âm' }}
-            </small>
           </div>
         </div>
 
-        <div class="bg-light rounded-4 p-4 shadow-sm">
-          <button
-            class="btn btn-primary w-100 rounded-pill mb-3"
-            @click="saveWord"
-          >
-            Lưu từ vựng
-          </button>
+        <div class="card border-0 shadow-sm rounded">
+          <div class="card-body">
+            <button
+              class="btn btn-primary w-100 rounded mb-3"
+              @click="saveWord"
+            >
+              Lưu từ vựng
+            </button>
 
-          <button
-            class="btn btn-outline-primary w-100 rounded-pill"
-            @click="saveAndContinue"
-          >
-            Lưu và thêm tiếp
-          </button>
+            <button
+              class="btn btn-outline-primary w-100 rounded"
+              @click="saveAndContinue"
+            >
+              Lưu và thêm tiếp
+            </button>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -193,7 +199,6 @@ export default {
     return {
       previewImage: "https://via.placeholder.com/250x200",
 
-      // dữ liệu form từ vựng
       word: {
         ten_tu: "",
         danh_muc_id: "",
@@ -204,7 +209,6 @@ export default {
         audio: null
       },
 
-      // dữ liệu từ bảng danh_muc_bai_hoc
       subjects: [
         {
           id: 1,
@@ -270,11 +274,6 @@ export default {
 </script>
 
 <style scoped>
-.create-page {
-  background-color: #f9fbfd;
-  min-height: 100vh;
-}
-
 .preview-image {
   width: 100%;
   height: 220px;

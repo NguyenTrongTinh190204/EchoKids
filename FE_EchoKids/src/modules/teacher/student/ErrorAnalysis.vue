@@ -1,6 +1,7 @@
 <template>
-  <div class="error-analysis-wrapper">
-    <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+  <div class="card border-0 shadow-sm rounded">
+    <div class="card-body">
+
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h5 class="fw-bold mb-1">Phân tích lỗi phát âm</h5>
@@ -9,7 +10,10 @@
           </p>
         </div>
 
-        <button class="btn btn-light rounded-pill px-3" @click="goToReport">
+        <button
+          class="btn btn-outline-primary btn-sm rounded"
+          @click="goToReport"
+        >
           Xem báo cáo
         </button>
       </div>
@@ -20,14 +24,20 @@
           v-for="error in errorList"
           :key="error.id"
         >
-          <div class="error-card border rounded-4 p-3 h-100 bg-light">
+          <div class="border rounded p-3 h-100 error-card">
             <div class="d-flex justify-content-between align-items-start mb-3">
               <div>
-                <span class="badge rounded-pill mb-2" :class="error.badgeClass">
+                <span
+                  class="badge mb-2"
+                  :class="error.badgeClass"
+                >
                   {{ error.level }}
                 </span>
 
-                <h6 class="fw-bold mb-1">{{ error.sound }}</h6>
+                <h6 class="fw-bold mb-1">
+                  {{ error.sound }}
+                </h6>
+
                 <p class="text-muted small mb-0">
                   {{ error.description }}
                 </p>
@@ -44,24 +54,27 @@
                 <span class="fw-semibold">{{ error.percent }}%</span>
               </div>
 
-              <div class="progress rounded-pill" style="height: 8px;">
+              <div class="progress" style="height: 8px;">
                 <div
-                  class="progress-bar rounded-pill"
+                  class="progress-bar"
                   :class="error.progressClass"
                   :style="{ width: error.percent + '%' }"
                 ></div>
               </div>
             </div>
 
-            <div class="bg-white rounded-4 p-3 border">
-              <p class="small text-muted mb-1">Ví dụ lỗi thường gặp</p>
+            <div class="border rounded p-3 mb-3">
+              <p class="small text-muted mb-1">
+                Ví dụ lỗi thường gặp
+              </p>
+
               <p class="fw-semibold mb-0">
                 {{ error.example }}
               </p>
             </div>
 
             <button
-              class="btn btn-primary w-100 rounded-pill mt-3"
+              class="btn btn-primary w-100 rounded"
               @click="goToPractice(error)"
             >
               Luyện lại âm này
@@ -69,6 +82,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -127,48 +141,24 @@ export default {
 </script>
 
 <style scoped>
-.error-analysis-wrapper {
-  width: 100%;
-}
-
 .error-card {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .error-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  background-color: #ffffff !important;
+  transform: translateY(-3px);
 }
 
 .error-percent {
   min-width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff8a8a, #ff5c5c);
+  background-color: #dc3545;
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(255, 92, 92, 0.25);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #4facfe, #00c6ff);
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-@media (max-width: 768px) {
-  .error-percent {
-    min-width: 50px;
-    height: 50px;
-    font-size: 12px;
-  }
 }
 </style>

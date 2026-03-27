@@ -1,19 +1,17 @@
 <template>
-  <div class="container-fluid py-4 admin-dashboard">
+  <div class="container-fluid py-4">
 
     <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
-        <h4 class="fw-bold text-primary mb-1">
-          Dashboard quản trị
-        </h4>
-        <small class="text-muted">
+        <h4 class="fw-bold mb-1">Dashboard quản trị</h4>
+        <p class="text-muted mb-0">
           Theo dõi tổng quan hệ thống Speech Therapy
-        </small>
+        </p>
       </div>
 
       <button
-        class="btn btn-primary rounded-pill px-4"
+        class="btn btn-primary rounded px-4"
         @click="goToUserList"
       >
         Quản lý người dùng
@@ -24,37 +22,45 @@
     <div class="row g-3 mb-4">
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Tổng người dùng</small>
-          <div class="fw-bold fs-3 text-primary">
-            {{ summary.totalUsers }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <small class="text-muted">Tổng người dùng</small>
+            <h3 class="mt-2 mb-0 text-primary fw-bold">
+              {{ summary.totalUsers }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Phụ huynh</small>
-          <div class="fw-bold fs-3 text-success">
-            {{ summary.totalParents }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <small class="text-muted">Phụ huynh</small>
+            <h3 class="mt-2 mb-0 text-success fw-bold">
+              {{ summary.totalParents }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Giáo viên</small>
-          <div class="fw-bold fs-3 text-warning">
-            {{ summary.totalTeachers }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <small class="text-muted">Giáo viên</small>
+            <h3 class="mt-2 mb-0 text-warning fw-bold">
+              {{ summary.totalTeachers }}
+            </h3>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
-          <small class="text-muted">Trẻ em</small>
-          <div class="fw-bold fs-3 text-danger">
-            {{ summary.totalChildren }}
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <small class="text-muted">Trẻ em</small>
+            <h3 class="mt-2 mb-0 text-danger fw-bold">
+              {{ summary.totalChildren }}
+            </h3>
           </div>
         </div>
       </div>
@@ -65,105 +71,90 @@
     <div class="row g-4 mb-4">
 
       <div class="col-lg-8">
-        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
-          <div class="fw-bold mb-3">
-            Thống kê hệ thống
-          </div>
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="fw-bold mb-0">Thống kê hệ thống</h6>
+            </div>
 
-          <div class="row g-3">
-
-            <div class="col-md-4">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-primary">
-                  {{ systemStats.totalLessons }}
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div class="border rounded p-3 text-center h-100">
+                  <h4 class="fw-bold text-primary mb-1">
+                    {{ systemStats.totalLessons }}
+                  </h4>
+                  <small class="text-muted">Bài học</small>
                 </div>
+              </div>
 
-                <small class="text-muted">
-                  Bài học
-                </small>
+              <div class="col-md-4">
+                <div class="border rounded p-3 text-center h-100">
+                  <h4 class="fw-bold text-success mb-1">
+                    {{ systemStats.totalPractices }}
+                  </h4>
+                  <small class="text-muted">Bài luyện tập</small>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="border rounded p-3 text-center h-100">
+                  <h4 class="fw-bold text-warning mb-1">
+                    {{ systemStats.totalVocabulary }}
+                  </h4>
+                  <small class="text-muted">Từ vựng</small>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-success">
-                  {{ systemStats.totalPractices }}
-                </div>
-
-                <small class="text-muted">
-                  Bài luyện tập
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <small class="text-muted">Tần suất sử dụng hệ thống</small>
+                <small class="fw-bold text-primary">
+                  {{ systemStats.usageRate }}%
                 </small>
               </div>
-            </div>
 
-            <div class="col-md-4">
-              <div class="bg-white rounded-4 border p-3 text-center">
-                <div class="fw-bold fs-4 text-warning">
-                  {{ systemStats.totalVocabulary }}
-                </div>
-
-                <small class="text-muted">
-                  Từ vựng
-                </small>
+              <div class="progress" style="height: 8px;">
+                <div
+                  class="progress-bar"
+                  :style="{ width: systemStats.usageRate + '%' }"
+                ></div>
               </div>
-            </div>
-
-          </div>
-
-          <div class="mt-4">
-            <div class="d-flex justify-content-between mb-2">
-              <small class="text-muted">
-                Tần suất sử dụng hệ thống
-              </small>
-
-              <small class="fw-bold text-primary">
-                {{ systemStats.usageRate }}%
-              </small>
-            </div>
-
-            <div class="progress" style="height: 8px;">
-              <div
-                class="progress-bar bg-primary"
-                :style="{ width: systemStats.usageRate + '%' }"
-              ></div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-lg-4">
-        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
-          <div class="fw-bold mb-3">
-            Dữ liệu AI
-          </div>
+        <div class="card border-0 shadow-sm rounded h-100">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">Dữ liệu AI</h6>
 
-          <div class="bg-white rounded-4 border p-3 mb-3">
-            <small class="text-muted d-block">
-              Tổng lượt chấm điểm
-            </small>
-
-            <div class="fw-bold fs-4 text-success">
-              {{ aiStats.totalAnalysis }}
+            <div class="border rounded p-3 mb-3">
+              <small class="text-muted d-block mb-1">
+                Tổng lượt chấm điểm
+              </small>
+              <h4 class="fw-bold text-success mb-0">
+                {{ aiStats.totalAnalysis }}
+              </h4>
             </div>
-          </div>
 
-          <div class="bg-white rounded-4 border p-3 mb-3">
-            <small class="text-muted d-block">
-              Âm lỗi phổ biến
-            </small>
-
-            <div class="fw-bold fs-5 text-warning">
-              {{ aiStats.commonError }}
+            <div class="border rounded p-3 mb-3">
+              <small class="text-muted d-block mb-1">
+                Âm lỗi phổ biến
+              </small>
+              <h5 class="fw-bold text-warning mb-0">
+                {{ aiStats.commonError }}
+              </h5>
             </div>
-          </div>
 
-          <div class="bg-white rounded-4 border p-3">
-            <small class="text-muted d-block">
-              Độ chính xác AI
-            </small>
-
-            <div class="fw-bold fs-4 text-primary">
-              {{ aiStats.accuracy }}%
+            <div class="border rounded p-3">
+              <small class="text-muted d-block mb-1">
+                Độ chính xác AI
+              </small>
+              <h4 class="fw-bold text-primary mb-0">
+                {{ aiStats.accuracy }}%
+              </h4>
             </div>
           </div>
         </div>
@@ -172,49 +163,48 @@
     </div>
 
     <!-- HOẠT ĐỘNG GẦN ĐÂY -->
-    <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <div class="fw-bold">
-          Hoạt động gần đây
+    <div class="card border-0 shadow-sm rounded mb-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="fw-bold mb-0">Hoạt động gần đây</h6>
+
+          <button
+            class="btn btn-outline-primary btn-sm rounded"
+            @click="goToSystemStats"
+          >
+            Xem tất cả
+          </button>
         </div>
 
-        <button
-          class="btn btn-outline-primary btn-sm rounded-pill"
-          @click="goToSystemStats"
+        <div
+          v-for="activity in activities"
+          :key="activity.id"
+          class="border rounded p-3 mb-3"
         >
-          Xem tất cả
-        </button>
-      </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="fw-bold mb-1">
+                {{ activity.title }}
+              </div>
 
-      <div
-        v-for="activity in activities"
-        :key="activity.id"
-        class="bg-white rounded-4 border p-3 mb-3"
-      >
-        <div class="d-flex justify-content-between align-items-start">
-          <div>
-            <div class="fw-bold">
-              {{ activity.title }}
+              <small class="text-muted">
+                {{ activity.description }}
+              </small>
             </div>
 
-            <small class="text-muted">
-              {{ activity.description }}
+            <small class="text-muted text-nowrap ms-3">
+              {{ activity.time }}
             </small>
           </div>
-
-          <small class="text-muted">
-            {{ activity.time }}
-          </small>
         </div>
       </div>
     </div>
 
     <!-- NÚT ĐIỀU HƯỚNG -->
     <div class="row g-3">
-
       <div class="col-md-3">
         <button
-          class="btn btn-primary w-100 rounded-4 py-3"
+          class="btn btn-primary w-100 rounded py-3"
           @click="goToUserList"
         >
           Người dùng
@@ -223,7 +213,7 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToLessonManagement"
         >
           Nội dung
@@ -232,7 +222,7 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToTeacherManagement"
         >
           Giáo viên
@@ -241,13 +231,12 @@
 
       <div class="col-md-3">
         <button
-          class="btn btn-outline-primary w-100 rounded-4 py-3"
+          class="btn btn-outline-primary w-100 rounded py-3"
           @click="goToAIStats"
         >
           AI Monitor
         </button>
       </div>
-
     </div>
 
   </div>
@@ -327,8 +316,7 @@ export default {
 </script>
 
 <style scoped>
-.admin-dashboard {
-  background-color: #f9fbfd;
+.container-fluid {
   min-height: 100vh;
 }
 </style>
