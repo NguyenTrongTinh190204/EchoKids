@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ChatBox from './components/Client/ChatBox/index.vue';
+import ChatBox from './modules/child/chatbox/ChatBox.vue';
 
 const default_layout = "client";
 
