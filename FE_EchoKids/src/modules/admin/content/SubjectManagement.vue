@@ -1,241 +1,267 @@
 <template>
-  <div>
-    <div class="container-fluid">
-
-      <!-- HEADER -->
-      <div class="card p-3 mb-4">
-        <h5 class="mb-1">Quản lý từ vựng</h5>
-        <small class="text-muted">
-          Quản lý từ tiếng Việt, hình ảnh và âm thanh phục vụ luyện phát âm
-        </small>
+  <div class="subject-management-page p-3 p-md-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h4 class="fw-bold mb-1">Quản lý danh mục bài học</h4>
+        <p class="text-muted mb-0">
+          Quản lý các danh mục bài học trong hệ thống Speech Therapy
+        </p>
       </div>
 
-      <!-- ACTION BAR -->
-      <div class="card p-3 mb-4">
-        <div class="d-flex justify-content-between align-items-center">
+      <button class="btn btn-primary rounded-pill px-4" @click="goToCreateSubject">
+        Thêm danh mục
+      </button>
+    </div>
 
-          <div>
-            <button class="btn btn-primary me-2">
-              ➕ Thêm từ
-            </button>
-
-            <button class="btn btn-success">
-              🔄 Làm mới
-            </button>
-          </div>
-
-          <div class="w-25">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="🔍 Tìm từ vựng..."
-            />
-          </div>
-
-        </div>
-      </div>
-
-      <!-- TABLE -->
-      <div class="card p-3">
-        <h6 class="mb-3">Danh sách từ vựng</h6>
-
-        <table class="table table-hover align-middle">
-
-          <thead class="table-light">
-            <tr>
-              <th>#</th>
-              <th>Từ vựng</th>
-              <th>Hình ảnh</th>
-              <th>Âm thanh</th>
-              <th>Chủ đề</th>
-              <th>Mức độ</th>
-              <th>Trạng thái</th>
-              <th class="text-center">Thao tác</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <!-- ITEM 1 -->
-            <tr>
-              <td>1</td>
-
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar bg-primary text-white me-2">
-                    M
-                  </div>
-                  <div>
-                    <div class="fw-semibold">Mẹ</div>
-                    <small class="text-muted">Âm: /me/</small>
-                  </div>
-                </div>
-              </td>
-
-              <td>
-                <img src="https://via.placeholder.com/50" class="rounded" />
-              </td>
-
-              <td>
-                <audio controls style="width: 120px">
-                  <source src="" />
-                </audio>
-              </td>
-
-              <td>
-                <span class="badge bg-info">Gia đình</span>
-              </td>
-
-              <td>
-                <span class="badge bg-success">Dễ</span>
-              </td>
-
-              <td>
-                <span class="badge bg-success">Hoạt động</span>
-              </td>
-
-              <td class="text-center">
-                <button class="btn btn-warning btn-sm me-1">
-                  ✏️ Sửa
-                </button>
-                <button class="btn btn-danger btn-sm">
-                  🗑️ Xóa
-                </button>
-              </td>
-            </tr>
-
-            <!-- ITEM 2 -->
-            <tr>
-              <td>2</td>
-
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar bg-warning text-dark me-2">
-                    B
-                  </div>
-                  <div>
-                    <div class="fw-semibold">Bàn</div>
-                    <small class="text-muted">Âm: /ban/</small>
-                  </div>
-                </div>
-              </td>
-
-              <td>
-                <img src="https://via.placeholder.com/50" class="rounded" />
-              </td>
-
-              <td>
-                <audio controls style="width: 120px"></audio>
-              </td>
-
-              <td>
-                <span class="badge bg-info">Đồ vật</span>
-              </td>
-
-              <td>
-                <span class="badge bg-warning text-dark">Trung bình</span>
-              </td>
-
-              <td>
-                <span class="badge bg-danger">Ẩn</span>
-              </td>
-
-              <td class="text-center">
-                <button class="btn btn-warning btn-sm me-1">
-                  ✏️ Sửa
-                </button>
-                <button class="btn btn-danger btn-sm">
-                  🗑️ Xóa
-                </button>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-      <!-- FORM -->
-      <div class="card p-3 mt-4">
-        <h6 class="mb-3">Thêm / chỉnh sửa từ vựng</h6>
-
-        <div class="row">
-
-          <div class="col-md-4">
-            <label class="form-label">Từ vựng</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Ví dụ: Mẹ"
-            />
-          </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Phiên âm</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="/me/"
-            />
-          </div>
-
-          <div class="col-md-4">
-            <label class="form-label">Chủ đề</label>
-            <select class="form-control">
-              <option>Gia đình</option>
-              <option>Đồ vật</option>
-              <option>Động vật</option>
-              <option>Màu sắc</option>
-            </select>
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label class="form-label">Mức độ</label>
-            <select class="form-control">
-              <option>Dễ</option>
-              <option>Trung bình</option>
-              <option>Khó</option>
-            </select>
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label class="form-label">Ảnh minh họa</label>
-            <input type="file" class="form-control" />
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label class="form-label">Audio mẫu</label>
-            <input type="file" class="form-control" />
-          </div>
-
+    <div class="card border-0 shadow-sm rounded-4 p-3 mb-4">
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <input
+            type="text"
+            class="form-control rounded-pill"
+            placeholder="Tìm theo tên danh mục..."
+            v-model="searchKeyword"
+          >
         </div>
 
-        <div class="mt-3">
-          <button class="btn btn-primary me-2">
-            💾 Lưu
-          </button>
+        <div class="col-12 col-md-3">
+          <select class="form-select rounded-pill" v-model="selectedStatus">
+            <option value="">Tất cả trạng thái</option>
+            <option value="Đang hoạt động">Đang hoạt động</option>
+            <option value="Tạm ẩn">Tạm ẩn</option>
+          </select>
+        </div>
 
-          <button class="btn btn-secondary">
-            Hủy
+        <div class="col-12 col-md-3">
+          <select class="form-select rounded-pill" v-model="selectedLevel">
+            <option value="">Tất cả mức độ</option>
+            <option value="Dễ">Dễ</option>
+            <option value="Trung bình">Trung bình</option>
+            <option value="Khó">Khó</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-2">
+          <button class="btn btn-light border rounded-pill w-100" @click="resetFilter">
+            Đặt lại
           </button>
         </div>
-
       </div>
+    </div>
 
+    <div class="row g-4">
+      <div
+        class="col-12 col-md-6 col-xl-4"
+        v-for="subject in filteredSubjectList"
+        :key="subject.id"
+      >
+        <div class="card border-0 shadow-sm rounded-4 p-3 h-100 subject-card">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+              <span class="badge bg-primary-subtle text-primary rounded-pill mb-2">
+                {{ subject.totalLessons }} bài học
+              </span>
+
+              <h5 class="fw-bold mb-1">{{ subject.name }}</h5>
+              <p class="text-muted small mb-0">
+                {{ subject.description }}
+              </p>
+            </div>
+
+            <span class="badge rounded-pill" :class="getStatusClass(subject.status)">
+              {{ subject.status }}
+            </span>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted small">Mức độ</span>
+              <span class="badge rounded-pill" :class="getLevelClass(subject.level)">
+                {{ subject.level }}
+              </span>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-muted small">Từ vựng</span>
+              <span class="fw-semibold">{{ subject.totalVocabulary }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <span class="text-muted small">Bài luyện tập</span>
+              <span class="fw-semibold">{{ subject.totalExercises }}</span>
+            </div>
+          </div>
+
+          <div class="border-top pt-3 d-flex gap-2">
+            <button
+              class="btn btn-light border rounded-pill flex-fill"
+              @click="goToSubjectDetail(subject)"
+            >
+              Chi tiết
+            </button>
+
+            <button
+              class="btn btn-primary rounded-pill flex-fill"
+              @click="goToSubjectEdit(subject)"
+            >
+              Chỉnh sửa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      v-if="filteredSubjectList.length === 0"
+      class="card border-0 shadow-sm rounded-4 p-5 text-center"
+    >
+      <h6 class="fw-bold mb-2">Không tìm thấy danh mục phù hợp</h6>
+      <p class="text-muted mb-0">
+        Vui lòng thử lại với bộ lọc khác
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'SubjectManagement',
+
+  data() {
+    return {
+      searchKeyword: '',
+      selectedStatus: '',
+      selectedLevel: '',
+      subjectList: [
+        {
+          id: 1,
+          name: 'Phát âm cơ bản',
+          description: 'Danh mục luyện các âm đơn giản và từ ngắn cho trẻ mới bắt đầu.',
+          totalLessons: 12,
+          totalVocabulary: 48,
+          totalExercises: 20,
+          level: 'Dễ',
+          status: 'Đang hoạt động'
+        },
+        {
+          id: 2,
+          name: 'Nhận diện từ vựng',
+          description: 'Giúp trẻ nhận biết từ vựng qua hình ảnh và âm thanh.',
+          totalLessons: 10,
+          totalVocabulary: 35,
+          totalExercises: 16,
+          level: 'Trung bình',
+          status: 'Đang hoạt động'
+        },
+        {
+          id: 3,
+          name: 'Luyện câu giao tiếp',
+          description: 'Hỗ trợ trẻ luyện nói các câu giao tiếp đơn giản hằng ngày.',
+          totalLessons: 8,
+          totalVocabulary: 22,
+          totalExercises: 14,
+          level: 'Khó',
+          status: 'Tạm ẩn'
+        }
+      ]
+    }
+  },
+
+  computed: {
+    filteredSubjectList() {
+      return this.subjectList.filter(subject => {
+        const matchKeyword = subject.name
+          .toLowerCase()
+          .includes(this.searchKeyword.toLowerCase())
+
+        const matchStatus = this.selectedStatus
+          ? subject.status === this.selectedStatus
+          : true
+
+        const matchLevel = this.selectedLevel
+          ? subject.level === this.selectedLevel
+          : true
+
+        return matchKeyword && matchStatus && matchLevel
+      })
+    }
+  },
+
+  methods: {
+    resetFilter() {
+      this.searchKeyword = ''
+      this.selectedStatus = ''
+      this.selectedLevel = ''
+    },
+
+    getStatusClass(status) {
+      if (status === 'Đang hoạt động') {
+        return 'bg-success-subtle text-success'
+      }
+
+      return 'bg-secondary-subtle text-secondary'
+    },
+
+    getLevelClass(level) {
+      if (level === 'Dễ') {
+        return 'bg-success-subtle text-success'
+      }
+
+      if (level === 'Trung bình') {
+        return 'bg-warning-subtle text-warning'
+      }
+
+      return 'bg-danger-subtle text-danger'
+    },
+
+    goToCreateSubject() {
+      this.$router.push('/admin/subject-create')
+    },
+
+    goToSubjectDetail(subject) {
+      this.$router.push(`/admin/subject-detail/${subject.id}`)
+    },
+
+    goToSubjectEdit(subject) {
+      this.$router.push(`/admin/subject-edit/${subject.id}`)
+    }
+  }
+}
 </script>
 
 <style scoped>
-.avatar {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.subject-management-page {
+  background-color: #f8f9fc;
+  min-height: 100vh;
+}
+
+.subject-card {
+  transition: all 0.3s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4facfe, #00c6ff);
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.form-control,
+.form-select {
+  height: 48px;
+  border: 1px solid #e5e7eb;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color: #4facfe;
 }
 </style>

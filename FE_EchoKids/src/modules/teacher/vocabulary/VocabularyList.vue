@@ -1,0 +1,288 @@
+<template>
+  <div class="container-fluid py-4 vocabulary-page">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h4 class="fw-bold text-primary mb-1">
+          Danh sách từ vựng
+        </h4>
+        <small class="text-muted">
+          Quản lý từ vựng, hình ảnh và lỗi phát âm
+        </small>
+      </div>
+
+      <button
+        class="btn btn-primary rounded-pill px-4"
+        @click="goToCreateVocabulary"
+      >
+        Thêm từ vựng
+      </button>
+    </div>
+
+    <!-- BỘ LỌC -->
+    <div class="bg-light rounded-4 p-3 shadow-sm mb-4">
+      <div class="row g-3">
+
+        <div class="col-md-4">
+          <label class="form-label small text-muted">
+            Chủ đề
+          </label>
+
+          <select
+            class="form-select rounded-4"
+            v-model="filters.subject"
+          >
+            <option value="">Tất cả chủ đề</option>
+            <option value="Âm cơ bản">Âm cơ bản</option>
+            <option value="Âm khó">Âm khó</option>
+            <option value="Nghe hiểu">Nghe hiểu</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label small text-muted">
+            Loại lỗi
+          </label>
+
+          <select
+            class="form-select rounded-4"
+            v-model="filters.errorType"
+          >
+            <option value="">Tất cả lỗi</option>
+            <option value="Âm đầu">Âm đầu</option>
+            <option value="Vần">Vần</option>
+            <option value="Thanh điệu">Thanh điệu</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label small text-muted">
+            Tìm kiếm
+          </label>
+
+          <input
+            type="text"
+            class="form-control rounded-4"
+            placeholder="Nhập từ vựng"
+            v-model="filters.keyword"
+          >
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DANH SÁCH TỪ VỰNG -->
+    <div class="bg-light rounded-4 p-4 shadow-sm">
+
+      <div
+        v-for="word in filteredWords"
+        :key="word.id"
+        class="bg-white rounded-4 border p-3 mb-3 vocabulary-card"
+      >
+        <div class="row align-items-center">
+
+          <div class="col-lg-2 col-md-3 mb-3 mb-lg-0">
+            <img
+              :src="word.hinh_anh"
+              :alt="word.ten_tu"
+              class="img-fluid rounded-4 border vocabulary-image"
+            >
+          </div>
+
+          <div class="col-lg-3 col-md-4 mb-3 mb-lg-0">
+            <div class="fw-bold mb-1">
+              {{ word.ten_tu }}
+            </div>
+
+            <small class="text-muted">
+              {{ word.danh_muc }}
+            </small>
+          </div>
+
+          <div class="col-lg-2 col-md-3 mb-3 mb-lg-0">
+            <small class="text-muted d-block mb-1">
+              Loại lỗi
+            </small>
+
+            <span class="badge bg-warning text-dark px-3 py-2">
+              {{ word.loi_phat_am }}
+            </span>
+          </div>
+
+          <div class="col-lg-2 col-md-2 mb-3 mb-lg-0">
+            <small class="text-muted d-block mb-1">
+              Mức độ
+            </small>
+
+            <span
+              class="badge px-3 py-2"
+              :class="getLevelClass(word.cap_do)"
+            >
+              {{ word.cap_do }}
+            </span>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="d-flex gap-2 justify-content-lg-end">
+              <button
+                class="btn btn-outline-primary btn-sm rounded-pill"
+                @click="goToEditWord(word.id)"
+              >
+                Sửa
+              </button>
+
+              <button
+                class="btn btn-outline-secondary btn-sm rounded-pill"
+                @click="previewWord(word.id)"
+              >
+                Xem
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHÔNG CÓ DỮ LIỆU -->
+      <div
+        v-if="filteredWords.length === 0"
+        class="text-center py-5"
+      >
+        <div class="fw-bold text-muted mb-2">
+          Không tìm thấy từ vựng
+        </div>
+
+        <small class="text-muted">
+          Hãy thử thay đổi bộ lọc hoặc từ khóa tìm kiếm
+        </small>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "VocabularyList",
+
+  data() {
+    return {
+      filters: {
+        subject: "",
+        errorType: "",
+        keyword: ""
+      },
+
+      // dữ liệu từ bảng tu_vung
+      words: [
+        {
+          id: 1,
+          ten_tu: "Lá",
+          danh_muc: "Âm khó",
+          loi_phat_am: "Âm đầu",
+          cap_do: "Dễ",
+          hinh_anh: "https://via.placeholder.com/120x120"
+        },
+        {
+          id: 2,
+          ten_tu: "Lửa",
+          danh_muc: "Âm khó",
+          loi_phat_am: "Âm đầu",
+          cap_do: "Trung bình",
+          hinh_anh: "https://via.placeholder.com/120x120"
+        },
+        {
+          id: 3,
+          ten_tu: "Sông",
+          danh_muc: "Âm khó",
+          loi_phat_am: "Âm đầu",
+          cap_do: "Khó",
+          hinh_anh: "https://via.placeholder.com/120x120"
+        }
+      ]
+    };
+  },
+
+  computed: {
+    filteredWords() {
+      return this.words.filter(word => {
+        const matchSubject =
+          !this.filters.subject ||
+          word.danh_muc === this.filters.subject;
+
+        const matchError =
+          !this.filters.errorType ||
+          word.loi_phat_am === this.filters.errorType;
+
+        const matchKeyword =
+          !this.filters.keyword ||
+          word.ten_tu
+            .toLowerCase()
+            .includes(this.filters.keyword.toLowerCase());
+
+        return matchSubject && matchError && matchKeyword;
+      });
+    }
+  },
+
+  methods: {
+    getLevelClass(level) {
+      if (level === "Dễ") {
+        return "bg-success";
+      }
+
+      if (level === "Trung bình") {
+        return "bg-warning text-dark";
+      }
+
+      return "bg-danger";
+    },
+
+    goToCreateVocabulary() {
+      this.$router.push('/teacher/vocabulary/create');
+    },
+
+    goToEditWord(wordId) {
+      this.$router.push({
+        path: '/teacher/vocabulary/edit',
+        query: {
+          wordId: wordId
+        }
+      });
+    },
+
+    previewWord(wordId) {
+      this.$router.push({
+        path: '/teacher/vocabulary/detail',
+        query: {
+          wordId: wordId
+        }
+      });
+    }
+  }
+};
+</script>
+
+<style scoped>
+.vocabulary-page {
+  background-color: #f9fbfd;
+  min-height: 100vh;
+}
+
+.vocabulary-card {
+  transition: all 0.2s ease;
+}
+
+.vocabulary-card:hover {
+  transform: translateY(-3px);
+}
+
+.vocabulary-image {
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+</style>

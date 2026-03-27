@@ -1,222 +1,347 @@
 <template>
-  <div>
-    <div class="container-fluid">
+  <div class="container-fluid py-4 system-stats-page">
 
-      <!-- HEADER -->
-      <div class="card p-3 mb-4">
-        <h5 class="mb-1">Thống kê hệ thống</h5>
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h4 class="fw-bold text-primary mb-1">
+          Thống kê hệ thống
+        </h4>
         <small class="text-muted">
-          Theo dõi tiến độ học và kết quả phát âm của trẻ
+          Tổng quan dữ liệu người dùng, bài học và AI
         </small>
       </div>
 
-      <!-- FILTER -->
-      <div class="card p-3 mb-4">
-        <div class="row">
+      <button
+        class="btn btn-outline-primary rounded-pill"
+        @click="goBack"
+      >
+        Quay lại
+      </button>
+    </div>
 
-          <div class="col-md-3">
-            <label class="form-label">Từ ngày</label>
-            <input type="date" class="form-control" />
+    <!-- THỐNG KÊ TỔNG QUAN -->
+    <div class="row g-3 mb-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
+          <small class="text-muted">Người dùng</small>
+          <div class="fw-bold fs-3 text-primary">
+            {{ overview.totalUsers }}
           </div>
 
-          <div class="col-md-3">
-            <label class="form-label">Đến ngày</label>
-            <input type="date" class="form-control" />
-          </div>
-
-          <div class="col-md-3">
-            <label class="form-label">Chủ đề</label>
-            <select class="form-control">
-              <option>Tất cả</option>
-              <option>Âm đầu</option>
-              <option>Vần</option>
-              <option>Thanh điệu</option>
-              <option>Từ vựng</option>
-            </select>
-          </div>
-
-          <div class="col-md-3 d-flex align-items-end">
-            <button class="btn btn-primary w-100">
-              🔍 Lọc dữ liệu
-            </button>
-          </div>
-
+          <small class="text-success">
+            +12% tháng này
+          </small>
         </div>
       </div>
 
-      <!-- STATS -->
-      <div class="row g-3 mb-4">
-
-        <div class="col-md-3">
-          <div class="card p-3 text-center shadow-sm">
-            <h6>🎤 Lượt luyện</h6>
-            <h3>1,200</h3>
+      <div class="col-lg-3 col-md-6">
+        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
+          <small class="text-muted">Bài học</small>
+          <div class="fw-bold fs-3 text-success">
+            {{ overview.totalLessons }}
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="card p-3 text-center shadow-sm">
-            <h6>🤖 Điểm trung bình</h6>
-            <h3>85%</h3>
-          </div>
+          <small class="text-success">
+            +8 bài mới
+          </small>
         </div>
-
-        <div class="col-md-3">
-          <div class="card p-3 text-center shadow-sm">
-            <h6>⚠️ Lỗi phát âm</h6>
-            <h3>320</h3>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card p-3 text-center shadow-sm">
-            <h6>👶 Trẻ đang học</h6>
-            <h3>90</h3>
-          </div>
-        </div>
-
       </div>
 
-      <!-- CHART -->
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="card p-3 mb-4">
-            <h6 class="mb-3">Tiến bộ theo thời gian</h6>
-            <div class="chart-box">
-              📈 Biểu đồ tiến bộ (AI score tăng dần)
-            </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
+          <small class="text-muted">Lượt luyện tập</small>
+          <div class="fw-bold fs-3 text-warning">
+            {{ overview.totalPractice }}
           </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="card p-3 mb-4">
-            <h6 class="mb-3">Độ chính xác phát âm</h6>
-            <div class="chart-box">
-              📊 Biểu đồ độ chính xác (âm đầu / vần / thanh)
-            </div>
-          </div>
+          <small class="text-success">
+            +24% tuần này
+          </small>
         </div>
-
       </div>
 
-      <!-- ERROR ANALYSIS -->
-      <div class="row">
-
-        <div class="col-md-6">
-          <div class="card p-3 mb-4">
-            <h6 class="mb-3">Lỗi phổ biến</h6>
-
-            <ul class="list-group">
-              <li class="list-group-item">
-                Sai âm đầu: l → n
-              </li>
-              <li class="list-group-item">
-                Sai vần: an → ang
-              </li>
-              <li class="list-group-item">
-                Sai thanh: sắc ↔ huyền
-              </li>
-            </ul>
+      <div class="col-lg-3 col-md-6">
+        <div class="bg-light rounded-4 p-3 shadow-sm h-100">
+          <small class="text-muted">Độ chính xác AI</small>
+          <div class="fw-bold fs-3 text-danger">
+            {{ overview.aiAccuracy }}%
           </div>
+
+          <small class="text-success">
+            +2% tháng này
+          </small>
         </div>
-
-        <div class="col-md-6">
-          <div class="card p-3 mb-4">
-            <h6 class="mb-3">Gợi ý cải thiện</h6>
-
-            <ul class="list-group">
-              <li class="list-group-item">
-                Tăng bài luyện thanh điệu
-              </li>
-              <li class="list-group-item">
-                Luyện âm đầu khó (l, n)
-              </li>
-              <li class="list-group-item">
-                Nghe mẫu trước khi phát âm
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- TOP USERS -->
-      <div class="card p-3">
-        <h6 class="mb-3">Trẻ tiến bộ tốt nhất</h6>
-
-        <table class="table table-hover align-middle">
-          <thead class="table-light">
-            <tr>
-              <th>#</th>
-              <th>Người dùng</th>
-              <th>Lượt luyện</th>
-              <th>Điểm TB</th>
-              <th>Tiến bộ</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>1</td>
-
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar bg-primary text-white me-2">A</div>
-                  <div>Nguyễn An</div>
-                </div>
-              </td>
-
-              <td>120</td>
-              <td><span class="badge bg-success">90%</span></td>
-              <td><span class="badge bg-success">↑ Tốt</span></td>
-            </tr>
-
-            <tr>
-              <td>2</td>
-
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar bg-warning text-dark me-2">B</div>
-                  <div>Trần Bình</div>
-                </div>
-              </td>
-
-              <td>98</td>
-              <td><span class="badge bg-info">85%</span></td>
-              <td><span class="badge bg-info">↑ Ổn định</span></td>
-            </tr>
-
-          </tbody>
-        </table>
       </div>
 
     </div>
+
+    <!-- THỐNG KÊ CHI TIẾT -->
+    <div class="row g-4 mb-4">
+
+      <div class="col-lg-6">
+        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
+          <div class="fw-bold mb-3">
+            Thống kê người dùng
+          </div>
+
+          <div class="bg-white rounded-4 border p-3 mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Trẻ em</span>
+              <span class="fw-bold">{{ userStats.children }}</span>
+            </div>
+
+            <div class="progress" style="height: 6px;">
+              <div
+                class="progress-bar bg-primary"
+                :style="{ width: userStats.children + '%' }"
+              ></div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 border p-3 mb-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Phụ huynh</span>
+              <span class="fw-bold">{{ userStats.parents }}</span>
+            </div>
+
+            <div class="progress" style="height: 6px;">
+              <div
+                class="progress-bar bg-success"
+                :style="{ width: userStats.parents + '%' }"
+              ></div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 border p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Giáo viên</span>
+              <span class="fw-bold">{{ userStats.teachers }}</span>
+            </div>
+
+            <div class="progress" style="height: 6px;">
+              <div
+                class="progress-bar bg-warning"
+                :style="{ width: userStats.teachers + '%' }"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="bg-light rounded-4 p-4 shadow-sm h-100">
+          <div class="fw-bold mb-3">
+            Thống kê nội dung
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="bg-white rounded-4 border p-3 text-center">
+                <div class="fw-bold fs-4 text-primary">
+                  {{ contentStats.subjects }}
+                </div>
+
+                <small class="text-muted">
+                  Chủ đề bài học
+                </small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-white rounded-4 border p-3 text-center">
+                <div class="fw-bold fs-4 text-success">
+                  {{ contentStats.vocabulary }}
+                </div>
+
+                <small class="text-muted">
+                  Từ vựng
+                </small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-white rounded-4 border p-3 text-center">
+                <div class="fw-bold fs-4 text-warning">
+                  {{ contentStats.practice }}
+                </div>
+
+                <small class="text-muted">
+                  Bài luyện tập
+                </small>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-white rounded-4 border p-3 text-center">
+                <div class="fw-bold fs-4 text-danger">
+                  {{ contentStats.pending }}
+                </div>
+
+                <small class="text-muted">
+                  Chờ duyệt
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- THỐNG KÊ AI -->
+    <div class="bg-light rounded-4 p-4 shadow-sm mb-4">
+      <div class="fw-bold mb-3">
+        Dữ liệu AI và lỗi phát âm
+      </div>
+
+      <div
+        v-for="error in aiErrors"
+        :key="error.id"
+        class="bg-white rounded-4 border p-3 mb-3"
+      >
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div>
+            <div class="fw-bold">
+              {{ error.sound }}
+            </div>
+
+            <small class="text-muted">
+              {{ error.description }}
+            </small>
+          </div>
+
+          <span class="badge bg-warning text-dark px-3 py-2">
+            {{ error.total }} lượt
+          </span>
+        </div>
+
+        <div class="progress" style="height: 6px;">
+          <div
+            class="progress-bar bg-warning"
+            :style="{ width: error.percent + '%' }"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOẠT ĐỘNG GẦN ĐÂY -->
+    <div class="bg-light rounded-4 p-4 shadow-sm">
+      <div class="fw-bold mb-3">
+        Hoạt động gần đây
+      </div>
+
+      <div
+        v-for="activity in activities"
+        :key="activity.id"
+        class="bg-white rounded-4 border p-3 mb-3"
+      >
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <div class="fw-bold">
+              {{ activity.title }}
+            </div>
+
+            <small class="text-muted">
+              {{ activity.description }}
+            </small>
+          </div>
+
+          <small class="text-muted">
+            {{ activity.time }}
+          </small>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "SystemStats",
+
+  data() {
+    return {
+      overview: {
+        totalUsers: 240,
+        totalLessons: 52,
+        totalPractice: 1320,
+        aiAccuracy: 91
+      },
+
+      userStats: {
+        children: 135,
+        parents: 85,
+        teachers: 20
+      },
+
+      contentStats: {
+        subjects: 12,
+        vocabulary: 420,
+        practice: 138,
+        pending: 6
+      },
+
+      aiErrors: [
+        {
+          id: 1,
+          sound: "Âm L/N",
+          description: "Lỗi phổ biến nhất ở trẻ 4 - 6 tuổi",
+          total: 320,
+          percent: 80
+        },
+        {
+          id: 2,
+          sound: "Âm S/X",
+          description: "Trẻ thường nhầm giữa âm S và X",
+          total: 210,
+          percent: 60
+        },
+        {
+          id: 3,
+          sound: "Thanh sắc",
+          description: "Phát âm chưa rõ thanh sắc và thanh hỏi",
+          total: 150,
+          percent: 45
+        }
+      ],
+
+      activities: [
+        {
+          id: 1,
+          title: "Bài học mới được tạo",
+          description: "Giáo viên vừa thêm bài “Âm S/X nâng cao”.",
+          time: "15 phút trước"
+        },
+        {
+          id: 2,
+          title: "Người dùng mới đăng ký",
+          description: "Có 5 tài khoản phụ huynh mới trong hôm nay.",
+          time: "1 giờ trước"
+        },
+        {
+          id: 3,
+          title: "AI cập nhật mô hình",
+          description: "Hệ thống AI đã tăng độ chính xác lên 91%.",
+          time: "3 giờ trước"
+        }
+      ]
+    };
+  },
+
+  methods: {
+    goBack() {
+      this.$router.push('/admin/dashboard');
+    }
+  }
+};
 </script>
 
 <style scoped>
-.chart-box {
-  height: 250px;
-  background: #f8f9fa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  border-radius: 10px;
-}
-
-.avatar {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.system-stats-page {
+  background-color: #f9fbfd;
+  min-height: 100vh;
 }
 </style>
