@@ -27,6 +27,11 @@ const routes = [
     component: () => import("../components/Client/BaiKiemTra/index.vue"),
     meta: { layout: "client" },
   },
+          {
+    path: "/luyen-tap",
+    component: () => import("../components/Client/LuyenTap/index.vue"),
+    meta: { layout: "client" },
+  },
   //---------------------------------------------ADMIN--------------------------------------------------------------
   {
     path: "/admin/dashboard",
