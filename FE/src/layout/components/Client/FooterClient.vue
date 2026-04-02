@@ -156,4 +156,160 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+.footer {
+  background: linear-gradient(135deg, #0d3b66, #102542) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  top: -120px;
+  left: -120px;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 107, 53, 0.08);
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+}
+
+.footer h3 {
+  font-weight: 700;
+  color: #fff !important;
+  margin-bottom: 24px !important;
+  position: relative;
+  display: inline-block;
+}
+
+.footer h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  left: 0;
+  bottom: -10px;
+}
+
+.footer p,
+.footer a,
+.footer small {
+  position: relative;
+  z-index: 2;
+}
+
+.footer .btn-link {
+  display: block;
+  color: rgba(255,255,255,0.7) !important;
+  text-decoration: none;
+  padding: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.footer .btn-link:hover {
+  color: #ff6b35 !important;
+  transform: translateX(6px);
+}
+
+.btn-social {
+  width: 46px;
+  height: 46px;
+  border-radius: 50% !important;
+  border: none !important;
+  background: rgba(255,255,255,0.08) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42) !important;
+  color: #fff !important;
+  transform: translateY(-5px) rotate(8deg);
+  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.25);
+}
+
+.footer img {
+  transition: all 0.3s ease;
+  border-radius: 18px !important;
+}
+
+.footer img:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.footer input.form-control {
+  height: 58px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.footer input.form-control:focus {
+  border-color: #ff6b35;
+  box-shadow: none;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.footer input.form-control::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.footer .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  border: none;
+  padding-left: 22px;
+  padding-right: 22px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.25);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  padding-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.copyright a {
+  color: #ff8c42 !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.copyright a:hover {
+  color: #fff !important;
+}
+
+.footer-menu a {
+  margin-left: 16px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #ff6b35;
+}</style>

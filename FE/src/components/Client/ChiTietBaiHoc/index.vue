@@ -3,12 +3,23 @@
     <div class="container">
       <!-- Banner -->
       <div class="row align-items-center g-5 mb-5">
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-          <h1 class="mb-4">
+        <div class="col-lg-6">
+          <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3">
+            Bài Học Bảng Chữ Cái
+          </span>
+
+          <h1
+            class="mb-4"
+            style="
+              font-size: 52px;
+              color: #0d3b66;
+              font-family: 'Lobster Two', cursive;
+            "
+          >
             Học Bảng Chữ Cái Cùng EchoKids
           </h1>
 
-          <p class="mb-4">
+          <p class="mb-4 text-muted fs-5">
             Bé sẽ được làm quen với các chữ cái tiếng Việt thông qua hình ảnh,
             âm thanh và các bài tập tương tác vui nhộn.
           </p>
@@ -16,346 +27,215 @@
           <div class="row g-3 mb-4">
             <div class="col-sm-4">
               <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="text-primary mb-1">29</h5>
+                <h5 class="mb-1" style="color: #ff6b35;">29</h5>
                 <small>Chữ Cái</small>
               </div>
             </div>
 
             <div class="col-sm-4">
               <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="text-success mb-1">12</h5>
+                <h5 class="mb-1" style="color: #20c997;">12</h5>
                 <small>Bài Học</small>
               </div>
             </div>
 
             <div class="col-sm-4">
               <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="text-warning mb-1">85%</h5>
+                <h5 class="mb-1" style="color: #f4a100;">85%</h5>
                 <small>Hoàn Thành</small>
               </div>
             </div>
           </div>
 
-          <a
-            href="/practice/alphabet"
-            class="btn btn-primary rounded-pill py-3 px-5"
-          >
+          <button class="btn rounded-pill py-3 px-5 text-white fw-bold start-btn">
             Bắt Đầu Học
-          </a>
+          </button>
         </div>
 
-        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="col-lg-6">
           <div class="position-relative text-center">
+            <div
+              class="position-absolute top-50 start-50 translate-middle rounded-circle"
+              style="
+                width: 460px;
+                height: 460px;
+                background: #fff3ef;
+                z-index: 1;
+              "
+            ></div>
+
             <img
-              class="img-fluid rounded-circle bg-light p-3 shadow"
+              class="position-relative img-fluid rounded-circle bg-white p-3 shadow-lg"
               src="/Client/images/about-1.jpg"
               alt=""
-              style="width: 380px; height: 380px; object-fit: cover;"
-            />
-
-            <img
-              class="position-absolute rounded-circle bg-white p-2 shadow"
-              src="/Client/images/classes-1.jpg"
-              alt=""
-              style="width: 120px; height: 120px; object-fit: cover; top: 20px; left: 20px;"
-            />
-
-            <img
-              class="position-absolute rounded-circle bg-white p-2 shadow"
-              src="/Client/images/classes-2.jpg"
-              alt=""
-              style="width: 120px; height: 120px; object-fit: cover; bottom: 20px; right: 20px;"
+              style="width: 380px; height: 380px; object-fit: cover; z-index: 2;"
             />
           </div>
         </div>
       </div>
 
-
-<!-- Danh sách chữ cái -->
-<div
-  class="text-center mx-auto mb-5 wow fadeInUp"
-  data-wow-delay="0.1s"
-  style="max-width: 700px;"
->
-  <h1 class="mb-3">Danh Sách Chữ Cái</h1>
-
-  <p>
-    Bé có thể chọn từng chữ cái để luyện nghe, luyện nói và nhận biết thông qua từ ví dụ quen thuộc.
-  </p>
-</div>
-
-<div class="row g-3">
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">A</h2>
-      <p class="text-muted mb-0">Ăn</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Ă</h2>
-      <p class="text-muted mb-0">Ăn</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Â</h2>
-      <p class="text-muted mb-0">Âm</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">B</h2>
-      <p class="text-muted mb-0">Bò</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">C</h2>
-      <p class="text-muted mb-0">Cá</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">D</h2>
-      <p class="text-muted mb-0">Dê</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Đ</h2>
-      <p class="text-muted mb-0">Đỏ</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">E</h2>
-      <p class="text-muted mb-0">Em</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Ê</h2>
-      <p class="text-muted mb-0">Ếch</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">G</h2>
-      <p class="text-muted mb-0">Gà</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">H</h2>
-      <p class="text-muted mb-0">Hoa</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">I</h2>
-      <p class="text-muted mb-0">In</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">K</h2>
-      <p class="text-muted mb-0">Kẹo</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">L</h2>
-      <p class="text-muted mb-0">Lá</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">M</h2>
-      <p class="text-muted mb-0">Mẹ</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">N</h2>
-      <p class="text-muted mb-0">Nón</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">O</h2>
-      <p class="text-muted mb-0">Ông</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Ô</h2>
-      <p class="text-muted mb-0">Ô tô</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Ơ</h2>
-      <p class="text-muted mb-0">Ơt</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">P</h2>
-      <p class="text-muted mb-0">Phở</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Q</h2>
-      <p class="text-muted mb-0">Quả</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">R</h2>
-      <p class="text-muted mb-0">Rổ</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">S</h2>
-      <p class="text-muted mb-0">Sách</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">T</h2>
-      <p class="text-muted mb-0">Táo</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">U</h2>
-      <p class="text-muted mb-0">Uống</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Ư</h2>
-      <p class="text-muted mb-0">Ước</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">V</h2>
-      <p class="text-muted mb-0">Voi</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">X</h2>
-      <p class="text-muted mb-0">Xe</p>
-    </div>
-  </div>
-
-  <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-    <div class="bg-white border rounded-4 text-center py-4 shadow-sm h-100">
-      <h2 class="fw-bold mb-2">Y</h2>
-      <p class="text-muted mb-0">Yêu</p>
-    </div>
-  </div>
-</div>
-      <!-- Tiến độ học -->
-      <div class="container-xxl py-5">
-        <div class="container">
-          <div
-            class="text-center mx-auto mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-            style="max-width: 700px;"
-          >
-            <h1 class="mb-3">Tiến Độ Học Tập</h1>
-
-            <p>
-              Bé đã hoàn thành rất nhiều bài học. Hãy tiếp tục cố gắng mỗi ngày nhé!
-            </p>
-          </div>
-
-          <div class="row g-4">
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="facility-item">
-                <div class="facility-icon bg-primary">
-                  <span class="bg-primary"></span>
-                  <i class="fa fa-book fa-3x text-primary"></i>
-                  <span class="bg-primary"></span>
-                </div>
-
-                <div class="facility-text bg-primary">
-                  <h3 class="text-primary mb-3">12 Bài Học</h3>
-                  <p class="mb-0">
-                    Bé đã hoàn thành 12 bài học bảng chữ cái.
-                  </p>
-                </div>
+      <!-- Bảng chữ cái + luyện đọc -->
+      <div class="row g-4 mt-5">
+        <!-- Cột trái -->
+        <div class="col-lg-7">
+          <div class="bg-white rounded-5 shadow-sm p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="fw-bold mb-1" style="color: #0d3b66;">
+                  Danh Sách Chữ Cái
+                </h2>
+                <p class="text-muted mb-0">
+                  Chọn chữ cái để nghe phát âm và luyện đọc
+                </p>
               </div>
+
+              <span class="badge bg-primary rounded-pill px-3 py-2">
+                29 Chữ
+              </span>
             </div>
 
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="facility-item">
-                <div class="facility-icon bg-success">
-                  <span class="bg-success"></span>
-                  <i class="fa fa-star fa-3x text-success"></i>
-                  <span class="bg-success"></span>
-                </div>
+            <div class="row g-3">
+              <div
+                class="col-lg-2 col-md-3 col-sm-4 col-4"
+                v-for="item in alphabetList"
+                :key="item.letter"
+              >
+                <div
+                  class="alphabet-card rounded-4 text-center py-3 px-2 h-100"
+                  :class="{ active: selectedLetter.letter === item.letter }"
+                  @click="selectedLetter = item"
+                >
+                  <div
+                    class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2"
+                    style="
+                      width: 55px;
+                      height: 55px;
+                      background: #fff3ef;
+                    "
+                  >
+                    <h3 class="fw-bold mb-0" style="color: #ff6b35;">
+                      {{ item.letter }}
+                    </h3>
+                  </div>
 
-                <div class="facility-text bg-success">
-                  <h3 class="text-success mb-3">5 Huy Hiệu</h3>
-                  <p class="mb-0">
-                    Bé đã nhận được 5 huy hiệu khi học tốt.
+                  <p class="fw-bold mb-1" style="color: #0d3b66;">
+                    {{ item.word }}
                   </p>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-              <div class="facility-item">
-                <div class="facility-icon bg-warning">
-                  <span class="bg-warning"></span>
-                  <i class="fa fa-chart-line fa-3x text-warning"></i>
-                  <span class="bg-warning"></span>
-                </div>
-
-                <div class="facility-text bg-warning">
-                  <h3 class="text-warning mb-3">85% Hoàn Thành</h3>
-                  <p class="mb-0">
-                    Bé đã hoàn thành 85% chương trình bảng chữ cái.
-                  </p>
+                  <small class="text-muted">{{ item.icon }}</small>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+<!-- Cột phải -->
+<div class="col-lg-5">
+  <div class="bg-white rounded-5 shadow-sm p-4 h-100 practice-panel">
+    <div class="text-center mb-4 position-relative">
+      <div
+        class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 practice-letter-circle"
+        style="
+          width: 160px;
+          height: 160px;
+          background: linear-gradient(135deg, #fff1eb, #ffe4d6);
+          border: 10px solid #fff3ef;
+        "
+      >
+        <h1
+          class="fw-bold mb-0"
+          style="
+            font-size: 80px;
+            color: #ff6b35;
+            font-family: 'Lobster Two', cursive;
+          "
+        >
+          {{ selectedLetter.letter }}
+        </h1>
+      </div>
+
+      <h2
+        class="fw-bold mb-2 position-relative"
+        style="color: #0d3b66; z-index: 2;"
+      >
+        {{ selectedLetter.word }}
+      </h2>
+
+      <p
+        class="text-muted mb-4 position-relative"
+        style="z-index: 2;"
+      >
+        Bé hãy nghe phát âm và đọc lại theo nhé
+      </p>
+    </div>
+
+    <div class="bg-light rounded-4 p-3 mb-4 text-center practice-icon-box">
+      <div style="font-size: 52px;" class="mb-2">
+        {{ selectedLetter.icon }}
+      </div>
+
+      <h5 class="fw-bold mb-1">{{ selectedLetter.word }}</h5>
+
+      <small class="text-muted">
+        Chạm để nghe cách phát âm chuẩn
+      </small>
+    </div>
+
+    <div class="d-grid gap-3 mb-4 position-relative" style="z-index: 2;">
+      <button class="btn btn-warning rounded-pill py-3 fw-bold practice-btn">
+        <i class="fa fa-volume-up me-2"></i>
+        Nghe "{{ selectedLetter.letter }}"
+      </button>
+
+      <button class="btn btn-danger rounded-pill py-3 fw-bold text-white practice-btn">
+        <i class="fa fa-microphone me-2"></i>
+        Ghi Âm Kiểm Tra
+      </button>
+    </div>
+
+    <div class="bg-light rounded-4 p-4 mb-4 position-relative" style="z-index: 2;">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="fw-bold">Điểm AI</span>
+        <span class="fw-bold" style="color: #20c997;">8.5 / 10</span>
+      </div>
+
+      <div
+        class="progress rounded-pill mb-3 ai-progress"
+        style="height: 10px;"
+      >
+        <div
+          class="progress-bar rounded-pill"
+          role="progressbar"
+          style="
+            width: 85%;
+            background: linear-gradient(135deg, #20c997, #4dd4ac);
+          "
+        ></div>
+      </div>
+
+      <div
+        class="rounded-4 p-3 ai-result-box"
+        style="background: #eefbf5;"
+      >
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <i class="fa fa-check-circle text-success"></i>
+          <p class="text-success fw-bold mb-0">
+            Gần Đúng
+          </p>
+        </div>
+
+        <small class="text-muted">
+          Bé phát âm khá tốt, hãy đọc to và rõ hơn ở cuối âm.
+        </small>
+      </div>
+    </div>
+
+    <button class="btn btn-primary rounded-pill py-3 fw-bold w-100 test-btn">
+      <i class="fa fa-file-alt me-2"></i>
+      Làm Bài Kiểm Tra
+    </button>
+  </div>
+</div>
       </div>
     </div>
   </div>
@@ -363,6 +243,227 @@
 
 <script>
 export default {
-  name: 'AlphabetLessonPage'
-}
+  name: "AlphabetLessonPage",
+  data() {
+    return {
+      selectedLetter: {
+        letter: "A",
+        word: "Na",
+        icon: "🍚"
+      },
+
+      alphabetList: [
+        { letter: "A", word: "Na", icon: "🍚" },
+        { letter: "Ă", word: "Ăn", icon: "🍜" },
+        { letter: "Â", word: "Âm", icon: "🎵" },
+        { letter: "B", word: "Bò", icon: "🐄" },
+        { letter: "C", word: "Cá", icon: "🐟" },
+        { letter: "D", word: "Dê", icon: "🐐" },
+        { letter: "Đ", word: "Đèn", icon: "💡" },
+        { letter: "E", word: "Em", icon: "👧" },
+        { letter: "Ê", word: "Ếch", icon: "🐸" },
+        { letter: "G", word: "Gà", icon: "🐔" },
+        { letter: "H", word: "Hoa", icon: "🌸" },
+        { letter: "I", word: "In", icon: "🖨️" },
+        { letter: "K", word: "Kem", icon: "🍦" },
+        { letter: "L", word: "Lá", icon: "🍃" },
+        { letter: "M", word: "Mèo", icon: "🐱" },
+        { letter: "N", word: "Nai", icon: "🦌" },
+        { letter: "O", word: "Ong", icon: "🐝" },
+        { letter: "Ô", word: "Ô", icon: "☂️" },
+        { letter: "Ơ", word: "Ớt", icon: "🌶️" },
+        { letter: "P", word: "Phở", icon: "🍜" },
+        { letter: "Q", word: "Quả", icon: "🍎" },
+        { letter: "R", word: "Rổ", icon: "🧺" },
+        { letter: "S", word: "Sách", icon: "📚" },
+        { letter: "T", word: "Táo", icon: "🍎" },
+        { letter: "U", word: "Uống", icon: "🥤" },
+        { letter: "Ư", word: "Ước", icon: "⭐" },
+        { letter: "V", word: "Voi", icon: "🐘" },
+        { letter: "X", word: "Xe", icon: "🚗" },
+        { letter: "Y", word: "Yêu", icon: "❤️" }
+      ]
+    };
+  }
+};
 </script>
+
+<style scoped>
+.start-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.25);
+}
+
+.alphabet-card {
+  background: #fff;
+  border: 2px solid #f5f5f5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alphabet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.alphabet-card.active {
+  border: 2px solid #ff6b35;
+  background: #fff7f2;
+  transform: translateY(-4px);
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 107, 53, 0.25);
+}
+
+.alphabet-card {
+  background: #fff;
+  border: 2px solid #f5f5f5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alphabet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.alphabet-card.active {
+  border: 2px solid #ff6b35;
+  background: #fff7f2;
+  transform: translateY(-4px);
+}
+
+.practice-panel {
+  position: sticky;
+  top: 30px;
+  overflow: hidden;
+}
+
+.practice-panel::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 107, 53, 0.08);
+  border-radius: 50%;
+  top: -80px;
+  right: -80px;
+}
+
+.practice-panel::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(77, 150, 255, 0.08);
+  border-radius: 50%;
+  bottom: -60px;
+  left: -60px;
+}
+
+.practice-letter-circle {
+  position: relative;
+  z-index: 2;
+  animation: floatCircle 3s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
+}
+
+.practice-icon-box {
+  transition: all 0.3s ease;
+  border: 2px dashed #ffe1d6;
+  position: relative;
+  z-index: 2;
+}
+
+.practice-icon-box:hover {
+  transform: translateY(-5px);
+  background: #fff7f2 !important;
+}
+
+.practice-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-btn:hover {
+  transform: translateY(-3px);
+}
+
+.practice-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.practice-btn:hover::before {
+  left: 120%;
+}
+
+.ai-result-box {
+  border: 2px dashed #d9f8ea;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.ai-result-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(32, 201, 151, 0.12);
+}
+
+.ai-progress {
+  overflow: hidden;
+}
+
+.ai-progress .progress-bar {
+  animation: progressMove 2s ease;
+}
+
+.test-btn {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.test-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(13, 110, 253, 0.2);
+}
+
+@keyframes floatCircle {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes progressMove {
+  from {
+    width: 0;
+  }
+}
+</style>

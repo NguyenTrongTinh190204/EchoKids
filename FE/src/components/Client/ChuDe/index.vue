@@ -1,98 +1,191 @@
 <template>
-  <div class="subject-page">
+  <div class="bg-light min-vh-100">
     <!-- Banner -->
-    <div class="container-fluid subject-banner py-5 mb-5">
-      <div class="container py-5">
+    <div class="container py-5">
+      <div class="bg-white rounded-5 shadow-sm overflow-hidden p-4 p-lg-5 mb-5">
         <div class="row align-items-center">
-          <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-            <h1 class="display-4 fw-bold text-white mb-3">
-              Khám Phá Các Chủ Đề Học Tập
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3 fs-6">
+              Chủ đề luyện phát âm
+            </span>
+
+            <h1
+              class="fw-bold mb-4"
+              style="
+                color: #0d3b66;
+                font-size: 52px;
+                line-height: 1.2;
+                font-family: 'Lobster Two', cursive;
+              "
+            >
+              Khám Phá Các Chủ Đề Cùng EchoKids
             </h1>
 
-            <p class="text-white fs-5 mb-4">
-              Bé có thể lựa chọn các chủ đề yêu thích để luyện nghe, luyện nói
-              và phát triển khả năng giao tiếp mỗi ngày.
+            <p class="text-secondary fs-5 mb-4">
+              Bé có thể lựa chọn chủ đề yêu thích để luyện nghe, luyện nói và học thêm nhiều từ vựng thú vị mỗi ngày.
             </p>
 
-            <div class="search-box bg-white rounded-pill shadow-sm p-2 d-flex align-items-center">
-              <input
-                type="text"
-                class="form-control border-0 shadow-none px-3"
-                placeholder="Tìm kiếm chủ đề yêu thích..."
-                v-model="searchKeyword"
-              >
+            <div class="row g-3 mb-4">
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #ffe8e3;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #ff6b35;">20+</h3>
+                  <small class="text-muted">Chủ Đề</small>
+                </div>
+              </div>
 
-              <button class="btn btn-primary rounded-pill px-4">
-                Tìm Kiếm
-              </button>
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #e3f7ee;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #198754;">150+</h3>
+                  <small class="text-muted">Bài Học</small>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #fff3cd;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #f4a100;">100%</h3>
+                  <small class="text-muted">Vui Nhộn</small>
+                </div>
+              </div>
             </div>
+
+            <button class="btn rounded-pill px-5 py-3 fw-bold text-white shadow-sm topic-btn">
+              Bắt Đầu Khám Phá
+            </button>
           </div>
 
-          <div class="col-lg-6 text-center wow fadeInRight" data-wow-delay="0.3s">
-            <img
-              src="/Client/images/about-1.jpg"
-              alt="Banner chủ đề"
-              class="img-fluid banner-image"
-            >
+          <div class="col-lg-6 text-center position-relative">
+            <div class="position-relative d-inline-block">
+              <!-- ảnh lớn -->
+              <div
+                class="rounded-circle overflow-hidden shadow-lg mx-auto"
+                style="
+                  width: 430px;
+                  height: 430px;
+                  border: 12px solid #fff4ef;
+                "
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+                  class="w-100 h-100"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+
+              <!-- ảnh nhỏ trái -->
+              <div
+                class="position-absolute top-0 start-0 bg-white rounded-circle shadow p-2"
+                style="width: 120px; height: 120px;"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80"
+                  class="w-100 h-100 rounded-circle"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+
+              <!-- ảnh nhỏ phải -->
+              <div
+                class="position-absolute bottom-0 end-0 bg-white rounded-circle shadow p-2"
+                style="width: 110px; height: 110px;"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
+                  class="w-100 h-100 rounded-circle"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Danh sách chủ đề -->
-    <div class="container-xxl py-5">
-      <div class="container">
-        <div
-          class="text-center mx-auto mb-5 wow fadeInUp"
-          data-wow-delay="0.1s"
-          style="max-width: 700px;"
+      <!-- Tiêu đề -->
+      <div class="text-center mb-5">
+        <h2
+          class="fw-bold mb-3"
+          style="
+            color: #0d3b66;
+            font-size: 48px;
+            font-family: 'Lobster Two', cursive;
+          "
         >
-          <h1 class="mb-3">Chủ Đề Dành Cho Bé</h1>
-          <p class="text-muted fs-5">
-            Mỗi chủ đề đều có hình ảnh sinh động, bài học thú vị và trò chơi tương tác giúp bé học hiệu quả hơn.
-          </p>
-        </div>
+          Danh Sách Chủ Đề
+        </h2>
 
-        <div class="row g-4">
-          <div
-            class="col-lg-3 col-md-6 wow fadeInUp"
-            data-wow-delay="0.1s"
-            v-for="(topic, index) in filteredTopics"
-            :key="index"
-          >
-            <div class="topic-card h-100">
-              <div class="topic-image-wrapper">
-                <img
-                  :src="topic.image"
-                  :alt="topic.name"
-                  class="img-fluid w-100 topic-image"
-                >
+        <p class="text-secondary fs-5">
+          Bé có thể chọn chủ đề yêu thích để luyện phát âm và học từ vựng.
+        </p>
+      </div>
+
+      <!-- Card chủ đề -->
+      <div class="row g-4">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6"
+          v-for="topic in topics"
+          :key="topic.id"
+        >
+          <div class="card border-0 rounded-5 shadow-sm h-100 overflow-hidden topic-card">
+            <div class="position-relative">
+              <img
+                :src="topic.image"
+                class="card-img-top"
+                style="height: 220px; object-fit: cover;"
+                alt=""
+              />
+
+              <span
+                class="position-absolute top-0 end-0 badge rounded-pill px-3 py-2 m-3"
+                :style="{
+                  backgroundColor: topic.badgeColor,
+                  color: '#fff'
+                }"
+              >
+                {{ topic.totalLesson }} bài học
+              </span>
+            </div>
+
+            <div class="card-body p-4 text-center">
+              <div
+                class="rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3 shadow-sm"
+                :style="{
+                  width: '80px',
+                  height: '80px',
+                  backgroundColor: topic.iconBg
+                }"
+              >
+                <span style="font-size: 36px;">
+                  {{ topic.icon }}
+                </span>
               </div>
 
-              <div class="p-4 text-center">
-                <div class="topic-icon mb-3">
-                  {{ topic.emoji }}
-                </div>
+              <h4 class="fw-bold mb-2" style="color: #0d3b66;">
+                {{ topic.name }}
+              </h4>
 
-                <h4 class="fw-bold mb-2">{{ topic.name }}</h4>
+              <p class="text-muted mb-4">
+                {{ topic.description }}
+              </p>
 
-                <p class="text-muted small mb-4">
-                  {{ topic.description }}
-                </p>
-
-                <button class="btn btn-primary rounded-pill px-4 py-2">
-                  Học Ngay
-                </button>
-              </div>
+              <button
+                class="btn rounded-pill px-4 py-2 fw-bold text-white"
+                :style="{ backgroundColor: topic.badgeColor }"
+              >
+                Khám Phá
+              </button>
             </div>
           </div>
-        </div>
-
-        <div
-          v-if="filteredTopics.length === 0"
-          class="text-center py-5"
-        >
-          <h4 class="text-muted">Không tìm thấy chủ đề phù hợp</h4>
         </div>
       </div>
     </div>
@@ -101,208 +194,121 @@
 
 <script>
 export default {
-  name: 'TopicIndex',
-
+  name: "TopicPage",
   data() {
     return {
-      searchKeyword: '',
-
       topics: [
         {
-          name: 'Động Vật',
-          description: 'Khám phá thế giới động vật vui nhộn và học tên các con vật.',
-          image: '/Client/images/classes-1.jpg',
-          emoji: '🐶'
+          id: 1,
+          name: "Động Vật",
+          description: "Học tên các con vật quen thuộc và luyện phát âm vui nhộn.",
+          image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80",
+          icon: "🐶",
+          totalLesson: 12,
+          badgeColor: "#ff6b35",
+          iconBg: "#fff1eb"
         },
         {
-          name: 'Màu Sắc',
-          description: 'Học nhận biết và gọi tên các màu sắc quen thuộc.',
-          image: '/Client/images/classes-2.jpg',
-          emoji: '🎨'
+          id: 2,
+          name: "Trái Cây",
+          description: "Bé học cách phát âm tên các loại trái cây quen thuộc.",
+          image: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=800&q=80",
+          icon: "🍎",
+          totalLesson: 10,
+          badgeColor: "#f4a100",
+          iconBg: "#fff8e6"
         },
         {
-          name: 'Âm Nhạc',
-          description: 'Làm quen với nhạc cụ, âm thanh và các bài hát vui nhộn.',
-          image: '/Client/images/classes-3.jpg',
-          emoji: '🎵'
+          id: 3,
+          name: "Gia Đình",
+          description: "Tìm hiểu và luyện nói về các thành viên trong gia đình.",
+          image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80",
+          icon: "👨‍👩‍👧",
+          totalLesson: 9,
+          badgeColor: "#198754",
+          iconBg: "#eaf8f0"
         },
         {
-          name: 'Giao Tiếp',
-          description: 'Luyện nói các câu giao tiếp đơn giản mỗi ngày.',
-          image: '/Client/images/classes-4.jpg',
-          emoji: '💬'
+          id: 4,
+          name: "Phương Tiện",
+          description: "Học phát âm các phương tiện giao thông bé thường gặp.",
+          image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+          icon: "🚗",
+          totalLesson: 8,
+          badgeColor: "#4d96ff",
+          iconBg: "#eaf3ff"
         },
         {
-          name: 'Số Đếm',
-          description: 'Học đếm số từ 1 đến 20 với hình ảnh sinh động.',
-          image: '/Client/images/about-1.jpg',
-          emoji: '🔢'
+          id: 5,
+          name: "Màu Sắc",
+          description: "Nhận biết và phát âm các màu sắc phổ biến.",
+          image: "https://images.unsplash.com/photo-1494256997604-768d1f608cac?auto=format&fit=crop&w=800&q=80",
+          icon: "🎨",
+          totalLesson: 7,
+          badgeColor: "#ff4d6d",
+          iconBg: "#ffeaf0"
         },
         {
-          name: 'Đồ Vật',
-          description: 'Nhận biết các đồ vật quen thuộc xung quanh bé.',
-          image: '/Client/images/about-2.jpg',
-          emoji: '🧸'
+          id: 6,
+          name: "Trường Học",
+          description: "Học tên các đồ vật và hoạt động trong lớp học.",
+          image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+          icon: "🏫",
+          totalLesson: 11,
+          badgeColor: "#6f42c1",
+          iconBg: "#f3ebff"
         },
         {
-          name: 'Gia Đình',
-          description: 'Tìm hiểu các thành viên trong gia đình và cách xưng hô.',
-          image: '/Client/images/about-3.jpg',
-          emoji: '👨‍👩‍👧'
+          id: 7,
+          name: "Thức Ăn",
+          description: "Luyện phát âm tên các món ăn và đồ uống quen thuộc.",
+          image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+          icon: "🍔",
+          totalLesson: 10,
+          badgeColor: "#fd7e14",
+          iconBg: "#fff1e8"
         },
         {
-          name: 'Trái Cây',
-          description: 'Học tên các loại trái cây và màu sắc đặc trưng.',
-          image: '/Client/images/classes-5.jpg',
-          emoji: '🍎'
+          id: 8,
+          name: "Cơ Thể",
+          description: "Nhận biết và luyện nói tên các bộ phận trên cơ thể.",
+          image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=800&q=80",
+          icon: "🖐️",
+          totalLesson: 9,
+          badgeColor: "#20c997",
+          iconBg: "#e8faf5"
         }
       ]
-    }
-  },
-
-  computed: {
-    filteredTopics() {
-      return this.topics.filter(topic =>
-        topic.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
-      )
-    }
+    };
   }
 }
 </script>
 
 <style scoped>
-.subject-page {
-  background-color: #fffaf7;
+.topic-btn {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  transition: all 0.3s ease;
 }
 
-.subject-banner {
-  background: linear-gradient(135deg, #ff8a65, #ffb74d);
-  position: relative;
-  overflow: hidden;
-}
-
-.subject-banner::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -80px;
-  width: 300px;
-  height: 300px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-}
-
-.subject-banner::after {
-  content: '';
-  position: absolute;
-  bottom: -120px;
-  left: -80px;
-  width: 280px;
-  height: 280px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 50%;
-}
-
-.banner-image {
-  max-height: 420px;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.search-box {
-  max-width: 520px;
-}
-
-.search-box input {
-  height: 55px;
-  font-size: 16px;
+.topic-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.25);
 }
 
 .topic-card {
-  background: #fff;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 2px solid transparent;
 }
 
 .topic-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
-  border-color: #ff8a65;
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12) !important;
 }
 
-.topic-image-wrapper {
-  height: 220px;
-  overflow: hidden;
+.topic-card img {
+  transition: all 0.4s ease;
 }
 
-.topic-image {
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.topic-card:hover .topic-image {
-  transform: scale(1.08);
-}
-
-.topic-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: #fff3ec;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-  border: none;
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #ff5a5a, #ff7b3d);
-  transform: translateY(-2px);
-}
-
-@media (max-width: 991px) {
-  .subject-banner {
-    text-align: center;
-  }
-
-  .search-box {
-    margin: 0 auto;
-  }
-
-  .banner-image {
-    margin-top: 40px;
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 576px) {
-  .subject-banner h1 {
-    font-size: 2rem;
-  }
-
-  .search-box {
-    flex-direction: column;
-    border-radius: 20px !important;
-  }
-
-  .search-box input {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .search-box button {
-    width: 100%;
-  }
+.topic-card:hover img {
+  transform: scale(1.05);
 }
 </style>
