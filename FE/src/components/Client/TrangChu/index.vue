@@ -160,6 +160,218 @@
     </div>
     <!-- Features End -->
 
+ <div class="container-xxl py-5">
+    <div class="container">
+      <!-- Chủ đề được yêu thích nhất -->
+      <div
+        class="text-center mx-auto mb-5 wow fadeInUp"
+        data-wow-delay="0.1s"
+        style="max-width: 700px;"
+      >
+        <h1 class="mb-3">Chủ Đề Được Yêu Thích Nhất</h1>
+        <p class="text-muted fs-5">
+          Những chủ đề hấp dẫn giúp bé vừa học vừa chơi, tăng khả năng giao tiếp và phát triển ngôn ngữ.
+        </p>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-1.jpg"
+                alt="Động vật"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Động Vật</h5>
+              <p class="text-muted small mb-0">
+                Khám phá thế giới động vật vui nhộn.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-2.jpg"
+                alt="Màu sắc"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Màu Sắc</h5>
+              <p class="text-muted small mb-0">
+                Học nhận biết và gọi tên các màu sắc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-3.jpg"
+                alt="Âm nhạc"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Âm Nhạc</h5>
+              <p class="text-muted small mb-0">
+                Làm quen với âm thanh và nhạc cụ.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-4.jpg"
+                alt="Giao tiếp"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Giao Tiếp</h5>
+              <p class="text-muted small mb-0">
+                Luyện nói các câu đơn giản mỗi ngày.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-5">
+        <button class="btn btn-primary rounded-pill px-5 py-3 shadow-sm">
+          Xem Thêm Chủ Đề
+        </button>
+      </div>
+
+      <!-- Bài học được yêu thích nhất -->
+      <div
+        class="text-center mx-auto mb-5 wow fadeInUp"
+        data-wow-delay="0.1s"
+        style="max-width: 700px;"
+      >
+        <h1 class="mb-3">Bài Học Được Yêu Thích Nhất</h1>
+        <p class="text-muted fs-5">
+          Các bài học thú vị giúp bé luyện phát âm, nhận biết đồ vật và phát triển kỹ năng giao tiếp.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-5.jpg"
+                alt="Phát âm chữ cái"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Phát Âm Chữ Cái</h5>
+              <p class="text-muted small mb-3">
+                Bé luyện phát âm bảng chữ cái tiếng Việt.
+              </p>
+
+              <button class="btn btn-outline-primary rounded-pill px-4">
+                Học Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/classes-6.jpg"
+                alt="Nhận biết con vật"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Nhận Biết Con Vật</h5>
+              <p class="text-muted small mb-3">
+                Học tên và tiếng kêu của các con vật.
+              </p>
+
+              <button class="btn btn-outline-primary rounded-pill px-4">
+                Học Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/about-1.jpg"
+                alt="Tập đếm số"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Tập Đếm Số</h5>
+              <p class="text-muted small mb-3">
+                Làm quen với các con số từ 1 đến 10.
+              </p>
+
+              <button class="btn btn-outline-primary rounded-pill px-4">
+                Học Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+          <div class="favorite-card bg-white rounded-4 shadow-sm overflow-hidden h-100">
+            <div class="favorite-image-wrapper">
+              <img
+                src="/Client/images/about-2.jpg"
+                alt="Đồ vật quanh em"
+                class="img-fluid w-100 favorite-image"
+              >
+            </div>
+
+            <div class="p-4 text-center">
+              <h5 class="fw-bold mb-2 text-dark">Đồ Vật Quanh Em</h5>
+              <p class="text-muted small mb-3">
+                Nhận biết các đồ vật quen thuộc hằng ngày.
+              </p>
+
+              <button class="btn btn-outline-primary rounded-pill px-4">
+                Học Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <button class="btn btn-primary rounded-pill px-5 py-3 shadow-sm">
+          Xem Thêm Bài Học
+        </button>
+      </div>
+    </div>
+  </div>
+
 <!-- About Start -->
 <div class="container-xxl py-5">
   <div class="container">
@@ -599,3 +811,6 @@ export default {
   }
 }
 </script>
+<style>
+
+</style>
