@@ -14,12 +14,13 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0 shadow-sm">
-      <NavbarClient
-      />
+      <NavbarClient />
     </nav>
 
     <!-- Nội dung -->
-    <router-view />
+    <div class="page-width">
+      <router-view />
+    </div>
 
     <!-- Footer -->
     <FooterClient />
@@ -99,5 +100,15 @@ export default {
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
 
-</style>
+.page-width {
+  width: 92%;
+  max-width: 1700px;
+  margin: 0 auto;
+}
 
+@media (max-width: 991px) {
+  .page-width {
+    width: 96%;
+  }
+}
+</style>

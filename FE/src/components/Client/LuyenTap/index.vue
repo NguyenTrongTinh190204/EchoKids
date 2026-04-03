@@ -1,7 +1,6 @@
 <template>
-  <div class="bg-light min-vh-100">
-    <div class="container py-5">
-
+<div class="page-full bg-light min-vh-100">
+     <div class="content-wrapper py-5">
 
       <!-- Chủ đề luyện tập -->
       <div class="mb-5">
@@ -454,4 +453,5 @@ export default {
 .lesson-card:hover img {
   transform: scale(1.05);
 }
+.content-wrapper { width: 92%; max-width: 1650px; margin: 0 auto; } .page-full { width: 100vw; margin-left: calc(-50vw + 50%); }
 </style>

@@ -1,8 +1,5 @@
 <template>
-
-    <div class="container">
-
-
+     <div class="content-wrapper py-5">
       <!-- Bảng chữ cái + luyện đọc -->
       <div class="row g-4 mt-5">
         <!-- Cột trái -->

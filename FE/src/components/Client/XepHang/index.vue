@@ -1,7 +1,7 @@
 
 <template>
-  <div class="bg-light min-vh-100 py-5">
-    <div class="container">
+  <div class="page-full bg-light min-vh-100">
+     <div class="content-wrapper py-5">
       <!-- Top 3 -->
       <div class="row justify-content-center align-items-end g-4 mb-5">
         <div
@@ -690,5 +690,6 @@ export default {
     height: 74px;
   }
 }
+.content-wrapper { width: 92%; max-width: 1650px; margin: 0 auto; } .page-full { width: 100vw; margin-left: calc(-50vw + 50%); }
 </style>
 

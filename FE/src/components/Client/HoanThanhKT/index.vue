@@ -3,7 +3,7 @@
     class="min-vh-100 d-flex align-items-center justify-content-center py-5"
     style="background: linear-gradient(180deg, #fff8f5 0%, #fefefe 100%);"
   >
-    <div class="container">
+     <div class="content-wrapper py-5">
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="bg-white rounded-5 shadow-lg p-4 p-lg-5 text-center position-relative overflow-hidden">

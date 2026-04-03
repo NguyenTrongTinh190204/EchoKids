@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-light min-vh-100">
-    <div class="container py-4">
+  <div class="page-full bg-light min-vh-100">
+     <div class="content-wrapper py-5">
 <!-- Header -->
 <div
   class="rounded-5 p-4 mb-4 position-relative overflow-hidden shadow-sm"
@@ -714,4 +714,5 @@
   transform: translateY(-8px);
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
 }
+.content-wrapper { width: 92%; max-width: 1650px; margin: 0 auto; } .page-full { width: 100vw; margin-left: calc(-50vw + 50%); }
 </style>

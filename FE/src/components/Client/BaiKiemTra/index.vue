@@ -1,17 +1,8 @@
-<script>
-export default {
-  name: "TestDetailPage",
-  data() {
-    return {
-      isRecording: false
-    };
-  }
-}
-</script>
+
 
 <template>
-  <div class="bg-light min-vh-100">
-    <div class="container py-4">
+  <div class="page-full bg-light min-vh-100">
+     <div class="content-wrapper py-5">
       <!-- Header -->
       <div class="bg-white rounded-5 shadow-sm p-3 mb-3">
         <div class="d-flex justify-content-between align-items-center mb-2">
@@ -255,4 +246,5 @@ export default {
     opacity: 0.7;
   }
 }
+.content-wrapper { width: 92%; max-width: 1650px; margin: 0 auto; } .page-full { width: 100vw; margin-left: calc(-50vw + 50%); }
 </style>
