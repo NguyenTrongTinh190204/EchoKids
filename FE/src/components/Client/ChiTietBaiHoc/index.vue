@@ -1,78 +1,7 @@
 <template>
-  <div class="container-xxl py-5">
+
     <div class="container">
-      <!-- Banner -->
-      <div class="row align-items-center g-5 mb-5">
-        <div class="col-lg-6">
-          <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3">
-            Bài Học Bảng Chữ Cái
-          </span>
 
-          <h1
-            class="mb-4"
-            style="
-              font-size: 52px;
-              color: #0d3b66;
-              font-family: 'Lobster Two', cursive;
-            "
-          >
-            Học Bảng Chữ Cái Cùng EchoKids
-          </h1>
-
-          <p class="mb-4 text-muted fs-5">
-            Bé sẽ được làm quen với các chữ cái tiếng Việt thông qua hình ảnh,
-            âm thanh và các bài tập tương tác vui nhộn.
-          </p>
-
-          <div class="row g-3 mb-4">
-            <div class="col-sm-4">
-              <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="mb-1" style="color: #ff6b35;">29</h5>
-                <small>Chữ Cái</small>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="mb-1" style="color: #20c997;">12</h5>
-                <small>Bài Học</small>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="bg-light rounded-pill py-3 px-4 text-center shadow-sm">
-                <h5 class="mb-1" style="color: #f4a100;">85%</h5>
-                <small>Hoàn Thành</small>
-              </div>
-            </div>
-          </div>
-
-          <button class="btn rounded-pill py-3 px-5 text-white fw-bold start-btn">
-            Bắt Đầu Học
-          </button>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="position-relative text-center">
-            <div
-              class="position-absolute top-50 start-50 translate-middle rounded-circle"
-              style="
-                width: 460px;
-                height: 460px;
-                background: #fff3ef;
-                z-index: 1;
-              "
-            ></div>
-
-            <img
-              class="position-relative img-fluid rounded-circle bg-white p-3 shadow-lg"
-              src="/Client/images/about-1.jpg"
-              alt=""
-              style="width: 380px; height: 380px; object-fit: cover; z-index: 2;"
-            />
-          </div>
-        </div>
-      </div>
 
       <!-- Bảng chữ cái + luyện đọc -->
       <div class="row g-4 mt-5">
@@ -238,7 +167,6 @@
 </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

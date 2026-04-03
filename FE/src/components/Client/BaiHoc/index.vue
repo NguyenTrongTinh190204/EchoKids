@@ -1,8 +1,164 @@
 <template>
   <div class="bg-light min-vh-100">
     <div class="container py-5">
-<!-- Banner -->
-<div class="position-relative overflow-hidden rounded-5 shadow-sm bg-white mb-5">
+      <!-- Tiêu đề -->
+      <div class="text-center mb-5">
+        <h2
+          class="fw-bold mb-3"
+          style="
+            color: #0d3b66;
+            font-size: 48px;
+
+          "
+        >
+          Danh Sách Bài Học
+        </h2>
+
+        <p class="text-secondary fs-5">
+          Bé có thể chọn bài học yêu thích để luyện phát âm và học từ vựng.
+        </p>
+      </div>
+
+      <!-- Bộ lọc -->
+      <div class="bg-white rounded-5 shadow-sm p-4 mb-5">
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <input
+              type="text"
+              class="form-control rounded-pill border-0 bg-light py-3 px-4"
+              placeholder="Tìm bài học..."
+            />
+          </div>
+
+          <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+              <button class="btn btn-primary rounded-pill px-4">
+                Tất Cả
+              </button>
+
+              <button class="btn btn-outline-warning rounded-pill px-4">
+                Bảng Chữ Cái
+              </button>
+
+              <button class="btn btn-outline-success rounded-pill px-4">
+                Động Vật
+              </button>
+
+              <button class="btn btn-outline-danger rounded-pill px-4">
+                Trái Cây
+              </button>
+
+              <button class="btn btn-outline-info rounded-pill px-4">
+                Màu Sắc
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danh sách bài học -->
+      <div class="row g-4">
+        <div
+          class="col-xl-3 col-lg-4 col-md-6"
+          v-for="lesson in lessons"
+          :key="lesson.id"
+        >
+          <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
+            <div class="position-relative">
+              <img
+                :src="lesson.image"
+                class="card-img-top"
+                style="height: 220px; object-fit: cover;"
+                alt=""
+              />
+
+              <span
+                class="position-absolute top-0 start-0 badge rounded-pill px-3 py-2 m-3"
+                :style="{
+                  backgroundColor: lesson.topicColor,
+                  color: '#fff'
+                }"
+              >
+                {{ lesson.topic }}
+              </span>
+            </div>
+
+            <div class="card-body p-4">
+              <div
+                class="rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3"
+                :style="{
+                  width: '70px',
+                  height: '70px',
+                  backgroundColor: lesson.iconBg
+                }"
+              >
+                <span style="font-size: 34px;">
+                  {{ lesson.icon }}
+                </span>
+              </div>
+
+              <h4 class="fw-bold mb-2" style="color: #0d3b66;">
+                {{ lesson.title }}
+              </h4>
+
+              <p class="text-muted mb-4">
+                {{ lesson.description }}
+              </p>
+
+              <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <small class="text-muted">Tiến Độ</small>
+                  <small class="fw-bold" :style="{ color: lesson.topicColor }">
+                    {{ lesson.progress }}%
+                  </small>
+                </div>
+
+                <div
+                  class="progress rounded-pill"
+                  style="height: 10px; background-color: #f1f1f1;"
+                >
+                  <div
+                    class="progress-bar rounded-pill"
+                    role="progressbar"
+                    :style="{
+                      width: lesson.progress + '%',
+                      backgroundColor: lesson.topicColor
+                    }"
+                  ></div>
+                </div>
+              </div>
+
+              <button
+                class="btn w-100 rounded-pill py-3 fw-bold text-white"
+                :style="{ backgroundColor: lesson.topicColor }"
+              >
+                Học Ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="text-center mt-5">
+  <p class="text-muted mb-3">
+    Bé muốn khám phá thêm nhiều bài học thú vị hơn?
+  </p>
+
+  <button
+    class="btn rounded-pill px-5 py-3 fw-bold text-white shadow-sm"
+    style="
+      background: linear-gradient(135deg, #ff6b35, #ff8c42);
+      transition: all 0.3s ease;
+    "
+    onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 24px rgba(255, 107, 53, 0.25)'"
+    onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 0 0 rgba(0,0,0,0)'"
+  >
+    Xem Thêm Bài Học
+    <i class="bi bi-arrow-down-circle ms-2"></i>
+  </button>
+</div>
+      <!-- Banner -->
+<div class="position-relative overflow-hidden rounded-5 shadow-sm bg-white mt-5">
   <div class="row align-items-center">
     <div class="col-lg-6 p-4 p-lg-5">
       <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3 fs-6">
@@ -29,7 +185,7 @@
 
       <div class="d-flex flex-wrap gap-3 mb-4">
         <button class="btn start-btn rounded-pill px-4 py-3 fw-bold text-white">
-          Bắt Đầu Học
+          Học Ngay
         </button>
 
         <button class="btn btn-light border rounded-pill px-4 py-3 fw-bold shadow-sm">
@@ -176,131 +332,8 @@
     </div>
   </div>
 </div>
-
-      <!-- Bộ lọc -->
-      <div class="bg-white rounded-5 shadow-sm p-4 mb-5">
-        <div class="row g-3">
-          <div class="col-lg-4">
-            <input
-              type="text"
-              class="form-control rounded-pill border-0 bg-light py-3 px-4"
-              placeholder="Tìm bài học..."
-            />
-          </div>
-
-          <div class="col-lg-8">
-            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
-              <button class="btn btn-primary rounded-pill px-4">
-                Tất Cả
-              </button>
-
-              <button class="btn btn-outline-warning rounded-pill px-4">
-                Bảng Chữ Cái
-              </button>
-
-              <button class="btn btn-outline-success rounded-pill px-4">
-                Động Vật
-              </button>
-
-              <button class="btn btn-outline-danger rounded-pill px-4">
-                Trái Cây
-              </button>
-
-              <button class="btn btn-outline-info rounded-pill px-4">
-                Màu Sắc
-              </button>
-
-              <button class="btn btn-outline-secondary rounded-pill px-4">
-                Xem Thêm
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Danh sách bài học -->
-      <div class="row g-4">
-        <div
-          class="col-xl-3 col-lg-4 col-md-6"
-          v-for="lesson in lessons"
-          :key="lesson.id"
-        >
-          <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
-            <div class="position-relative">
-              <img
-                :src="lesson.image"
-                class="card-img-top"
-                style="height: 220px; object-fit: cover;"
-                alt=""
-              />
-
-              <span
-                class="position-absolute top-0 start-0 badge rounded-pill px-3 py-2 m-3"
-                :style="{
-                  backgroundColor: lesson.topicColor,
-                  color: '#fff'
-                }"
-              >
-                {{ lesson.topic }}
-              </span>
-            </div>
-
-            <div class="card-body p-4">
-              <div
-                class="rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3"
-                :style="{
-                  width: '70px',
-                  height: '70px',
-                  backgroundColor: lesson.iconBg
-                }"
-              >
-                <span style="font-size: 34px;">
-                  {{ lesson.icon }}
-                </span>
-              </div>
-
-              <h4 class="fw-bold mb-2" style="color: #0d3b66;">
-                {{ lesson.title }}
-              </h4>
-
-              <p class="text-muted mb-4">
-                {{ lesson.description }}
-              </p>
-
-              <div class="mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <small class="text-muted">Tiến Độ</small>
-                  <small class="fw-bold" :style="{ color: lesson.topicColor }">
-                    {{ lesson.progress }}%
-                  </small>
-                </div>
-
-                <div
-                  class="progress rounded-pill"
-                  style="height: 10px; background-color: #f1f1f1;"
-                >
-                  <div
-                    class="progress-bar rounded-pill"
-                    role="progressbar"
-                    :style="{
-                      width: lesson.progress + '%',
-                      backgroundColor: lesson.topicColor
-                    }"
-                  ></div>
-                </div>
-              </div>
-
-              <button
-                class="btn w-100 rounded-pill py-3 fw-bold text-white"
-                :style="{ backgroundColor: lesson.topicColor }"
-              >
-                Học Ngay
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+    
   </div>
 </template>
 
@@ -409,4 +442,5 @@ export default {
 .lesson-card:hover img {
   transform: scale(1.05);
 }
+
 </style>

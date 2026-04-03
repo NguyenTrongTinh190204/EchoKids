@@ -1,116 +1,7 @@
 <template>
   <div class="bg-light min-vh-100">
-    <!-- Banner -->
+    
     <div class="container py-5">
-      <div class="bg-white rounded-5 shadow-sm overflow-hidden p-4 p-lg-5 mb-5">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3 fs-6">
-              Chủ đề luyện phát âm
-            </span>
-
-            <h1
-              class="fw-bold mb-4"
-              style="
-                color: #0d3b66;
-                font-size: 52px;
-                line-height: 1.2;
-                font-family: 'Lobster Two', cursive;
-              "
-            >
-              Khám Phá Các Chủ Đề Cùng EchoKids
-            </h1>
-
-            <p class="text-secondary fs-5 mb-4">
-              Bé có thể lựa chọn chủ đề yêu thích để luyện nghe, luyện nói và học thêm nhiều từ vựng thú vị mỗi ngày.
-            </p>
-
-            <div class="row g-3 mb-4">
-              <div class="col-4">
-                <div
-                  class="bg-light rounded-4 text-center py-3 shadow-sm"
-                  style="border: 2px solid #ffe8e3;"
-                >
-                  <h3 class="fw-bold mb-1" style="color: #ff6b35;">20+</h3>
-                  <small class="text-muted">Chủ Đề</small>
-                </div>
-              </div>
-
-              <div class="col-4">
-                <div
-                  class="bg-light rounded-4 text-center py-3 shadow-sm"
-                  style="border: 2px solid #e3f7ee;"
-                >
-                  <h3 class="fw-bold mb-1" style="color: #198754;">150+</h3>
-                  <small class="text-muted">Bài Học</small>
-                </div>
-              </div>
-
-              <div class="col-4">
-                <div
-                  class="bg-light rounded-4 text-center py-3 shadow-sm"
-                  style="border: 2px solid #fff3cd;"
-                >
-                  <h3 class="fw-bold mb-1" style="color: #f4a100;">100%</h3>
-                  <small class="text-muted">Vui Nhộn</small>
-                </div>
-              </div>
-            </div>
-
-            <button class="btn rounded-pill px-5 py-3 fw-bold text-white shadow-sm topic-btn">
-              Bắt Đầu Khám Phá
-            </button>
-          </div>
-
-          <div class="col-lg-6 text-center position-relative">
-            <div class="position-relative d-inline-block">
-              <!-- ảnh lớn -->
-              <div
-                class="rounded-circle overflow-hidden shadow-lg mx-auto"
-                style="
-                  width: 430px;
-                  height: 430px;
-                  border: 12px solid #fff4ef;
-                "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
-                  class="w-100 h-100"
-                  style="object-fit: cover;"
-                  alt=""
-                />
-              </div>
-
-              <!-- ảnh nhỏ trái -->
-              <div
-                class="position-absolute top-0 start-0 bg-white rounded-circle shadow p-2"
-                style="width: 120px; height: 120px;"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80"
-                  class="w-100 h-100 rounded-circle"
-                  style="object-fit: cover;"
-                  alt=""
-                />
-              </div>
-
-              <!-- ảnh nhỏ phải -->
-              <div
-                class="position-absolute bottom-0 end-0 bg-white rounded-circle shadow p-2"
-                style="width: 110px; height: 110px;"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
-                  class="w-100 h-100 rounded-circle"
-                  style="object-fit: cover;"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Tiêu đề -->
       <div class="text-center mb-5">
         <h2
@@ -118,7 +9,7 @@
           style="
             color: #0d3b66;
             font-size: 48px;
-            font-family: 'Lobster Two', cursive;
+
           "
         >
           Danh Sách Chủ Đề
@@ -188,7 +79,118 @@
           </div>
         </div>
       </div>
+
+      <!-- Banner -->
+            <div class="bg-white rounded-5 shadow-sm overflow-hidden p-4 p-lg-5 mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3 fs-6">
+              Chủ đề luyện phát âm
+            </span>
+
+            <h1
+              class="fw-bold mb-4"
+              style="
+                color: #0d3b66;
+                font-size: 52px;
+                line-height: 1.2;
+          
+              "
+            >
+              Khám Phá Các Chủ Đề Cùng EchoKids
+            </h1>
+
+            <p class="text-secondary fs-5 mb-4">
+              Bé có thể lựa chọn chủ đề yêu thích để luyện nghe, luyện nói và học thêm nhiều từ vựng thú vị mỗi ngày.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #ffe8e3;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #ff6b35;">20+</h3>
+                  <small class="text-muted">Chủ Đề</small>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #e3f7ee;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #198754;">150+</h3>
+                  <small class="text-muted">Bài Học</small>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div
+                  class="bg-light rounded-4 text-center py-3 shadow-sm"
+                  style="border: 2px solid #fff3cd;"
+                >
+                  <h3 class="fw-bold mb-1" style="color: #f4a100;">100%</h3>
+                  <small class="text-muted">Vui Nhộn</small>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn rounded-pill px-5 py-3 fw-bold text-white shadow-sm topic-btn">
+              Khám Phá Ngay
+            </button>
+          </div>
+
+          <div class="col-lg-6 text-center position-relative">
+            <div class="position-relative d-inline-block">
+              <!-- ảnh lớn -->
+              <div
+                class="rounded-circle overflow-hidden shadow-lg mx-auto"
+                style="
+                  width: 430px;
+                  height: 430px;
+                  border: 12px solid #fff4ef;
+                "
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+                  class="w-100 h-100"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+
+              <!-- ảnh nhỏ trái -->
+              <div
+                class="position-absolute top-0 start-0 bg-white rounded-circle shadow p-2"
+                style="width: 120px; height: 120px;"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=300&q=80"
+                  class="w-100 h-100 rounded-circle"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+
+              <!-- ảnh nhỏ phải -->
+              <div
+                class="position-absolute bottom-0 end-0 bg-white rounded-circle shadow p-2"
+                style="width: 110px; height: 110px;"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=300&q=80"
+                  class="w-100 h-100 rounded-circle"
+                  style="object-fit: cover;"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
 </template>
 

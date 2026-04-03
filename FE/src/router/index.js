@@ -32,6 +32,26 @@ const routes = [
     component: () => import("../components/Client/LuyenTap/index.vue"),
     meta: { layout: "client" },
   },
+          {
+    path: "/xep-hang",
+    component: () => import("../components/Client/XepHang/index.vue"),
+    meta: { layout: "client" },
+  },
+            {
+    path: "/chuoi-ngay-hoc",
+    component: () => import("../components/Client/ChuoiNgayHoc/index.vue"),
+    meta: { layout: "client" },
+  },
+              {
+    path: "/hoan-thanh-kiem-tra",
+    component: () => import("../components/Client/HoanThanhKT/index.vue"),
+    meta: { layout: "client" },
+  },
+                {
+    path: "/tien-do",
+    component: () => import("../components/Client/TienDo/index.vue"),
+    meta: { layout: "client" },
+  },
   //---------------------------------------------ADMIN--------------------------------------------------------------
   {
     path: "/admin/dashboard",

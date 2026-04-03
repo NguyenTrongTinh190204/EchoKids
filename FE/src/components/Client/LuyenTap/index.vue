@@ -1,8 +1,170 @@
 <template>
   <div class="bg-light min-vh-100">
     <div class="container py-5">
-      <!-- Banner -->
-      <div class="position-relative overflow-hidden rounded-5 shadow-sm bg-white mb-5">
+
+
+      <!-- Chủ đề luyện tập -->
+      <div class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1" style="color: #0d3b66;">
+              Chủ Đề Luyện Tập
+            </h2>
+            <p class="text-muted mb-0">
+              Chọn chủ đề bé muốn luyện phát âm hôm nay
+            </p>
+          </div>
+
+          <button class="btn btn-outline-primary rounded-pill px-4">
+            Xem Tất Cả
+          </button>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-xl-3 col-lg-4 col-md-6"
+            v-for="topic in topics"
+            :key="topic.id"
+          >
+            <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
+              <div class="position-relative">
+                <img
+                  :src="topic.image"
+                  class="card-img-top"
+                  style="height: 220px; object-fit: cover;"
+                  alt=""
+                />
+
+                <span
+                  class="position-absolute top-0 start-0 badge rounded-pill px-3 py-2 m-3"
+                  :style="{
+                    backgroundColor: topic.topicColor,
+                    color: '#fff'
+                  }"
+                >
+                  {{ topic.totalLessons }} bài
+                </span>
+              </div>
+
+              <div class="card-body p-4">
+                <div
+                  class="rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3"
+                  :style="{
+                    width: '70px',
+                    height: '70px',
+                    backgroundColor: topic.iconBg
+                  }"
+                >
+                  <span style="font-size: 34px;">
+                    {{ topic.icon }}
+                  </span>
+                </div>
+
+                <h4 class="fw-bold mb-2" style="color: #0d3b66;">
+                  {{ topic.title }}
+                </h4>
+
+                <p class="text-muted mb-4">
+                  {{ topic.description }}
+                </p>
+
+                <button
+                  class="btn w-100 rounded-pill py-3 fw-bold text-white"
+                  :style="{ backgroundColor: topic.topicColor }"
+                >
+                  Luyện Ngay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bài học gần đây -->
+      <div>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1" style="color: #0d3b66;">
+              Bài Học Gần Đây
+            </h2>
+            <p class="text-muted mb-0">
+              Tiếp tục những bài học bé đang luyện
+            </p>
+          </div>
+
+          <button class="btn btn-outline-success rounded-pill px-4">
+            Xem Lịch Sử
+          </button>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-lg-4"
+            v-for="lesson in recentLessons"
+            :key="lesson.id"
+          >
+            <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
+              <img
+                :src="lesson.image"
+                class="w-100"
+                style="height: 220px; object-fit: cover;"
+                alt=""
+              />
+
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span
+                    class="badge rounded-pill px-3 py-2"
+                    :style="{
+                      backgroundColor: lesson.iconBg,
+                      color: lesson.topicColor
+                    }"
+                  >
+                    {{ lesson.type }}
+                  </span>
+
+                  <span class="fw-bold" :style="{ color: lesson.topicColor }">
+                    {{ lesson.progress }}%
+                  </span>
+                </div>
+
+                <h4 class="fw-bold mb-2" style="color: #0d3b66;">
+                  {{ lesson.title }}
+                </h4>
+
+                <p class="text-muted mb-4">
+                  {{ lesson.description }}
+                </p>
+
+                <div class="mb-4">
+                  <div
+                    class="progress rounded-pill"
+                    style="height: 10px; background-color: #f1f1f1;"
+                  >
+                    <div
+                      class="progress-bar rounded-pill"
+                      role="progressbar"
+                      :style="{
+                        width: lesson.progress + '%',
+                        backgroundColor: lesson.topicColor
+                      }"
+                    ></div>
+                  </div>
+                </div>
+
+                <button
+                  class="btn w-100 rounded-pill py-3 fw-bold text-white"
+                  :style="{ backgroundColor: lesson.topicColor }"
+                >
+                  Tiếp Tục
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Banner -->
+      <div class="position-relative overflow-hidden rounded-5 shadow-sm bg-white mt-5">
         <div class="row align-items-center">
           <div class="col-lg-6 p-4 p-lg-5">
             <span class="badge bg-warning text-dark rounded-pill px-4 py-2 mb-3 fs-6">
@@ -172,167 +334,6 @@
                 >
                   AI Chấm Điểm
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chủ đề luyện tập -->
-      <div class="mb-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <div>
-            <h2 class="fw-bold mb-1" style="color: #0d3b66;">
-              Chủ Đề Luyện Tập
-            </h2>
-            <p class="text-muted mb-0">
-              Chọn chủ đề bé muốn luyện phát âm hôm nay
-            </p>
-          </div>
-
-          <button class="btn btn-outline-primary rounded-pill px-4">
-            Xem Tất Cả
-          </button>
-        </div>
-
-        <div class="row g-4">
-          <div
-            class="col-xl-3 col-lg-4 col-md-6"
-            v-for="topic in topics"
-            :key="topic.id"
-          >
-            <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
-              <div class="position-relative">
-                <img
-                  :src="topic.image"
-                  class="card-img-top"
-                  style="height: 220px; object-fit: cover;"
-                  alt=""
-                />
-
-                <span
-                  class="position-absolute top-0 start-0 badge rounded-pill px-3 py-2 m-3"
-                  :style="{
-                    backgroundColor: topic.topicColor,
-                    color: '#fff'
-                  }"
-                >
-                  {{ topic.totalLessons }} bài
-                </span>
-              </div>
-
-              <div class="card-body p-4">
-                <div
-                  class="rounded-circle d-flex align-items-center justify-content-center shadow-sm mb-3"
-                  :style="{
-                    width: '70px',
-                    height: '70px',
-                    backgroundColor: topic.iconBg
-                  }"
-                >
-                  <span style="font-size: 34px;">
-                    {{ topic.icon }}
-                  </span>
-                </div>
-
-                <h4 class="fw-bold mb-2" style="color: #0d3b66;">
-                  {{ topic.title }}
-                </h4>
-
-                <p class="text-muted mb-4">
-                  {{ topic.description }}
-                </p>
-
-                <button
-                  class="btn w-100 rounded-pill py-3 fw-bold text-white"
-                  :style="{ backgroundColor: topic.topicColor }"
-                >
-                  Luyện Ngay
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bài học gần đây -->
-      <div>
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <div>
-            <h2 class="fw-bold mb-1" style="color: #0d3b66;">
-              Bài Học Gần Đây
-            </h2>
-            <p class="text-muted mb-0">
-              Tiếp tục những bài học bé đang luyện
-            </p>
-          </div>
-
-          <button class="btn btn-outline-success rounded-pill px-4">
-            Xem Lịch Sử
-          </button>
-        </div>
-
-        <div class="row g-4">
-          <div
-            class="col-lg-4"
-            v-for="lesson in recentLessons"
-            :key="lesson.id"
-          >
-            <div class="card border-0 rounded-5 shadow-sm overflow-hidden lesson-card h-100">
-              <img
-                :src="lesson.image"
-                class="w-100"
-                style="height: 220px; object-fit: cover;"
-                alt=""
-              />
-
-              <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <span
-                    class="badge rounded-pill px-3 py-2"
-                    :style="{
-                      backgroundColor: lesson.iconBg,
-                      color: lesson.topicColor
-                    }"
-                  >
-                    {{ lesson.type }}
-                  </span>
-
-                  <span class="fw-bold" :style="{ color: lesson.topicColor }">
-                    {{ lesson.progress }}%
-                  </span>
-                </div>
-
-                <h4 class="fw-bold mb-2" style="color: #0d3b66;">
-                  {{ lesson.title }}
-                </h4>
-
-                <p class="text-muted mb-4">
-                  {{ lesson.description }}
-                </p>
-
-                <div class="mb-4">
-                  <div
-                    class="progress rounded-pill"
-                    style="height: 10px; background-color: #f1f1f1;"
-                  >
-                    <div
-                      class="progress-bar rounded-pill"
-                      role="progressbar"
-                      :style="{
-                        width: lesson.progress + '%',
-                        backgroundColor: lesson.topicColor
-                      }"
-                    ></div>
-                  </div>
-                </div>
-
-                <button
-                  class="btn w-100 rounded-pill py-3 fw-bold text-white"
-                  :style="{ backgroundColor: lesson.topicColor }"
-                >
-                  Tiếp Tục
-                </button>
               </div>
             </div>
           </div>

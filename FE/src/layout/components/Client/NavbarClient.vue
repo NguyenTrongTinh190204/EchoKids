@@ -106,12 +106,12 @@
     </div>
 
     <!-- Logout -->
-    <router-link
-      to="/dang-nhap"
-      class="btn btn-primary rounded-pill px-4 py-2 d-none d-lg-block"
-    >
-      Đăng Xuất <i class="fa fa-sign-out-alt ms-2"></i>
-    </router-link>
+<router-link
+  to="/dang-nhap"
+  class="btn btn-primary rounded-pill px-4 py-2 d-none d-lg-block"
+>
+  Đăng Nhập <i class="fa fa-sign-in-alt ms-2"></i>
+</router-link>
   </div>
 </template>
 <style>
