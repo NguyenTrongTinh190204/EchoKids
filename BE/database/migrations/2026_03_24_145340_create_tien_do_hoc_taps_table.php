@@ -13,15 +13,12 @@ return new class extends Migration
     {
         Schema::create('tien_do_hoc_taps', function (Blueprint $table) {
             $table->id();
-            $table->integer('nguoi_dung_id');
-            $table->integer('tu_vung_id');
+            $table->foreignId('nguoi_dung_id')->constrained('nguoi_dungs')->onDelete('cascade');
+            $table->foreignId('tu_vung_id')->constrained('tu_vungs')->onDelete('cascade');
             $table->string('trang_thai', 20)->nullable();
             $table->integer('so_lan_luyen_tap')->default(0);
             $table->integer('diem_cao_nhat')->default(0);
             $table->timestamp('ngay_cap_nhat_cuoi')->useCurrent()->useCurrentOnUpdate();
-
-            $table->foreign('nguoi_dung_id')->references('id')->on('nguoi_dungs');
-            $table->foreign('tu_vung_id')->references('id')->on('tu_vungs');
         });
     }
 

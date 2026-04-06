@@ -13,16 +13,13 @@ return new class extends Migration
     {
         Schema::create('bai_hocs', function (Blueprint $table) {
             $table->id();
-            $table->integer('danh_muc_id');
-            $table->integer('nguoi_tao_id');
+            $table->foreignId('danh_muc_id')->constrained('danh_muc_bai_hocs')->onDelete('cascade');
+            $table->foreignId('nguoi_tao_id')->constrained('nguoi_dungs')->onDelete('cascade');
             $table->string('tieu_de', 200);
             $table->text('mo_ta')->nullable();
             $table->string('cap_do', 20);
             $table->integer('thu_tu')->nullable();
-            $table->string('trang_thai', 20);
-
-            $table->foreign('danh_muc_id')->references('id')->on('danh_muc_bai_hocs');
-            $table->foreign('nguoi_tao_id')->references('id')->on('nguoi_dungs');
+            $table->integer('trang_thai')->default(0);
             $table->timestamps();
         });
     }

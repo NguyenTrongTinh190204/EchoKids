@@ -15,7 +15,7 @@
             </ul>
           </div>
           <div class="col-lg-6 text-right">
-            Copyright 2020 <a href="#">Vito</a> All Rights Reserved.
+            Copyright 2026 <a href="#">DTU</a>.
           </div>
         </div>
       </div>

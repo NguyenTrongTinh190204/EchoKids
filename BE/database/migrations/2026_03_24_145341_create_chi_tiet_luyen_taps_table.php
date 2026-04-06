@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('chi_tiet_luyen_taps', function (Blueprint $table) {
             $table->id();
-            $table->integer('phien_id');
-            $table->integer('tu_vung_id');
+            $table->foreignId('phien_id')->constrained('phien_luyen_taps')->onDelete('cascade');
+            $table->foreignId('tu_vung_id')->constrained('tu_vungs');
             $table->string('file_ghi_am_url', 255)->nullable();
             $table->text('van_ban_ai_nhan_dien')->nullable();
             $table->float('diem_tin_cay')->nullable();
@@ -24,9 +24,6 @@ return new class extends Migration
             $table->boolean('loi_thanh_dieu')->nullable();
             $table->text('chi_tiet_loi')->nullable();
             $table->timestamp('ngay_tao')->useCurrent();
-
-            $table->foreign('phien_id')->references('id')->on('phien_luyen_taps')->onDelete('cascade');
-            $table->foreign('tu_vung_id')->references('id')->on('tu_vungs');
         });
     }
 

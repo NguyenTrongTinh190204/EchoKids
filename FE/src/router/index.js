@@ -9,47 +9,52 @@ const routes = [
 
     {
     path: "/chu-de",
-    component: () => import("../components/Client/ChuDe/index.vue"),
+    component: () => import("../components/KhachHang/ChuDe/index.vue"),
     meta: { layout: "client" },
   },
     {
     path: "/bai-hoc",
-    component: () => import("../components/Client/BaiHoc/index.vue"),
+    component: () => import("../components/KhachHang/BaiHoc/index.vue"),
     meta: { layout: "client" },
   },
       {
     path: "/chi-tiet-bai-hoc",
-    component: () => import("../components/Client/ChiTietBaiHoc/index.vue"),
+    component: () => import("../components/KhachHang/ChiTietBaiHoc/index.vue"),
     meta: { layout: "client" },
   },
         {
     path: "/bai-kiem-tra",
-    component: () => import("../components/Client/BaiKiemTra/index.vue"),
+    component: () => import("../components/KhachHang/BaiKiemTra/index.vue"),
     meta: { layout: "client" },
   },
           {
     path: "/luyen-tap",
-    component: () => import("../components/Client/LuyenTap/index.vue"),
+    component: () => import("../components/KhachHang/LuyenTap/index.vue"),
     meta: { layout: "client" },
   },
           {
     path: "/xep-hang",
-    component: () => import("../components/Client/XepHang/index.vue"),
+    component: () => import("../components/KhachHang/XepHang/index.vue"),
     meta: { layout: "client" },
   },
             {
     path: "/chuoi-ngay-hoc",
-    component: () => import("../components/Client/ChuoiNgayHoc/index.vue"),
+    component: () => import("../components/KhachHang/ChuoiNgayHoc/index.vue"),
     meta: { layout: "client" },
   },
               {
     path: "/hoan-thanh-kiem-tra",
-    component: () => import("../components/Client/HoanThanhKT/index.vue"),
+    component: () => import("../components/KhachHang/HoanThanhKT/index.vue"),
     meta: { layout: "client" },
   },
                 {
     path: "/tien-do",
-    component: () => import("../components/Client/TienDo/index.vue"),
+    component: () => import("../components/KhachHang/TienDo/index.vue"),
+    meta: { layout: "client" },
+  },
+                  {
+    path: "/profile",
+    component: () => import("../components/KhachHang/Profile/index.vue"),
     meta: { layout: "client" },
   },
   //---------------------------------------------ADMIN--------------------------------------------------------------
@@ -59,14 +64,67 @@ const routes = [
     meta: { layout: "admin" },
   },
   {
+    path: "/admin/quan-ly-tai-khoan",
+    component: () =>
+      import("../components/AHeThong/Admin/QuanLyTaiKhoan/index.vue"),
+    meta: { layout: "admin" },
+  },
+   {
+    path: "/admin/kiem-duyet",
+    component: () => import("../components/AHeThong/Admin/KiemDuyet/index.vue"),
+    meta: { layout: "admin" },
+  },
+  {
+    path: "/admin/thong-ke",
+    component: () => import("../components/AHeThong/Admin/ThongKe/index.vue"),
+    meta: { layout: "admin" },
+  },
+  {
     path: "/admin/phan-quyen",
     component: () => import("../components/AHeThong/Admin/PhanQuyen/index.vue"),
+    meta: { layout: "admin" },
+  },
+  {
+    path: "/admin/quan-ly-cau-hinh",
+    component: () => import("../components/AHeThong/Admin/QuanLyCauHinhHeThong/index.vue"),
+    meta: { layout: "admin" },
+  },
+  {
+    path: "/thong-tin-ca-nhan",
+    component: () => import("../components/KhachHang/Profile/index.vue"),
     meta: { layout: "admin" },
   },
   //---------------------------------------------TEACHER--------------------------------------------------------------
   {
     path: "/teacher/dashboard",
     component: () => import("../components/AHeThong/Teach/Dashboard/index.vue"),
+    meta: { layout: "teach" },
+  },
+  {
+    path: "/teacher/quan-ly-hoc-sinh",
+    component: () => import("../components/AHeThong/Teach/QuanLyHocSinh/index.vue"),
+    meta: { layout: "teach" },
+  },
+  {
+    path: "/teacher/quan-ly-bai-hoc",
+    component: () => import("../components/AHeThong/Teach/QuanLyBaiHoc/index.vue"),
+    meta: { layout: "teach" },
+  },
+  {
+    path: "/teacher/bao-cao-thong-ke",
+    component: () => import("../components/AHeThong/Teach/BaoCaoThongKe/index.vue"),
+    meta: { layout: "teach" },
+  },
+  
+  // ĐÃ SỬA DÒNG NÀY: Thêm :id vào URL để nhận ID của bài học
+  {
+    path: "/teacher/tu-vung",
+    component: () => import("../components/AHeThong/Teach/TuVung/index.vue"),
+    meta: { layout: "teach" },
+  },
+  {
+    path: "/teacher/pro-file",
+    component: () => import("../components/AHeThong/Teach/ProFile/index.vue"),
     meta: { layout: "teach" },
   },
 ];

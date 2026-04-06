@@ -10,7 +10,10 @@ class DanhMucBaiHoc extends Model
 
     protected $fillable = [
         'ten_danh_muc',
+        'slug_danh_muc',
         'mo_ta',
+        'trang_thai',
         'thu_tu',
+        'ngay_tao',
     ];
 }

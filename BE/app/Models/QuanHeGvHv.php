@@ -11,6 +11,7 @@ class QuanHeGvHv extends Model
     protected $fillable = [
         'giao_vien_id',
         'hoc_vien_id',
-        'ngay_them',
+        'trang_thai',
+        'ngay_ket_noi',
     ];
 }

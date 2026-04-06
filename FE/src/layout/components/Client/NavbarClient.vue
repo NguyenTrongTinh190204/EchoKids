@@ -112,8 +112,6 @@
           <h6 class="mb-0">Minh Khang</h6>
           <small>Level 4</small>
         </div>
-
-        <i class="fa fa-chevron-down user-arrow"></i>
       </div>
 
       <transition name="dropdown-fade">
@@ -218,8 +216,9 @@ export default {
 .navbar .nav-link {
   position: relative;
   font-weight: 700;
+  font-size: 18px;
   color: #0d3b66 !important;
-  padding: 10px 16px !important;
+  padding: 14px 22px !important;
   border-radius: 999px;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -255,17 +254,26 @@ export default {
 
 .dropdown-menu {
   border: none;
-  border-radius: 24px;
-  padding: 12px;
-  margin-top: 12px;
-  min-width: 250px;
+  border-radius: 20px;
+  padding: 1px;
+  margin-top: 55px !important;
+  min-width: 200px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+.nav-item.dropdown {
+  position: relative;
 }
 
+.nav-item.dropdown .dropdown-menu {
+  top: 100%;
+}
 .dropdown-item {
-  padding: 12px 16px;
+  padding: 16px 20px;
   border-radius: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 17px;
   color: #0d3b66;
   transition: all 0.3s ease;
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tu_vungs', function (Blueprint $table) {
             $table->id();
-            $table->integer('bai_hoc_id');
+            $table->foreignId('bai_hoc_id')->constrained('bai_hocs')->onDelete('cascade');
             $table->string('tu_chuan', 100);
             $table->string('phien_am', 100)->nullable();
             $table->string('cap_do', 20)->nullable();
@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('am_thanh_mau_url', 255)->nullable();
             $table->integer('thu_tu')->nullable();
             $table->timestamp('ngay_tao')->useCurrent();
-
-            $table->foreign('bai_hoc_id')->references('id')->on('bai_hocs')->onDelete('cascade');
         });
     }
 

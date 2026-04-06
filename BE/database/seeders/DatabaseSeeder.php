@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\BaiHoc;
+use App\Models\TuVung;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,11 +17,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            VaiTroSeeder::class,
+            QuyenSeeder::class,
+            DanhMucSeeder::class,
+            VaiTroQuyenSeeder::class,
+            NguoiDungSeeder::class,
+            BaiHocSeeder::class,
+            ThongTinHocVienSeeder::class,
+            TuVungSeeder::class,
+            QuanHeGvHvSeeder::class,
+            LoTrinhCaNhanSeeder::class,
+            ChiTieLoTrinhSeeder::class,
+            PhienLuyenTapSeeder::class,
+            ChiTietLuyenTapSeeder::class,
+            TienDoHocTapSeeder::class,
         ]);
     }
 }

@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('danh_muc_bai_hocs', function (Blueprint $table) {
             $table->id();
             $table->string('ten_danh_muc', 100);
+            $table->string('slug_danh_muc', 100)->unique();
             $table->text('mo_ta')->nullable();
+            $table->integer('trang_thai')->default(0); // 0 = hiển thị, 1 = tạm ẩn
             $table->integer('thu_tu')->nullable();
+            $table->dateTime('ngay_tao')->default(now());
             $table->timestamps();
         });
     }

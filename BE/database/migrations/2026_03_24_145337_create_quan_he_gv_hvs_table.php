@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('quan_he_gv_hvs', function (Blueprint $table) {
             $table->id();
-            $table->integer('giao_vien_id');
-            $table->integer('hoc_vien_id');
-            $table->timestamp('ngay_them')->useCurrent();
-
-            $table->foreign('giao_vien_id')->references('id')->on('nguoi_dungs');
-            $table->foreign('hoc_vien_id')->references('id')->on('nguoi_dungs');
+            $table->foreignId('giao_vien_id')->constrained('nguoi_dungs')->onDelete('cascade');
+            $table->foreignId('hoc_vien_id')->constrained('nguoi_dungs')->onDelete('cascade');
+            $table->string('trang_thai')->default('dang_theo_doi');
+            $table->timestamp('ngay_ket_noi')->useCurrent();
             $table->timestamps();
         });
     }

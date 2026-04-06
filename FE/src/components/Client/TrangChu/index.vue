@@ -178,76 +178,76 @@
       <div class="page-section">
         <div class="text-center mx-auto mb-5" style="max-width: 600px">
           <h1 class="mb-3">Tính Năng Nổi Bật</h1>
-          <p>
+          <p class="text-muted fs-5">
             Hệ thống hỗ trợ trẻ luyện phát âm theo từng bước với âm thanh, hình
             ảnh và phản hồi trực tiếp.
           </p>
         </div>
 
         <div class="row g-4">
-          <div class="col-lg-3 col-sm-6">
-            <div class="facility-item">
-              <div class="facility-icon bg-primary">
-                <span class="bg-primary"></span>
-                <i class="fa fa-headphones fa-3x text-primary"></i>
-                <span class="bg-primary"></span>
-              </div>
-              <div class="facility-text bg-primary">
-                <h3 class="text-primary mb-3">Luyện Nghe</h3>
-                <p class="mb-0">
-                  Nghe âm chuẩn và nhận diện từ vựng qua hình ảnh sinh động.
-                </p>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-3 col-sm-6">
+  <div class="facility-item">
+    <div class="facility-text bg-primary text-center">
+      <div class="d-flex justify-content-center mb-4">
+        <i class="fa fa-headphones fa-3x text-primary"></i>
+      </div>
 
-          <div class="col-lg-3 col-sm-6">
-            <div class="facility-item">
-              <div class="facility-icon bg-success">
-                <span class="bg-success"></span>
-                <i class="fa fa-microphone fa-3x text-success"></i>
-                <span class="bg-success"></span>
-              </div>
-              <div class="facility-text bg-success">
-                <h3 class="text-success mb-3">Luyện Nói</h3>
-                <p class="mb-0">
-                  Thu âm giọng nói của trẻ và so sánh với phát âm chuẩn.
-                </p>
-              </div>
-            </div>
-          </div>
+      <h3 class="text-primary mb-3">Luyện Nghe</h3>
 
-          <div class="col-lg-3 col-sm-6">
-            <div class="facility-item">
-              <div class="facility-icon bg-warning">
-                <span class="bg-warning"></span>
-                <i class="fa fa-chart-line fa-3x text-warning"></i>
-                <span class="bg-warning"></span>
-              </div>
-              <div class="facility-text bg-warning">
-                <h3 class="text-warning mb-3">Theo Dõi</h3>
-                <p class="mb-0">
-                  Xem tiến độ học tập và lỗi phát âm thường gặp của trẻ.
-                </p>
-              </div>
-            </div>
-          </div>
+      <p class="mb-0 text-primary mb-3">
+        Nghe âm chuẩn và nhận diện từ vựng qua hình ảnh sinh động.
+      </p>
+    </div>
+  </div>
+</div>
 
-          <div class="col-lg-3 col-sm-6">
-            <div class="facility-item">
-              <div class="facility-icon bg-info">
-                <span class="bg-info"></span>
-                <i class="fa fa-star fa-3x text-info"></i>
-                <span class="bg-info"></span>
-              </div>
-              <div class="facility-text bg-info">
-                <h3 class="text-info mb-3">Khen Thưởng</h3>
-                <p class="mb-0">
-                  Tạo động lực học tập bằng huy hiệu và phần thưởng mỗi ngày.
-                </p>
-              </div>
-            </div>
-          </div>
+<div class="col-lg-3 col-sm-6">
+  <div class="facility-item">
+    <div class="facility-text bg-success text-center">
+      <div class="d-flex justify-content-center mb-4">
+        <i class="fa fa-microphone fa-3x text-success"></i>
+      </div>
+
+      <h3 class="text-success mb-3">Luyện Nói</h3>
+
+      <p class="mb-0 text-success mb-3">
+        Thu âm giọng nói của trẻ và so sánh với phát âm chuẩn.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-sm-6">
+  <div class="facility-item">
+    <div class="facility-text bg-warning text-center">
+      <div class="d-flex justify-content-center mb-4">
+        <i class="fa fa-chart-line fa-3x text-warning"></i>
+      </div>
+
+      <h3 class="text-warning mb-3">Theo Dõi</h3>
+
+      <p class="mb-0 text-warning mb-3">
+        Xem tiến độ học tập và lỗi phát âm thường gặp của trẻ.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-sm-6">
+  <div class="facility-item">
+    <div class="facility-text bg-info text-center">
+      <div class="d-flex justify-content-center mb-4">
+        <i class="fa fa-star fa-3x text-info"></i>
+      </div>
+
+      <h3 class="text-info mb-3">Khen Thưởng</h3>
+
+      <p class="mb-0 text-info mb-3">
+        Tạo động lực học tập bằng huy hiệu và phần thưởng mỗi ngày.
+      </p>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </div>
@@ -492,14 +492,14 @@
               Đồng Hành Cùng Trẻ Trên Hành Trình Luyện Phát Âm
             </h1>
 
-            <p>
+            <p class=" fs-5">
               EchoKids là nền tảng hỗ trợ trẻ em luyện phát âm tiếng Việt thông
               qua hình ảnh, âm thanh, video khẩu hình và các bài tập tương tác
               thú vị. Hệ thống giúp trẻ nhận biết âm, luyện nói và cải thiện kỹ
               năng giao tiếp mỗi ngày.
             </p>
 
-            <p class="mb-4">
+            <p class="mb-4  fs-5">
               Với công nghệ AI chấm điểm phát âm, phụ huynh và giáo viên có thể
               dễ dàng theo dõi tiến độ học tập, phát hiện lỗi phát âm thường gặp
               và nhận gợi ý bài luyện phù hợp cho từng trẻ.
@@ -507,28 +507,28 @@
 
             <div class="row g-3 mb-4">
               <div class="col-sm-6">
-                <p class="mb-2">
+                <p class="mb-2  fs-5">
                   <i class="fa fa-check text-primary me-2"></i>
                   AI chấm điểm phát âm
                 </p>
               </div>
 
               <div class="col-sm-6">
-                <p class="mb-2">
+                <p class="mb-2  fs-5">
                   <i class="fa fa-check text-primary me-2"></i>
                   Theo dõi tiến độ học tập
                 </p>
               </div>
 
               <div class="col-sm-6">
-                <p class="mb-2">
+                <p class="mb-2  fs-5">
                   <i class="fa fa-check text-primary me-2"></i>
                   Gợi ý bài luyện phù hợp
                 </p>
               </div>
 
               <div class="col-sm-6">
-                <p class="mb-2">
+                <p class="mb-2  fs-5">
                   <i class="fa fa-check text-primary me-2"></i>
                   Đồng hành cùng phụ huynh
                 </p>
@@ -600,9 +600,9 @@
           data-wow-delay="0.1s"
           style="max-width: 700px"
         >
-          <h1 class="mb-3">Đội Ngũ Đồng Hành Cùng Trẻ</h1>
+          <h1 class="mb-3 ">Đội Ngũ Đồng Hành Cùng Trẻ</h1>
 
-          <p>
+          <p class=" fs-5">
             EchoKids được xây dựng với sự hỗ trợ từ giáo viên, chuyên gia ngôn
             ngữ và phụ huynh nhằm giúp trẻ cải thiện khả năng phát âm tiếng Việt
             một cách tự nhiên, vui vẻ và hiệu quả hơn mỗi ngày.
@@ -718,7 +718,7 @@
           style="max-width: 600px"
         >
           <h1 class="mb-3">Những Gương Mặt Nổi Bật</h1>
-          <p>
+          <p class=" fs-5">
             EchoKids luôn ghi nhận sự cố gắng của các bé trong quá trình luyện
             phát âm. Đây là những học sinh có nhiều tiến bộ, duy trì streak học
             tập tốt và hoàn thành xuất sắc các bài luyện.
@@ -924,7 +924,7 @@
 export default {
   name: "HomePage",
 
-  mounted() {
+     mounted() {
     this.initCarousel();
   },
 
@@ -937,40 +937,57 @@ export default {
   },
 
   methods: {
-    initCarousel() {
-      this.$nextTick(() => {
-        if (window.$ && $(".header-carousel").length) {
-          // Nếu đã khởi tạo rồi thì destroy trước
-          if ($(".header-carousel").hasClass("owl-loaded")) {
-            $(".header-carousel").trigger("destroy.owl.carousel");
-            $(".header-carousel").removeClass("owl-loaded");
-            $(".header-carousel").find(".owl-stage-outer").children().unwrap();
-          }
+  beforeUnmount() {
+  const $carousel = $(".header-carousel");
 
-          $(".header-carousel").owlCarousel({
-            autoplay: true,
-            autoplayTimeout: 5000,
-            smartSpeed: 1200,
-            items: 1,
-            loop: true,
-            dots: true,
-            nav: true,
-            margin: 0,
-            navText: [
-              '<i class="bi bi-chevron-left"></i>',
-              '<i class="bi bi-chevron-right"></i>',
-            ],
-          });
-        }
+  if ($carousel.length && $carousel.hasClass("owl-loaded")) {
+    $carousel.trigger("destroy.owl.carousel");
+  }
+},
+initCarousel() {
+  this.$nextTick(() => {
+    const $carousel = $(".header-carousel");
+
+    if (window.$ && $carousel.length) {
+      // destroy carousel cũ
+      if ($carousel.hasClass("owl-loaded")) {
+        $carousel.trigger("destroy.owl.carousel");
+
+        $carousel.removeClass("owl-loaded owl-hidden");
+        $carousel.find(".owl-stage-outer").children().unwrap();
+        $carousel.find(".owl-stage").children().unwrap();
+        $carousel.find(".owl-item").children().unwrap();
+
+        $carousel.find(".owl-stage-outer").remove();
+        $carousel.find(".owl-nav").remove();
+        $carousel.find(".owl-dots").remove();
+      }
+
+      // khởi tạo lại
+      $carousel.owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 5000,
+        smartSpeed: 1200,
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: true,
+        margin: 0,
+        navText: [
+          '<i class="bi bi-chevron-left"></i>',
+          '<i class="bi bi-chevron-right"></i>',
+        ],
       });
-    },
+    }
+  });
+},
   },
 };
 </script>
 <style>
 .carousel-full {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  margin-left: 0;
 }
 .page-section {
   width: 100%;

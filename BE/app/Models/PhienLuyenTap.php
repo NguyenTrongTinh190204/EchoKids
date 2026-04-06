@@ -16,5 +16,6 @@ class PhienLuyenTap extends Model
         'thoi_gian_bat_dau',
         'thoi_gian_ket_thuc',
         'tong_diem',
+        'ngay_tao', 
     ];
 }

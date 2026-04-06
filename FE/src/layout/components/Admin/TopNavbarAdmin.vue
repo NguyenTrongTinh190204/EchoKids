@@ -1,19 +1,6 @@
 <template>
   <div class="iq-top-navbar">
     <div class="iq-navbar-custom">
-      <div class="iq-sidebar-logo">
-        <div class="top-logo">
-          <a href="index.html" class="logo">
-            <div class="iq-light-logo">
-              <img src="/Admin/images/logo.gif" class="img-fluid" alt="">
-            </div>
-            <div class="iq-dark-logo">
-              <img src="/Admin/images/logo-dark.gif" class="img-fluid" alt="">
-            </div>
-            <span>vito</span>
-          </a>
-        </div>
-      </div>
       <nav class="navbar navbar-expand-lg navbar-light p-0">
         <div class="navbar-left">
           <div class="iq-search-bar d-none d-md-block">
@@ -68,31 +55,39 @@
         </div>
         <ul class="navbar-list">
           <li>
-            <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
+            <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-danger rounded">
               <img src="/Admin/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
               <div class="caption">
                 <h6 class="mb-0 line-height text-white">Nik jone</h6>
                 <span class="font-size-12 text-white">Available</span>
               </div>
             </a>
-            <div class="iq-sub-dropdown iq-user-dropdown">
+            <div class="iq-sub-dropdown iq-user-dropdown"
+              style="border-radius: 15px !important; overflow: hidden !important; border: none !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;">
               <div class="iq-card shadow-none m-0">
-                <div class="iq-card-body p-0 ">
-                  <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
-                    <div class="media align-items-center">
-                      <div class="rounded iq-card-icon iq-bg-primary">
-                        <i class="ri-file-user-line"></i>
+                <div class="iq-card-body p-0">
+
+                  <a href="/thong-tin-ca-nhan" class="iq-sub-card iq-bg-danger-hover">
+                    <router-link to="/thong-tin-ca-nhan" class="nav-link">
+                      <div class="media align-items-center">
+                        <div class="rounded iq-card-icon iq-bg-danger">
+                          <i class="ri-file-user-line"></i>
+                        </div>
+                        <div class="media-body ml-3">
+                          <h6 class="mb-0">My Profile</h6>
+                          <p class="mb-0 font-size-12">View personal profile details.</p>
+                        </div>
                       </div>
-                      <div class="media-body ml-3">
-                        <h6 class="mb-0 ">My Profile</h6>
-                        <p class="mb-0 font-size-12">View personal profile details.</p>
-                      </div>
-                    </div>
+                    </router-link>
                   </a>
-                  <div class="d-inline-block w-100 text-center p-3">
-                    <a class="btn btn-primary dark-btn-primary" href="sign-in.html" role="button">Sign out<i
-                        class="ri-login-box-line ml-2"></i></a>
+
+                  <div class="w-100 text-center p-3">
+                    <a class="btn btn-danger" href="/dang-xuat" role="button"
+                      style="background-color: #dc3545 !important; border-color: #dc3545 !important; color: #ffffff !important; box-shadow: none !important; border-radius: 10px !important;">
+                      Đăng xuất <i class="ri-login-box-line ml-2"></i>
+                    </a>
                   </div>
+
                 </div>
               </div>
             </div>
