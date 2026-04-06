@@ -57,6 +57,21 @@ const routes = [
     component: () => import("../components/KhachHang/Profile/index.vue"),
     meta: { layout: "client" },
   },
+                    {
+    path: "/dang-nhap",
+    component: () => import("../components/KhachHang/DangNhap/index.vue"),
+    meta: { layout: "blank" },
+  },
+                    {
+    path: "/dang-ky",
+    component: () => import("../components/KhachHang/DangKy/index.vue"),
+    meta: { layout: "blank" },
+  },
+                    {
+    path: "/quen-mat-khau",
+    component: () => import("../components/KhachHang/QuenMatKhau/index.vue"),
+    meta: { layout: "blank" },
+  },
   //---------------------------------------------ADMIN--------------------------------------------------------------
   {
     path: "/admin/dashboard",

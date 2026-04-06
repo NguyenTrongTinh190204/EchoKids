@@ -4,6 +4,7 @@ import router from './router'
 import AdminLayout from './layout/wrapper/admin_index.vue'
 import ClientLayout from './layout/wrapper/client_index.vue'
 import TeachLayout from './layout/wrapper/teach_index.vue'
+import BlankLayout from './layout/wrapper/blank_index.vue'
 import Toaster from "@meforma/vue-toaster";
 
 const app = createApp(App)
@@ -17,6 +18,7 @@ app.use(Toaster, {
 app.component("admin-layout", AdminLayout);
 app.component("client-layout", ClientLayout);
 app.component("teach-layout", TeachLayout);
+app.component("blank-layout", BlankLayout);
 app.directive('fade-up', {
   mounted(el) {
     el.classList.add('fade-up');
